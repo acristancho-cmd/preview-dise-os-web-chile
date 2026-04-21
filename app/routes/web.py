@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Request, Form, Depends, Response
+from fastapi import APIRouter, Request, Form, Depends, Response, HTTPException
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -56,6 +56,11 @@ async def process_contact(
     :param: request object
     :return: rendered contact.html template
     """
+    if settings.is_static_preview:
+        raise HTTPException(
+            status_code=503,
+            detail="Formulario de contacto no disponible en esta vista previa.",
+        )
     send_email_contact(name, email, message)
     return templates.TemplateResponse("contact/response.html", {"request": request})
 
