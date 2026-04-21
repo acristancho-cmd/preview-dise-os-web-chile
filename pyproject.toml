@@ -1,3 +1,24 @@
+# Metadatos del proyecto (requerido por uv / Vercel; mantener alineado con requirements.txt)
+[project]
+name = "be-web-trii-chile"
+version = "0.1.0"
+description = "trii Chile web (FastAPI)"
+requires-python = ">=3.12"
+dependencies = [
+    "jinja2==3.1.2",
+    "granian~=1.5.2",
+    "fastapi==0.116.0",
+    "pydantic==2.5.0",
+    "pydantic-settings~=2.2.0",
+    "SQLAlchemy==2.0.23",
+    "sqlmodel==0.0.14",
+    "aiomysql==0.1.1",
+    "mailjet_rest==1.3.4",
+    "python-multipart==0.0.20",
+    "secweb==1.18.1",
+    "python-dotenv",
+]
+
 # PyLint
 [tool.pylint.main]
 # A comma-separated list of package or module names from where C extensions may
