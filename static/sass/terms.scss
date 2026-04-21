@@ -1,0 +1,53 @@
+@import "config";
+
+.terms {
+    margin-top: 52px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.terms .title {
+  display: inline;
+    @include mobile-h3-bold;
+    color: $neutral50;
+    margin:0px;
+    margin-bottom: 56px;
+}
+
+.terms h2 {
+    @include mobile-h3-bold;
+    color: $neutral300;
+    margin: 0px;
+    margin-bottom: 20px;
+}
+
+.terms a {
+    @include mobile-body-2-bold;
+    text-decoration: none;
+    color: $neutral100;
+    margin: 0px;
+    cursor: pointer;
+
+}
+
+.terms a:active {
+    color: $primary500;
+}
+
+
+.versions {
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.versions .title {
+  display: inline;
+    @include mobile-h3-bold;
+    color: $neutral300;
+    margin: 0px;
+
+}

@@ -1,0 +1,31 @@
+{% extends "_base.html" %}
+{% block title %}Contacto{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/static/css/contact.css">
+{% endblock %}
+{% block content %}
+{% from '/components/navbar.html' import navbar %}
+{% from '/components/footer.html' import footer %}
+<header>
+   {{navbar ()}}
+</header>
+
+<section class="contact-response-section">
+    <div class="container mx-auto px-4">
+        <div class="contact-response-content">
+            <div class="contact-response-card">
+                <div class="contact-response-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2 class="contact-response-title">¡Gracias por contactarnos!</h2>
+                <p class="contact-response-description">Hemos recibido tu mensaje y te responderemos lo antes posible.</p>
+                <p class="contact-response-email">Si tienes alguna urgencia, escríbenos a <a href="mailto:hola@trii.co">hola@trii.co</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{footer()}}
+
+{% endblock %}

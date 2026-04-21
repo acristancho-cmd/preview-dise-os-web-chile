@@ -1,0 +1,540 @@
+.button-solid {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: #191919;
+  padding: 16px 32px;
+  gap: 8px;
+  width: 171px;
+  height: 56px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 0;
+  background: #02FB7E;
+  touch-action: manipulation;
+  transition: all 0.5s;
+}
+
+.button-solid:hover {
+  background: #F2FFF9;
+}
+
+.button-solid:disabled {
+  background: #333333;
+  color: #B0B0B0;
+}
+
+.button-solid:disabled .button-solid-icon {
+  filter: invert(95%) sepia(0%) saturate(2581%) hue-rotate(0deg) brightness(76%) contrast(89%);
+}
+
+.button-stroke {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  color: #02FB7E;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 16px 32px;
+  gap: 8px;
+  width: 171px;
+  height: 56px;
+  border: 1px solid #02FB7E;
+  border-radius: 30px;
+  cursor: pointer;
+  background: transparent;
+  touch-action: manipulation;
+  transition: all 0.5s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.button-stroke .button-stroke-icon {
+  filter: invert(77%) sepia(80%) saturate(2895%) hue-rotate(95deg) brightness(105%) contrast(98%);
+}
+
+.welcome-funds-landing {
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons-landing {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 740px;
+  margin: 24px auto auto auto;
+  padding-top: 32px;
+  width: 457px;
+
+}
+
+
+.welcome-mockup-giftcard {
+  display: flex !important;
+  position: relative !important;
+  left: 0px !important;
+  top: 0px !important;
+  max-width: 110%;
+}
+
+
+.button-stroke:hover {
+  color: #F2FFF9;
+  border: 1px solid #F2FFF9;
+}
+
+.cards-descriptions-landing {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.button-stroke:hover .button-stroke-icon {
+  filter: invert(89%) sepia(13%) saturate(281%) hue-rotate(80deg) brightness(110%) contrast(109%);
+}
+
+.card-landing {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.buttons-landing {
+  padding-top: 0px;
+}
+
+.text-landing .title {
+  font-size: 60px !important;
+  min-width: 704px !important;
+}
+
+.button-stroke:disabled {
+  color: #B0B0B0;
+  border: 1px solid #B0B0B0;
+}
+
+.button-stroke:disabled .button-stroke-icon {
+  filter: invert(94%) sepia(0%) saturate(306%) hue-rotate(209deg) brightness(78%) contrast(79%);
+}
+
+.navbar-container {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+footer {
+  box-sizing: border-box;
+  gap: 32px;
+  padding: 48px 32px 56px;
+  width: 100%;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: row; /* Cambiar de row-reverse a row */
+  justify-content: space-between;
+  width: 100%;
+  gap: 0px;
+}
+
+.footer-terms {
+  display: flex;
+  flex-direction: row;
+  order: 1; /* Aparecer primero (izquierda) */
+}
+
+.footer-main,
+.footer-contact-help {
+  width: auto;
+  min-width: 180px;
+}
+
+.footer-form-mail,
+.footer-form {
+  width: 380px;
+  order: 2; /* Aparecer segundo (derecha) */
+}
+
+.footer-legal {
+  width: 189px;
+}
+
+.footer-networks {
+  display: flex;
+  flex-direction: row;
+  height: 84px;
+  justify-content: space-between;
+}
+
+.footer-networks div {
+  padding-right: 113px;
+}
+
+.welcome {
+  padding-left: 32px;
+  padding-right: 32px;
+  box-sizing: border-box;
+  width: 100%;
+  align-items: flex-start;
+  padding-top: 132px;
+  gap: 60px;
+}
+
+.welcome-mockup {
+  display: none;
+  width: 277.22px;
+  height: 359px;
+  position: absolute;
+  left: 458px;
+  top: 120px;
+}
+
+.welcome-mockup-home {
+  display: none;
+  display: none;
+  width: 277.22px;
+  height: 359px;
+  position: absolute;
+  left: 458px;
+  top: 120px;
+}
+
+.welcome-text {
+  width: 413px;
+}
+
+.welcome-tex-home {
+  width: 413px;
+}
+
+.text-landing {
+  width: auto;
+  margin: 0px 32px 0px 32px;
+}
+
+.store {
+  flex-direction: row;
+  padding: 0px;
+  height: 0px;
+}
+
+.company {
+  flex-direction: row;
+  max-width: 900px;
+  margin: 150px auto 0;
+}
+
+.company-text {
+  width: 386px;
+}
+
+.rates {
+  width: 100%;
+  padding-left: 32px;
+  padding-right: 32px;
+  box-sizing: border-box;
+}
+
+.home-pro-description {
+  display: flex;
+  flex-direction: row;
+}
+
+.home-pro-container {
+  padding: 32px 32px;
+}
+
+.pro-img {
+  width: 50%;
+}
+
+.carousel {
+  height: 235px;
+}
+
+.mobile {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.mobile-item:nth-child(1) {
+  flex-direction: row-reverse;
+  gap: 64px;
+}
+
+.mobile-item:nth-child(1) .mobile-item-group {
+  width: 350.74px;
+  height: 190px;
+}
+
+.mobile-item:nth-child(2) {
+  flex-direction: row;
+  gap: 64px;
+}
+
+.mobile-item:nth-child(2) .mobile-item-group {
+  width: 350.97px;
+  height: 214px;
+}
+
+.mobile-item:nth-child(3) {
+  flex-direction: row-reverse;
+  gap: 64px;
+}
+
+.mobile-item:nth-child(3) .mobile-item-group {
+  width: 350.97px;
+  height: 238px;
+}
+
+#funds-card {
+  width: 336px;
+  height: 246px;
+}
+
+#funds-card .frame div {
+  width: 288px;
+}
+
+.home-pro {
+  gap: 64px;
+}
+
+.home-pro-prices {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.home-pro-prices div {
+  flex-direction: row;
+}
+
+.home-pro-prices p {
+  width: 704px;
+}
+
+.home-pro-prices .title {
+  display: inline;
+  max-width: 343px;
+  height: 36px;
+}
+
+.download {
+  flex-direction: row;
+  padding-left: 32px;
+  padding-right: 32px;
+  margin-top: 132px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.download-button {
+  margin-top: 0px;
+  gap: 32px;
+  align-items: baseline;
+  margin: 0px;
+}
+
+.download .title {
+  display: inline;
+  width: 490px;
+}
+
+
+.download-qr {
+  width: 182px;
+  display: block;
+}
+
+.download-qr img {
+  width: 182px;
+}
+
+.download-qr p {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #979797;
+  margin: 0px;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.we-are {
+  flex-direction: row;
+  padding-top: 52px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.we-are div {
+  height: 264px;
+}
+
+.we-are img {
+  width: 320.57px;
+  height: 264px;
+}
+
+.allies {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+/*# sourceMappingURL=tablet.css.map */
+
+.welcome {
+  width: 100%;
+  max-width: 740px;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+
+.sc_image {
+  display: flex;
+  width: auto;
+  height: 316.99999849398773px;
+  position: absolute;
+  left: 460px;
+}
+
+.mockup_1 {
+  display: none;
+}
+
+.mw-700 {
+  max-width: 700px;
+  margin: 150px auto 0px;
+}
+
+.welcome-mockup_funds_desktop {
+  display: flex;
+  position: absolute;
+  height: 358px;
+  left: 430px;
+  top: 185px;
+}
+
+.welcome-text-funds {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 343px;
+}
+
+.text_funds {
+  max-width: fit-content;
+}
+
+.fund_description {
+  flex-direction: column;
+}
+
+.funds-description-components {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.funds-description-card {
+  margin-bottom: 30px;
+}
+
+#funds-card {
+  width: 288px;
+  height: 283px;
+}
+
+
+#funds-card .frame div {
+  width: 233px;
+}
+
+#funds_cta {
+  text-align: left;
+  margin-top: 0px;
+  align-items: baseline;
+}
+
+#button-download-funds {
+  margin: 0px
+}
+
+
+
+fund_description {
+  padding-top: 0px;
+}
+
+#QR-BM-trii {
+  padding-right: 50.5px;
+}
+
+
+.experts {
+  margin-bottom: 12px !important;
+}
+
+
+.steps_start {
+  padding: 32px;
+}
+
+.steps {
+  padding-left: 100px;
+  padding-right: 30px;
+}
+
+.text-p {
+  padding-left: 100px;
+  padding-right: 30px;
+}
+
+
+.risk-card {
+  padding-bottom: 32px !important;
+}
+
+.card-1 {
+  padding-bottom: 100px !important;
+  margin-bottom: 64px;
+}
+
+.text-download {
+  display: flex;
+}
+
+.colombians-text {
+  width: 700px;
+}
+
+.colombians-text .text_title {
+  font-size: 48px;
+}
+
+.welcome-component {
+  column-gap: 24px;
+}
+
+.text-steps {
+  padding-left: 100px;
+  padding-right: 30px;
+}

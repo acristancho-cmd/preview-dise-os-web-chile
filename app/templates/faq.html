@@ -1,0 +1,517 @@
+{% extends "_base.html" %}
+{% block title %}Preguntas frecuentes sobre inversiones en Chile | trii{% endblock %}
+{% block description %}Resuelve tus dudas sobre cómo invertir en acciones, fondos y ETFs en Chile con trii. Aprende sobre la Bolsa de Santiago, Vector Capital, CMF, depósitos, retiros y comisiones.{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/static/css/faq.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es trii?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Somos trii, una Fintech que democratiza el acceso al mercado bursátil de Chile, de una forma amigable, fácil de entender, accesible y barata."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuáles son los beneficios de usar trii?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Al usar trii, puedes comprar y vender acciones de empresas de Chile y el mundo con un proceso 100% digital, rápido, totalmente seguro, con las comisiones más bajas del mercado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué entidad supervisa a trii en Chile?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El servicio de trii en Chile está respaldado por Vector Capital Corredores de Bolsa, quien se encuentra regulada y supervisada por la Comisión para el Mercado Financiero (CMF)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es Vector Capital?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vector Capital es una corredora de bolsa que permite a sus clientes el acceso a la Bolsa de Santiago para comprar y vender instrumentos financieros (acciones, bonos, papeles comerciales, entre otros) en el mercado de valores chileno."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Piden algún monto mínimo para empezar a invertir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El monto mínimo para empezar varía según la acción en la que quieras invertir, pero con operaciones desde 4.000 CLP ya puedes empezar a invertir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Con qué moneda se opera en trii Chile?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "trii Chile opera únicamente en CLP. También puedes comprar dólares e invertir en fondos de inversión en dólares."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo usar trii si soy extranjero?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si tienes RUT (cédula de identidad) válido del país, sí puedes usar trii."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el horario para realizar operaciones en la bolsa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Puedes operar en el horario que indique la bolsa. Actualmente es de 9:30 am a 4:00 pm, sincronizado con la Bolsa de Valores de Nueva York."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo me contacto con trii si tengo un problema?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Para comunicarte directamente con nosotros, envía un mensaje a nuestro canal oficial de WhatsApp +51908965320 o al correo electrónico contacto@trii.co"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es la CMF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La Comisión del Mercado Financiero (CMF) es un servicio público descentralizado de carácter técnico y fiscalizador que supervisa el mercado financiero chileno, relacionado con el presidente de la República a través del Ministerio de Hacienda."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+{% block content %}
+{% from '/components/navbar.html' import navbar %}
+{% from '/components/footer.html' import footer %}
+{% from '/components/accordion.html' import accordion %}
+<header>
+   {{navbar ()}}
+</header>
+<div class="faq-container">
+
+    {# AI Assistant Badge #}
+    <div class="ai-assistant-badge">
+        <svg class="sparkles-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L13.09 8.26L19 9L13.09 9.74L12 16L10.91 9.74L5 9L10.91 8.26L12 2Z" fill="rgb(2, 251, 126)"/>
+            <path d="M19 2L19.59 4.59L22 5.18L19.59 5.77L19 8.36L18.41 5.77L16 5.18L18.41 4.59L19 2Z" fill="rgb(2, 251, 126)"/>
+            <path d="M5 2L5.59 4.59L8 5.18L5.59 5.77L5 8.36L4.41 5.77L2 5.18L4.41 4.59L5 2Z" fill="rgb(2, 251, 126)"/>
+        </svg>
+        <p class="ai-assistant-text">Asistente IA 24/7</p>
+    </div>
+
+    {# FAQ Header Section #}
+    <section class="faq-header">
+        <h1 class="faq-title">
+            ¿Tienes <span class="faq-title-highlight">dudas</span>?
+        </h1>
+        <p class="faq-subtitle">Nuestro asistente inteligente está listo para ayudarte con cualquier pregunta sobre inversiones</p>
+    </section>
+
+    {# Chat Section #}
+    <section class="faq-chat-section" aria-label="Chat con asistente de inversiones">
+        <div class="faq-chat-container">
+            <div class="faq-chat-wrapper">
+                {# Chat Window #}
+                <div class="faq-chat-window">
+                    {# Chat Header #}
+                    <div class="faq-chat-header">
+                        <div class="faq-chat-header-left">
+                            <div class="faq-chat-avatar">
+                                <i class="fas fa-robot faq-chat-bot-icon"></i>
+                            </div>
+                            <div class="faq-chat-header-info">
+                                <h4 class="faq-chat-title">Asistente</h4>
+                                <div class="faq-chat-status">
+                                    <div class="faq-chat-status-dot"></div>
+                                    <span class="faq-chat-status-text">En línea</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-chat-header-right">
+                            <span class="faq-chat-powered">Powered by trii AI</span>
+                        </div>
+            </div>
+
+                    {# Messages Container #}
+                    <div id="faq-chat-messages" class="faq-chat-messages">
+                        {# Messages will be added here by JavaScript #}
+
+                        {# Typing Indicator #}
+                        <div id="faq-typing-indicator" class="faq-chat-message faq-chat-message-assistant" style="display: none;">
+                            <div class="faq-chat-message-content">
+                                <div class="faq-chat-message-avatar faq-chat-message-avatar-assistant">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="faq-chat-bubble faq-chat-bubble-assistant">
+                                    <div class="faq-typing-dots">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {# Input Area #}
+                    <div class="faq-chat-input-area">
+                        <form id="faq-chat-form" class="faq-chat-form">
+                            <input
+                                type="text"
+                                id="faq-chat-input"
+                                class="faq-chat-input"
+                                placeholder="Escribe tu pregunta aquí..."
+                                autocomplete="off"
+                            />
+                            <button type="submit" class="faq-chat-send-button">
+                                <i class="fas fa-paper-plane faq-chat-send-icon"></i>
+                            </button>
+                        </form>
+                        <p class="faq-chat-hint">Presiona Enter para enviar • Respuestas impulsadas por IA</p>
+        </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    {# FAQ Questions Section - New Design #}
+    <section class="faq-questions-section" aria-label="Preguntas frecuentes sobre inversiones">
+        <div class="faq-questions-container">
+            <div class="faq-questions-max-width">
+                {# Header #}
+                <div class="faq-questions-header">
+                    <h2 class="faq-questions-title">Preguntas frecuentes sobre trii</h2>
+                    <p class="faq-questions-subtitle">Todo lo que necesitas saber para empezar a invertir</p>
+                </div>
+
+                {# Accordion Principal #}
+                <div class="faq-accordion-main">
+                    {# Categoría: Sobre trii #}
+                    <div class="faq-category-card">
+                        <button class="faq-category-trigger" data-category="about">
+                            <div class="faq-category-trigger-content">
+                                <h3 class="faq-category-title">Sobre trii</h3>
+                                <span class="faq-category-count">3 preguntas</span>
+                            </div>
+                            <svg class="faq-category-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-category-content" id="category-about">
+                            <div class="faq-items-container">
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Qué es trii?</h4>
+                                    <p class="faq-item-answer">Somos trii, una Fintech que democratiza el acceso al mercado bursátil de Chile 🔥, de una forma amigable, fácil de entender, accesible, y barata.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Cuáles son los beneficios de usar trii?</h4>
+                                    <p class="faq-item-answer">Al usar trii, puedes comprar y vender acciones de empresas de Chile y el mundo 🌏 con un proceso 100% digital, rápido, totalmente seguro, con las comisiones más bajas del mercado.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Cómo me contacto con alguien de trii si tengo un problema?</h4>
+                                    <p class="faq-item-answer">Para comunicarte directamente con nosotros, envía un mensaje a nuestro canal oficial de WhatsApp +51908965320 o al correo electrónico contacto@trii.co</p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+
+                    {# Categoría: Regulación #}
+                    <div class="faq-category-card">
+                        <button class="faq-category-trigger" data-category="regulation">
+                            <div class="faq-category-trigger-content">
+                                <h3 class="faq-category-title">Regulación</h3>
+                                <span class="faq-category-count">5 preguntas</span>
+                            </div>
+                            <svg class="faq-category-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-category-content" id="category-regulation">
+                            <div class="faq-items-container">
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Qué entidad nos supervisa?</h4>
+                                    <p class="faq-item-answer">El servicio de trii en Chile está respaldado por Vector Capital Corredores de Bolsa, quien se encuentra regulada y supervisada por la Comisión para el Mercado Financiero (CMF).</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Qué es Vector Capital?</h4>
+                                    <p class="faq-item-answer">Vector Capital es una corredora de bolsa, que permite a sus clientes el acceso a la Bolsa de Santiago para que compren y vendan instrumentos financieros (acciones, bonos, papeles comerciales, entre otros) en el mercado de valores chileno.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Cuál es el papel de Vector Capital en la alianza con trii?</h4>
+                                    <p class="faq-item-answer">Al ser un intermediario del mercado bursátil, Vector Capital envía todas las órdenes de compra y venta que dan los usuarios a través del app a la Bolsa de Santiago. Además, todos los depósitos de los usuarios de trii están custodiados y resguardados en Vector Capital.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Qué es la Bolsa de Santiago?</h4>
+                                    <p class="faq-item-answer">La Bolsa de Santiago es la entidad que organiza el mercado bursátil de Chile, a ella se conectan los intermediarios de valores como Vector Capital para que las personas puedan comprar y vender instrumentos financieros.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Qué es la CMF?</h4>
+                                    <p class="faq-item-answer">La Comisión del Mercado Financiero (CMF) es un servicio público descentralizado, de carácter técnico y fiscalizador, dotado de personalidad jurídica y patrimonio propio, que se relaciona con el presidente de la República a través del Ministerio de Hacienda.</p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+
+                    {# Categoría: Registro #}
+                    <div class="faq-category-card">
+                        <button class="faq-category-trigger" data-category="registration">
+                            <div class="faq-category-trigger-content">
+                                <h3 class="faq-category-title">Registro</h3>
+                                <span class="faq-category-count">10 preguntas</span>
+                            </div>
+                            <svg class="faq-category-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-category-content" id="category-registration">
+                            <div class="faq-items-container">
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿El mercado bursátil para mí es como física nuclear, qué hago?</h4>
+                                    <p class="faq-item-answer">Lo primero es que te interese aprender 👨‍🏫. En trii, estamos comprometidos con la educación financiera y, por eso, en nuestras redes sociales de Instagram y Facebook y en nuestro canal de Youtube, encontrarás material educativo sobre el mercado bursátil y sobre trii.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Solo se puede usar la app si mi corredor es Vector?</h4>
+                                    <p class="faq-item-answer">Al usar nuestra app, abrirás una cuenta dentro de Vector Capital. Si tienes una cuenta en otro corredor de bolsa, puedes pedir el traslado de tu portafolio 🔝.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Puedo estar registrado en dos sociedades agentes de bolsa a la vez?</h4>
+                                    <p class="faq-item-answer">Sí, es posible 👍. Sin embargo, el portafolio que tengas en cada una es totalmente independiente al de la otra. Solo puedes hacer operaciones en la aplicación con los valores que tengas registrados en tu portafolio en Vector Capital.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Cuáles son las modalidades para poder depositar dinero en la app?</h4>
+                                    <p class="faq-item-answer">Podrás depositar dinero en tu cuenta digitalmente a través del app o mediante una transacción tradicional cuyo soporte deberás cargar en la aplicación.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Desde qué bancos puedo transferir dinero?</h4>
+                                    <p class="faq-item-answer">Desde cualquier Banco legalmente constituido en Chile 🏦.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿La cuenta bancaria desde la que transfiero dinero para ser usado en inversiones tiene que estar a mi nombre?</h4>
+                                    <p class="faq-item-answer">Sí, tanto la cuenta bancaria desde la que transfieres como la cuenta bancaria en la cual retiras tus recursos, debe estar a tu nombre 🎟.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Cuánto dinero puedo depositar en mi cuenta?</h4>
+                                    <p class="faq-item-answer">No existe un monto máximo para depositar en tu cuenta. Sin embargo, Vector Capital se reserva el derecho de solicitar información adicional sobre el origen de los fondos depositados y/o limitar el monto a depositar, en cumplimiento de la normativa de prevención de lavado de activos y financiamiento del terrorismo 🤑.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Cómo retiro mi dinero?</h4>
+                                    <p class="faq-item-answer">Simplemente tienes que ordenar un retiro mediante la aplicación y en los próximos días tendrás tu dinero en tu cuenta de ahorros 💰.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿En dónde encuentro el dinero que retiro de mis inversiones en trii?</h4>
+                                    <p class="faq-item-answer">En la aplicación, podrás ver el estado de tu retiro. El dinero será depositado en la cuenta que nos indiques. ¡Recuerda que la cuenta debe estar a tu nombre! 🙋‍♀️ 🙋‍♂️</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Cuánto tiempo se demora en llegar mi dinero cuando lo retiro?</h4>
+                                    <p class="faq-item-answer">No es inmediato. Demora unos días hábiles en llegar a tu cuenta de ahorros.</p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+
+                    {# Categoría: Depósitos / retiros #}
+                    <div class="faq-category-card">
+                        <button class="faq-category-trigger" data-category="deposits">
+                            <div class="faq-category-trigger-content">
+                                <h3 class="faq-category-title">Depósitos / retiros</h3>
+                                <span class="faq-category-count">10 preguntas</span>
+                            </div>
+                            <svg class="faq-category-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-category-content" id="category-deposits">
+                            <div class="faq-items-container">
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Cómo me descargo la app? ¿En qué tiendas está disponible?</h4>
+                                    <p class="faq-item-answer">trii está disponible en Play Store para versión Android y AppStore para versión iOS. Descárgala aquí.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Qué necesito para empezar a usar la app de trii?</h4>
+                                    <p class="faq-item-answer">¡Nada! Solo descargar la aplicación. Te pediremos tu información para validar tu identidad ✅, y una vez validado podrás empezar a invertir en acciones locales y extranjeras al menor costo con trii.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Qué documentos necesito para registrarme?</h4>
+                                    <p class="faq-item-answer">Solo deberás tener a la mano tu cédula de identidad vigente, e información sobre: el origen de tus ingresos, tu domicilio y en general, información básica sobre ti 🧍‍♀️🧍.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Puedo usar la app si soy una persona extranjera?</h4>
+                                    <p class="faq-item-answer">Si tienes RUT (cédula de identidad) válido del país, sí puedes usar trii.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Tengo que vivir en Chile para poder invertir a través de trii?</h4>
+                                    <p class="faq-item-answer">Debes contar con una cédula de identidad, no importa si estás viviendo en Chile o en el extranjero.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Puedo vincularme físicamente?</h4>
+                                    <p class="faq-item-answer">Para vincularte a trii, deberás realizar el trámite de vinculación a través de la app en tu celular (no hay versión web). ¡Recuerda, vincularte a trii es simple 🤘 y seguro 🔒!</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Qué significa tener un determinado perfil de riesgo?</h4>
+                                    <p class="faq-item-answer">Cuando realices el proceso de registro 🆗, deberás indicarnos qué tanto conoces del mercado de valores y eso determinará tu perfil de riesgo.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Cuánto tiempo debe tener mi cuenta bancaria de abono/depósito para poder invertir en la aplicación?</h4>
+                                    <p class="faq-item-answer">Puede ser una cuenta bancaria nueva. Es suficiente con que la cuenta bancaria permita hacer transferencias y abonos a través de tu banco 🏦.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Cómo funcionan los depósitos a través del app?</h4>
+                                    <p class="faq-item-answer">A través de la aplicación podrás recargar tu saldo para operar, esto no significa que trii reciba tus recursos, sino que a través de trii se disponibiliza a los usuarios un canal para que estos puedan enviar dinero a su cuenta en Vector Capital Corredores de Bolsa.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Quién recibe los dineros que depósito a través del app?</h4>
+                                    <p class="faq-item-answer">El dinero que deposites a través del app se encuentra en las cuentas de clientes de Vector Capital Corredores de Bolsa, quien internamente, ha diseñado los procesos y controles necesarios para custodiar los recursos que los clientes le entregan para ser destinados en inversiones.</p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+
+                    {# Categoría: Operaciones #}
+                    <div class="faq-category-card">
+                        <button class="faq-category-trigger" data-category="operations">
+                            <div class="faq-category-trigger-content">
+                                <h3 class="faq-category-title">Operaciones</h3>
+                                <span class="faq-category-count">21 preguntas</span>
+                            </div>
+                            <svg class="faq-category-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-category-content" id="category-operations">
+                            <div class="faq-items-container">
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Cómo aumento mis ingresos?</h4>
+                                    <p class="faq-item-answer">Puedes ganar dinero vendiendo tus valores a un precio mayor al que pagaste durante la compra 💵. Adicionalmente, puedes ganar dinero con los dividendos que pagan algunas acciones, en caso que seas propietario de estas.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Cómo veo resultados?</h4>
+                                    <p class="faq-item-answer">Existen dos formas de ganar dinero. Los resultados puedes verlos directamente en la variación de precio que genera tanto tu portafolio como cada una de las acciones que componen este 😉.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Se pueden comprar fracciones de acciones?</h4>
+                                    <p class="faq-item-answer">Aún no, porque la regulación no lo permite ❌.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Se pueden seguir los precios de las acciones en vivo por la app?</h4>
+                                    <p class="faq-item-answer">En nuestra app de Chile, podrás ver los precios que nos proporciona la Bolsa de Santiago en tiempo real 🤩.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Se puede comprar acciones desde Colombia o Perú desde trii Chile o viceversa?</h4>
+                                    <p class="faq-item-answer">Por el momento, no se puede comprar acciones de Colombia o Perú, desde Chile o viceversa.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Piden algún monto mínimo para empezar?</h4>
+                                    <p class="faq-item-answer">El monto mínimo para empezar varía según la acción en la que quieras invertir, pero con operaciones desde 4.000 CLP ¡ya puedes empezar a invertir!</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Existe un monto máximo para depositar en trii?</h4>
+                                    <p class="faq-item-answer">No existe un monto máximo para tus depósitos 👀.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Con qué moneda se opera?</h4>
+                                    <p class="faq-item-answer">trii Chile opera únicamente en CLP. También puedes comprar dólares e invertir en fondos de inversión en dólares.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Alguien más puede usar mi dinero en trii?</h4>
+                                    <p class="faq-item-answer">Para acceder a tu cuenta en trii, es imprescindible ingresar tu usuario y contraseña de forma privada, ya que estos son exclusivos y no deben compartirse con terceros. Esta medida garantiza que solo tú tengas acceso a tu dinero e inversiones, protegiendo así tu patrimonio. Además, los recursos que destinas para comprar acciones están bajo la custodia de Vector Capital, brindándote tranquilidad y seguridad en tus inversiones. Recuerda que solo tú puedes tomar decisiones de inversión y disponer de tu portafolio a través de trii. ¡Tu seguridad y control son nuestra prioridad!</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Puedo perder mi dinero?</h4>
+                                    <p class="faq-item-answer">Comprar acciones puede resultar en una pérdida parcial de tu dinero, pues su precio depende del comportamiento del mercado 📈 📉, así que es importante que conozcas que existe siempre un riesgo en las inversiones.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Qué es una acción?</h4>
+                                    <p class="faq-item-answer">Las acciones son las partes en las que se divide una sociedad. Los propietarios de la sociedad son aquellas personas que tienen acciones, es por eso que mediante trii puedes volverte propietario de las empresas 🏢 más grandes de Chile y del mundo.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Cuál es el horario para realizar una operación?</h4>
+                                    <p class="faq-item-answer">Puedes hacerlo en el horario ⏰ que indique la bolsa. Actualmente, es de 9:30 am a 4:00 pm, pero este horario puede variar en algunas épocas del año ya que se sincroniza con la Bolsa de Valores de Nueva York.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Cuánto tiempo demora una transacción en ser completada?</h4>
+                                    <p class="faq-item-answer">El cumplimiento de las operaciones se realiza en t+2, sin embargo las operaciones quedan en firme desde su calce.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Qué son dividendos?</h4>
+                                    <p class="faq-item-answer">Cuando adquieres una acción, adquieres el derecho a participar en las ganancias de la sociedad que emitió la acción. Los dividendos son esa utilidad 💸 que puede generar una acción a favor de sus propietarios.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Cómo sé la cantidad de dinero que obtengo por dividendos?</h4>
+                                    <p class="faq-item-answer">Esto dependerá del emisor (la empresa cuya acción compras) y son ellos quienes informan el valor del dividendo por acción 📊. Usualmente, esto se hace al finalizar cada año.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Cuándo recibo el dinero por ganancia de dividendos?</h4>
+                                    <p class="faq-item-answer">Cada emisor (empresa cuya acción compras) indica las fechas 🗓️ de pago de dividendos. A través de trii podrás conocer el calendario de pago de dividendos.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Qué tiene que pasar para cerrar una venta de acciones?</h4>
+                                    <p class="faq-item-answer">Al igual que con las compras, se requiere que otro inversionista esté interesado en comprar/vender 🔄 el mismo título con características de precio compatibles.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Cuántas acciones puedo vender como máximo?</h4>
+                                    <p class="faq-item-answer">Puedes vender todas las acciones que tengas en tu portafolio. En trii, no existen montos mínimos del portafolio para tener tu cuenta activa 😎.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Puedo comprar y vender en segundos?</h4>
+                                    <p class="faq-item-answer">La tecnología de la aplicación está diseñada para que el proceso sea inmediato, sin embargo, los tiempos de ejecución dependerán de la oferta y demanda en el mercado 📈.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Las acciones son contratos subyacentes o son títulos valores para el comprador?</h4>
+                                    <p class="faq-item-answer">Las acciones adquiridas a través de la aplicación son títulos valor 📜.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Qué hago con mis ganancias?</h4>
+                                    <p class="faq-item-answer">Desde la aplicación puedes reinvertir tus ganancias en acciones o retirar el dinero directamente de tu cuenta bancaria 😉.</p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+
+                    {# Categoría: Costos #}
+                    <div class="faq-category-card">
+                        <button class="faq-category-trigger" data-category="costs">
+                            <div class="faq-category-trigger-content">
+                                <h3 class="faq-category-title">Costos</h3>
+                                <span class="faq-category-count">2 preguntas</span>
+                            </div>
+                            <svg class="faq-category-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="faq-category-content" id="category-costs">
+                            <div class="faq-items-container">
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Hay cobros por realizar operaciones dentro de la app?</h4>
+                                    <p class="faq-item-answer">Cuando compras o vendes un valor, pagas comisiones y contribuciones legales publicadas en nuestro tarifario vigente para operaciones en la aplicación. Adicionalmente a ello, las transferencias bancarias pueden estar sujetas a comisiones aplicables directamente por tu banco. Te sugerimos consultar el tarifario de tu institución financiera.</p>
+                                </article>
+                                <article class="faq-item">
+                                    <h4 class="faq-item-question">¿Cuáles son las comisiones en la app?</h4>
+                                    <p class="faq-item-answer">Por operaciones: Para montos hasta $1.115.000 CLP: Compra o venta de acciones: $1.990 CLP (incluye IVA). Para montos mayores a $1.115.000 CLP: Compra o venta de acciones: 0.15% + IVA. Retiros y depósitos: Acciones: No tiene costo. Fondos Mutuos: trii percibe una remuneración por parte de su aliado Vector Capital, la cual se calcula sobre la comisión de administración del Fondo Mutuo.</p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+</div>
+{{footer()}}
+
+<script src="/static/js/faq-chat.js?1.0.1"></script>
+<script src="/static/js/faq-accordion.js?1.0.0"></script>
+{% endblock %}

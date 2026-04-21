@@ -1,0 +1,3222 @@
+/* ==========================================================================
+   Día trii - Landing Page
+   ========================================================================== */
+
+html:has(main.page-diatrii),
+body:has(main.page-diatrii) {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+.page-diatrii {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #111111;
+    color: #ffffff;
+    margin-top: -100px;
+    overflow-x: hidden;
+}
+
+main.page-diatrii,
+main.page-diatrii * {
+    box-sizing: border-box;
+}
+
+/* Banner Animado Premium */
+.diatrii-banner {
+    position: relative;
+    width: 100%;
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 102px 24px 24px;
+    /* Gradiente horizontal más oscuro y animado */
+    background: linear-gradient(90deg, #02FB7E, #00d2ff, #02FB7E);
+    background-size: 200% 100%;
+    animation: gradientMove 8s linear infinite;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@keyframes gradientMove {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+@keyframes gradientMoveMobile {
+    0% { background-position: 0 100%; }
+    100% { background-position: 0 -100%; }
+}
+
+/* Textura de ruido (noise) para un toque ultra-premium */
+.diatrii-noise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+}
+
+.diatrii-banner-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+/* Patrocinado por (izq.) + logo VanEck (der.) */
+.diatrii-banner-sponsor {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    opacity: 0;
+    transform: translateX(12px);
+    animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.15s;
+}
+
+@keyframes slideInRight {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.diatrii-sponsor-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    border-right: 1px solid rgba(0, 0, 0, 0.12);
+    padding-right: 24px;
+}
+
+.diatrii-sponsor-text {
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 14px;
+    font-weight: 600;
+    color: #111111;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.diatrii-sponsor-license {
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(17, 17, 17, 0.6);
+}
+
+.diatrii-sponsor-logo {
+    height: 170px;
+    width: auto;
+    max-width: min(760px, 100%);
+    object-fit: contain;
+}
+
+/* Disclaimer */
+.diatrii-banner-disclaimer {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(17, 17, 17, 0.5);
+    margin: 10px auto 0;
+    line-height: 1.4;
+    max-width: 100%;
+    text-align: center;
+    opacity: 0;
+    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.6s;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   Sección Hero Premium (Información + Mockup)
+   ========================================================================== */
+
+.diatrii-hero-section {
+    position: relative;
+    width: 100%;
+    padding: 100px 24px 140px;
+    background-color: transparent; /* Fondo general */
+    overflow: hidden;
+}
+
+/* Grid de fondo (desactivado: sin líneas en el hero) */
+.diatrii-hero-bg-grid {
+    display: none;
+}
+
+/* Resplandor de fondo */
+.diatrii-hero-bg-glow {
+    position: absolute;
+    top: 20%;
+    left: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(2, 251, 126, 0.08) 0%, transparent 70%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.diatrii-hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.diatrii-hero-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 800px; /* Aumentado drásticamente para que el título quepa en una línea */
+}
+
+/* Badge Premium */
+.diatrii-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(2, 251, 126, 0.05);
+    border: 1px solid rgba(2, 251, 126, 0.2);
+    border-radius: 100px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 13px;
+    font-weight: 600;
+    color: #02FB7E;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+}
+
+.diatrii-hero-badge-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #02FB7E;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #02FB7E;
+    animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(2, 251, 126, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(2, 251, 126, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(2, 251, 126, 0); }
+}
+
+.diatrii-hero-title {
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 64px;
+    font-weight: 800;
+    color: #ffffff; /* Título en blanco */
+    line-height: 1.05;
+    margin-bottom: 24px;
+    letter-spacing: -0.03em;
+    white-space: nowrap; /* Fuerza a que no se rompa en más líneas */
+}
+
+.diatrii-text-gradient {
+    background: linear-gradient(135deg, #02FB7E 0%, #00d2ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+}
+
+.diatrii-hero-desc {
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+/* Highlight Card (Glassmorphism) */
+.diatrii-hero-highlight-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 4px solid #02FB7E;
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+    margin-bottom: 48px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.diatrii-highlight-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: rgba(2, 251, 126, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.diatrii-hero-highlight-card p {
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.diatrii-hero-highlight-card strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* Botón Premium */
+.diatrii-hero-cta-wrapper {
+    display: flex;
+}
+
+.diatrii-btn-premium {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #02FB7E;
+    color: #000000;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-weight: 700;
+    font-size: 18px;
+    padding: 18px 40px;
+    border-radius: 100px;
+    text-decoration: none;
+    border: none;
+    box-shadow: none;
+    filter: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.diatrii-btn-premium:hover {
+    background: #03ca62;
+    box-shadow: none;
+    transform: none;
+    filter: none;
+}
+
+.diatrii-btn-premium:active,
+.diatrii-btn-premium:focus,
+.diatrii-btn-premium:focus-visible {
+    box-shadow: none;
+    filter: none;
+}
+
+.diatrii-btn-premium:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+.diatrii-btn-premium svg {
+    transition: transform 0.3s ease;
+}
+
+.diatrii-btn-premium:hover svg {
+    transform: translateX(4px) translateY(-4px);
+}
+
+/* Mockup Premium */
+.diatrii-hero-image-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.diatrii-mockup-pedestal {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(60deg);
+    z-index: 1;
+    box-shadow: inset 0 0 40px rgba(2, 251, 126, 0.1);
+}
+
+.diatrii-hero-img {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    height: auto;
+    /* Sombra muy realista y dura para dar sensación de objeto físico */
+    filter: drop-shadow(-20px 30px 30px rgba(0,0,0,0.8)) drop-shadow(0 0 60px rgba(2, 251, 126, 0.15));
+    /* Sin animación de flotar, estático y elegante */
+}
+
+/* ==========================================================================
+   Counter premium (debajo del hero)
+   ========================================================================== */
+
+.diatrii-counter-section {
+    width: 100%;
+    padding: 16px 24px 84px;
+    background: transparent;
+}
+
+.diatrii-counter-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 12px;
+    border-radius: 0;
+    text-align: center;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.diatrii-counter-title {
+    margin: 0 0 16px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: clamp(28px, 3.8vw, 42px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.diatrii-counter-number {
+    margin: 0;
+}
+
+.diatrii-counter-value {
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: clamp(62px, 10vw, 108px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: #02FB7E;
+    text-shadow: 0 8px 28px rgba(2, 251, 126, 0.2);
+}
+
+.diatrii-counter-subtitle {
+    margin: 16px 0 20px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: clamp(20px, 2.4vw, 30px);
+    line-height: 1.35;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.diatrii-counter-date {
+    margin: 0 0 12px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: rgba(2, 251, 126, 0.95);
+}
+
+.diatrii-counter-note {
+    margin: 0;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 17px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+/* ==========================================================================
+   ¿Qué es el Día trii? (texto + imagen)
+   ========================================================================== */
+
+.diatrii-what-section {
+    width: 100%;
+    padding: 0 24px 64px;
+    margin-top: 3%;
+}
+
+.diatrii-what-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(20px, 3vw, 40px);
+    align-items: center;
+}
+
+.diatrii-what-content {
+    min-width: 0;
+    padding-right: clamp(8px, 1.6vw, 20px);
+    order: 2;
+}
+
+.diatrii-what-title {
+    margin: 0 0 12px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: clamp(30px, 3.8vw, 44px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    text-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
+}
+
+.diatrii-what-desc {
+    margin: 0 0 18px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 17px;
+    line-height: 1.62;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.diatrii-what-subheading {
+    margin: 0 0 10px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: clamp(22px, 2.5vw, 30px);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #02FB7E;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.diatrii-what-subheading::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #02FB7E;
+    box-shadow: 0 0 12px rgba(2, 251, 126, 0.55);
+}
+
+.diatrii-what-lead {
+    margin: 0 0 14px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 16px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.diatrii-what-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+}
+
+.diatrii-what-list li {
+    margin: 0;
+    padding: 10px 0 10px 18px;
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+    border-left: 2px solid rgba(2, 251, 126, 0.35);
+    display: grid;
+    gap: 3px;
+}
+
+.diatrii-what-list strong {
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+}
+
+.diatrii-what-list span {
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 15px;
+    line-height: 1.48;
+    color: rgba(255, 255, 255, 0.74);
+}
+
+.diatrii-what-image-wrap {
+    min-width: 0;
+    justify-self: center;
+    width: min(100%, 560px);
+    order: 1;
+}
+
+/* Card premium inspirada en "Deposita y retira" */
+.diatrii-what-image-card {
+    padding: 0;
+    overflow: hidden;
+    aspect-ratio: 1;
+    box-sizing: border-box;
+    position: relative;
+    background: linear-gradient(
+        180deg,
+        rgb(24, 82, 52) 0%,
+        rgb(21, 54, 37) 22%,
+        rgb(23, 35, 29) 48%,
+        rgb(26, 26, 26) 72%,
+        #191919 100%
+    );
+    border-radius: 22px;
+    border: none;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24), 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 0.25s ease;
+}
+
+.diatrii-what-image-card:hover {
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28), 0 4px 10px rgba(0, 0, 0, 0.14);
+}
+
+.diatrii-what-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ==========================================================================
+   ¿Por qué aprovecharlo? (sección premium separada)
+   ========================================================================== */
+
+.diatrii-why-section {
+    width: 100%;
+    padding: 28px 24px 80px;
+    margin-top: 3%;
+}
+
+.diatrii-why-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(18px, 2.5vw, 34px) 0;
+    border-radius: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: clamp(30px, 5vw, 70px);
+}
+
+.diatrii-why-aside {
+    flex: 1 1 0%;
+    min-width: 0;
+    max-width: none;
+}
+
+.diatrii-why-aside-widget {
+    padding: 0;
+}
+
+.diatrii-why-kicker {
+    margin: 0 0 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #02FB7E;
+}
+
+.diatrii-why-kicker-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #02FB7E;
+}
+
+.diatrii-why-title {
+    margin: 0 0 10px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: clamp(30px, 3.7vw, 42px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+}
+
+.diatrii-why-lead {
+    margin: 0 0 22px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 16px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.diatrii-why-main {
+    flex: 1 1 0%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: relative;
+}
+
+.diatrii-why-timeline-line {
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    bottom: 24px;
+    width: 2px;
+    background: linear-gradient(to bottom, #02FB7E 0%, rgba(2, 251, 126, 0.1) 100%);
+    z-index: 1;
+}
+
+.diatrii-why-item {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    border: none;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.diatrii-why-icon {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #111;
+    border: 2px solid #02FB7E;
+    color: #02FB7E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.diatrii-why-text {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 24px;
+    flex: 1;
+}
+
+.diatrii-why-text h3 {
+    margin: 0 0 8px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #ffffff;
+}
+
+.diatrii-why-text p {
+    margin: 0;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.74);
+}
+
+/* ==========================================================================
+   Cómo funciona (sección independiente)
+   ========================================================================== */
+
+.diatrii-how-section {
+    width: 100%;
+    padding: 0 24px 84px;
+    margin-top: 5%;
+}
+
+.diatrii-how-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(18px, 2.5vw, 34px) 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: clamp(30px, 5vw, 70px);
+    flex-direction: row-reverse;
+}
+
+.diatrii-how-aside {
+    flex: 1 1 0%;
+    min-width: 0;
+    max-width: none;
+}
+
+.diatrii-how-aside-widget {
+    padding: 0;
+}
+
+.diatrii-how-kicker {
+    margin: 0 0 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #02FB7E;
+}
+
+.diatrii-how-kicker-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #02FB7E;
+    box-shadow: 0 0 14px rgba(2, 251, 126, 0.5);
+}
+
+.diatrii-how-title {
+    margin: 0;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: clamp(30px, 3.7vw, 42px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+}
+
+.diatrii-how-main {
+    flex: 1 1 0%;
+    min-width: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.diatrii-how-timeline-line {
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    bottom: 24px;
+    width: 2px;
+    background: linear-gradient(to bottom, #02FB7E 0%, rgba(2, 251, 126, 0.1) 100%);
+    z-index: 1;
+}
+
+.diatrii-how-step {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.diatrii-how-step-node {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #111;
+    border: 2px solid #02FB7E;
+    color: #02FB7E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.diatrii-how-step-content {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 24px;
+    flex: 1;
+}
+
+.diatrii-how-step-content h3 {
+    margin: 0 0 8px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #ffffff;
+}
+
+.diatrii-how-step-content p {
+    margin: 0;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.74);
+}
+
+/* Mobile adjustments */
+@media (max-width: 991px) {
+    .diatrii-banner-content {
+        justify-content: center;
+        padding: 0 20px;
+    }
+
+    .diatrii-hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 60px;
+    }
+
+    .diatrii-hero-text {
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .diatrii-hero-title {
+        font-size: 48px;
+        white-space: normal; /* Permite que se rompa en móviles si es necesario */
+    }
+
+    .diatrii-hero-title br {
+        display: block; /* Aseguramos que el salto de línea se mantenga en tablets */
+    }
+
+    .diatrii-hero-highlight-card {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .diatrii-hero-bg-glow {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .diatrii-counter-section {
+        padding: 0 20px 68px;
+    }
+
+    .diatrii-counter-container {
+        padding: 16px 10px;
+        border-radius: 0;
+    }
+
+    .diatrii-what-section {
+        padding: 0 20px 56px;
+    }
+
+    .diatrii-what-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .diatrii-what-image-wrap {
+        order: 2;
+    }
+
+    .diatrii-what-content {
+        order: 1;
+        padding-right: 0;
+    }
+
+    .diatrii-why-section {
+        padding: 20px 20px 64px;
+    }
+
+    .diatrii-why-container {
+        padding: 0 18px;
+        border-radius: 0;
+    }
+
+    .diatrii-why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .diatrii-how-section {
+        padding: 0 20px 68px;
+    }
+
+    .diatrii-how-container {
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .diatrii-how-aside {
+        flex: none;
+        min-width: 0;
+        max-width: none;
+        width: 100%;
+    }
+
+    .diatrii-how-main {
+        flex: none;
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .diatrii-hero-section {
+        padding: 60px max(20px, env(safe-area-inset-right)) 80px max(20px, env(safe-area-inset-left));
+        overflow: hidden;
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+
+    .diatrii-hero-bg-glow {
+        width: min(280px, 100%);
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+    }
+
+    .diatrii-hero-container {
+        gap: 48px;
+    }
+
+    .diatrii-hero-text {
+        align-items: center;
+        text-align: center;
+    }
+
+    .diatrii-hero-title {
+        font-size: 36px; /* Reducido un poco para que quepa en móviles pequeños */
+        text-wrap: balance;
+        white-space: normal;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .diatrii-hero-title br {
+        display: block; /* Mantenemos las dos líneas en móvil */
+    }
+
+    .diatrii-hero-badge {
+        font-size: 12px;
+        padding: 8px 14px;
+        margin-bottom: 20px;
+    }
+
+    .diatrii-hero-desc {
+        font-size: 16px;
+        line-height: 1.65;
+        margin-bottom: 28px;
+    }
+
+    .diatrii-hero-highlight-card {
+        flex-direction: column;
+        padding: 20px;
+        gap: 12px;
+        margin-bottom: 36px;
+    }
+
+    .diatrii-btn-premium {
+        width: 100%;
+        min-height: 48px;
+        padding: 16px 24px;
+        font-size: 16px;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+        box-shadow: none;
+    }
+
+    .diatrii-hero-text {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .diatrii-hero-image-wrapper {
+        max-width: 100%;
+        min-width: 0;
+        overflow: hidden;
+        perspective: none;
+    }
+
+    .diatrii-hero-img {
+        max-width: 100%;
+        filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 32px rgba(2, 251, 126, 0.12));
+    }
+
+    .diatrii-mockup-pedestal {
+        width: min(260px, 100%);
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+    }
+
+    .diatrii-counter-section {
+        padding: 0 max(20px, env(safe-area-inset-right)) 56px max(20px, env(safe-area-inset-left));
+    }
+
+    .diatrii-counter-container {
+        padding: 12px 8px;
+        border-radius: 0;
+    }
+
+    .diatrii-counter-title {
+        margin-bottom: 12px;
+    }
+
+    .diatrii-counter-subtitle {
+        margin: 12px 0 14px;
+    }
+
+    .diatrii-counter-date {
+        font-size: 14px;
+    }
+
+    .diatrii-counter-note {
+        font-size: 15px;
+    }
+
+    .diatrii-what-section {
+        padding: 0 max(20px, env(safe-area-inset-right)) 52px max(20px, env(safe-area-inset-left));
+    }
+
+    .diatrii-what-title {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .diatrii-what-desc {
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+
+    .diatrii-what-subheading {
+        font-size: 22px;
+    }
+
+    .diatrii-what-lead {
+        margin-bottom: 12px;
+        font-size: 15px;
+    }
+
+    .diatrii-what-list {
+        gap: 8px;
+    }
+
+    .diatrii-what-list li {
+        padding: 10px 0 10px 14px;
+    }
+
+    .diatrii-what-list strong {
+        font-size: 16px;
+    }
+
+    .diatrii-what-list span {
+        font-size: 14px;
+    }
+
+    .diatrii-what-image-card {
+        border-radius: 16px;
+        aspect-ratio: 1;
+    }
+
+    .diatrii-why-section {
+        padding: 18px max(20px, env(safe-area-inset-right)) 56px max(20px, env(safe-area-inset-left));
+    }
+
+    .diatrii-why-container {
+        padding: 0 14px;
+        border-radius: 0;
+    }
+
+    .diatrii-why-title {
+        font-size: 28px;
+        margin-bottom: 8px;
+    }
+
+    .diatrii-why-lead {
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+
+    .diatrii-why-container {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .diatrii-why-aside {
+        flex: none;
+        max-width: 100%;
+    }
+
+    .diatrii-why-main {
+        flex: none;
+        width: 100%;
+        gap: 24px;
+    }
+
+    .diatrii-why-timeline-line {
+        left: 20px;
+    }
+
+    .diatrii-why-item {
+        gap: 16px;
+    }
+
+    .diatrii-why-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-bottom: 0;
+    }
+
+    .diatrii-why-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .diatrii-why-text {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .diatrii-why-text h3 {
+        font-size: 17px;
+        margin-bottom: 6px;
+    }
+
+    .diatrii-why-text p {
+        font-size: 14px;
+    }
+
+    .diatrii-how-section {
+        padding: 0 max(20px, env(safe-area-inset-right)) 56px max(20px, env(safe-area-inset-left));
+    }
+
+    .diatrii-how-title {
+        font-size: 28px;
+    }
+
+    .diatrii-how-main {
+        gap: 24px;
+    }
+
+    .diatrii-how-timeline-line {
+        left: 20px;
+    }
+
+    .diatrii-how-step {
+        gap: 16px;
+    }
+
+    .diatrii-how-step-node {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .diatrii-how-step-content {
+        padding: 20px;
+        border-radius: 14px;
+    }
+
+    .diatrii-how-step-content h3 {
+        font-size: 17px;
+    }
+
+    .diatrii-how-step-content p {
+        font-size: 14px;
+    }
+}
+
+/* ==========================================================================
+   Sección Formulario de Registro
+   ========================================================================== */
+
+.diatrii-form-section {
+    position: relative;
+    width: 100%;
+    padding: 60px 24px 140px;
+    background-color: transparent; /* Fondo general */
+    display: flex;
+    justify-content: center;
+}
+
+.diatrii-form-container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.diatrii-form-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 520px;
+}
+
+/* Bloque editorial: marco, kicker, tipografía en capas */
+.diatrii-form-aside {
+    position: relative;
+    padding: 36px 40px 40px;
+    border-radius: 20px;
+    background:
+        linear-gradient(135deg, rgba(2, 251, 126, 0.07) 0%, transparent 55%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 24px 48px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.diatrii-form-kicker {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 20px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #02FB7E;
+}
+
+.diatrii-form-kicker-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #02FB7E;
+    box-shadow: 0 0 16px rgba(2, 251, 126, 0.65);
+    animation: diatriiFormKickerPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes diatriiFormKickerPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.15); opacity: 0.85; }
+}
+
+.diatrii-form-title {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    margin: 0 0 28px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+}
+
+.diatrii-form-title-pre {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+}
+
+.diatrii-form-title-main {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0 4px 32px rgba(0, 0, 0, 0.5);
+}
+
+.diatrii-form-title-brand {
+    background: linear-gradient(120deg, #ffffff 20%, #02FB7E 45%, #7dffc7 70%, #ffffff 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: diatriiFormBrandShine 6s ease-in-out infinite;
+}
+
+@keyframes diatriiFormBrandShine {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+}
+
+.diatrii-form-subtitle-wrap {
+    position: relative;
+    z-index: 1;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.diatrii-form-subtitle {
+    margin: 0;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 17px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.72);
+    font-weight: 400;
+}
+
+.diatrii-form-subtitle::first-line {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+/* Formulario Minimalista (Derecha) */
+.diatrii-form-right {
+    flex: 1;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+
+.diatrii-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Espaciado más compacto */
+}
+
+.diatrii-input-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.diatrii-input-group input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0;
+    padding: 16px 8px;
+    color: #ffffff;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.diatrii-input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 400;
+}
+
+.diatrii-input-group input:focus {
+    border-bottom-color: #02FB7E;
+    background: linear-gradient(to top, rgba(2, 251, 126, 0.05) 0%, transparent 100%);
+}
+
+/* Checkbox Personalizado Minimalista */
+.diatrii-checkbox-group {
+    margin-top: 16px;
+    margin-bottom: 24px;
+}
+
+.diatrii-checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+}
+
+.diatrii-checkbox-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.diatrii-checkmark {
+    position: relative;
+    top: 2px;
+    flex-shrink: 0;
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.diatrii-checkbox-label:hover input ~ .diatrii-checkmark {
+    border-color: #02FB7E;
+}
+
+.diatrii-checkbox-label input:checked ~ .diatrii-checkmark {
+    background-color: #02FB7E;
+    border-color: #02FB7E;
+}
+
+.diatrii-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid #111111;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.diatrii-checkbox-label input:checked ~ .diatrii-checkmark:after {
+    display: block;
+}
+
+.diatrii-checkbox-text {
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+}
+
+.diatrii-checkbox-text a {
+    color: #02FB7E;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.diatrii-checkbox-text a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Botón Submit */
+.diatrii-btn-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #02FB7E;
+    color: #111111;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-weight: 700;
+    font-size: 16px; /* Reducido */
+    padding: 14px 32px; /* Reducido */
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    box-shadow: none;
+    filter: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    align-self: flex-start; /* Alineado a la izquierda */
+}
+
+.diatrii-btn-submit:hover {
+    background: #03ca62;
+    box-shadow: none;
+    transform: none;
+    filter: none;
+}
+
+.diatrii-btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.diatrii-btn-submit:active,
+.diatrii-btn-submit:focus,
+.diatrii-btn-submit:focus-visible {
+    box-shadow: none;
+    filter: none;
+}
+
+.diatrii-btn-submit:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+.diatrii-btn-submit svg {
+    transition: transform 0.3s ease;
+}
+
+.diatrii-btn-submit:hover svg {
+    transform: translateX(4px); /* Solo se mueve a la derecha, no arriba */
+}
+
+/* Estado de Éxito */
+.diatrii-form-success {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alineado a la izquierda */
+    justify-content: center;
+    text-align: left;
+    padding: 40px 0;
+    gap: 16px;
+}
+
+.diatrii-success-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(2, 251, 126, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes scaleIn {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.diatrii-form-success h3 {
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+}
+
+.diatrii-form-success p {
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+    margin: 0;
+    max-width: 400px;
+}
+
+/* ==========================================================================
+   Estadísticas Día trii (2025)
+   ========================================================================== */
+
+.diatrii-stats-section {
+    width: 100%;
+    padding: 24px clamp(20px, 4vw, 48px) 0;
+    background-color: transparent;
+}
+
+.diatrii-stats-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(24px, 3vw, 40px);
+    align-items: flex-start;
+    padding-bottom: 48px;
+}
+
+.diatrii-stats-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(16px, 2.2vw, 24px);
+    align-items: stretch;
+    width: 100%;
+}
+
+.diatrii-stats-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.diatrii-stats-header-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.diatrii-stats-title {
+    margin: 0 0 12px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: clamp(30px, 3.7vw, 42px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+}
+
+.diatrii-stats-subtitle {
+    margin: 0;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 16px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.diatrii-stat-card {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    padding: 32px 24px;
+    border-radius: 16px;
+    text-align: left;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 12px;
+    min-width: 0;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.diatrii-stat-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(2, 251, 126, 0.3);
+}
+
+.diatrii-stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(2, 251, 126, 0.1);
+    color: #02FB7E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.diatrii-stat-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.diatrii-stat-value {
+    margin: 0;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.diatrii-stat-desc {
+    margin: 0;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.74);
+    line-height: 1.45;
+    max-width: 100%;
+}
+
+.diatrii-stats-divider {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* ==========================================================================
+   Mercados (TradingView Carousel) — bloque premium
+   ========================================================================== */
+
+.diatrii-market-section {
+    width: 100%;
+    padding: 48px clamp(20px, 4vw, 48px) 0;
+    background-color: #121212;
+    overflow: hidden;
+    margin-top: 5%;
+}
+
+.diatrii-market-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(24px, 3vw, 40px);
+    align-items: center;
+    padding-bottom: 48px;
+}
+
+.diatrii-market-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+}
+
+.diatrii-market-header-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.diatrii-market-eyebrow {
+    margin: 0 0 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #02FB7E;
+}
+
+.diatrii-market-title {
+    margin: 0 0 12px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: clamp(30px, 3.7vw, 42px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+}
+
+.diatrii-market-subtitle {
+    margin: 0;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 16px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.diatrii-market-link {
+    color: #02FB7E;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.diatrii-market-link:hover {
+    color: #00e070;
+}
+
+.diatrii-market-carousel-wrapper {
+    width: 100%;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 16px 0;
+}
+
+.diatrii-market-carousel-wrapper tv-ticker-tape {
+    display: block;
+    width: 100%;
+    height: 72px;
+}
+
+@media (max-width: 991px) {
+    .diatrii-market-container {
+        padding-bottom: 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    .diatrii-market-section {
+        padding: 24px max(20px, env(safe-area-inset-right)) 0 max(20px, env(safe-area-inset-left));
+    }
+
+    .diatrii-market-container {
+        gap: 32px;
+        padding-bottom: 32px;
+    }
+
+    .diatrii-market-carousel-wrapper {
+        padding: 16px;
+    }
+}
+
+/* ==========================================================================
+   Pasos al Día trii (3 columnas)
+   ========================================================================== */
+
+.diatrii-steps-section {
+    width: 100%;
+    padding: 80px 24px 120px;
+    background-color: #111111;
+}
+
+.diatrii-steps-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(64px, 8vw, 100px);
+}
+
+.diatrii-steps-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 700px;
+    margin-bottom: 20px;
+}
+
+.diatrii-steps-badge {
+    margin: 0 0 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #02FB7E;
+}
+
+.diatrii-steps-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #02FB7E;
+}
+
+.diatrii-steps-title {
+    margin: 0 0 16px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: clamp(32px, 4vw, 46px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+}
+
+.diatrii-steps-subtitle {
+    margin: 0;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.diatrii-steps-subtitle strong {
+    color: #ffffff;
+}
+
+.diatrii-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(20px, 3vw, 32px);
+    width: 100%;
+    align-items: start;
+}
+
+.diatrii-step {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.diatrii-step-title {
+    margin: 0;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #ffffff;
+    text-align: center;
+    min-height: 48px; /* Alineación vertical */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.diatrii-step-embed {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.diatrii-step-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Ocultar versión mobile en desktop */
+.diatrii-steps-mobile-only {
+    display: none;
+}
+
+@media (max-width: 991px) {
+    .diatrii-steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .diatrii-step-title {
+        text-align: left;
+        justify-content: flex-start;
+        min-height: auto;
+    }
+
+    .diatrii-step-embed {
+        max-width: min(600px, 100%);
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .diatrii-steps-section {
+        padding: 48px 20px 80px;
+    }
+
+    .diatrii-steps-grid {
+        gap: 40px;
+    }
+}
+
+/* ==========================================================================
+   Influencers — misma estructura visual que «Guía en video» (pasos)
+   ========================================================================== */
+
+.diatrii-influencer-section {
+    width: 100%;
+    padding: 80px 24px 120px;
+    background-color: #111111;
+}
+
+.diatrii-steps-section .diatrii-steps-container,
+.diatrii-influencer-section .diatrii-steps-container {
+    gap: clamp(20px, 3vw, 36px);
+}
+
+.diatrii-influencer-section .diatrii-steps-header {
+    margin-bottom: 8px;
+}
+
+/* Nombre + @ en columna, alineado al mismo ritmo que las tarjetas de pasos */
+.diatrii-influencer-section .diatrii-step-title {
+    flex-direction: column;
+    gap: 6px;
+    min-height: 56px;
+}
+
+.diatrii-step-title .diatrii-influencer-handle {
+    display: block;
+    font-size: 0.88em;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.58);
+    line-height: 1.3;
+}
+
+@media (max-width: 991px) {
+    .diatrii-influencer-section .diatrii-step-title {
+        align-items: flex-start;
+        text-align: left;
+    }
+}
+
+@media (max-width: 767px) {
+    .diatrii-influencer-section {
+        padding: 48px 20px 80px;
+    }
+}
+
+/* ==========================================================================
+   Plataforma que simplifica invertir (debajo de influencers)
+   ========================================================================== */
+
+.diatrii-platform-section {
+    padding: 80px 24px 110px;
+    background: transparent;
+    overflow-x: hidden;
+}
+
+.diatrii-platform-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.diatrii-platform-header {
+    text-align: center;
+    margin-bottom: 34px;
+}
+
+.diatrii-platform-badge {
+    margin: 0 0 12px;
+    color: #02fb7e;
+    font-family: var(--font-main, "DM Sans", sans-serif);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+.diatrii-platform-title {
+    margin: 0;
+    color: #f2f2f2;
+    font-family: var(--font-main, "DM Sans", sans-serif);
+    font-size: clamp(32px, 4vw, 46px);
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    overflow-wrap: anywhere;
+}
+
+.diatrii-platform-title span {
+    color: #02fb7e;
+}
+
+.diatrii-platform-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.diatrii-platform-card {
+    min-width: 0;
+    padding: 22px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+}
+
+.diatrii-platform-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: rgba(2, 251, 126, 0.13);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.diatrii-platform-icon svg {
+    width: 17px;
+    height: 17px;
+    stroke: #02fb7e;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.diatrii-platform-card h3 {
+    margin: 0 0 8px;
+    font-family: var(--font-main, "DM Sans", sans-serif);
+    font-size: 19px;
+    line-height: 1.3;
+    font-weight: 700;
+    color: #ffffff;
+    overflow-wrap: anywhere;
+}
+
+.diatrii-platform-card p {
+    margin: 0;
+    font-family: var(--font-main, "DM Sans", sans-serif);
+    font-size: 15px;
+    line-height: 1.55;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.72);
+    overflow-wrap: anywhere;
+}
+
+.diatrii-platform-card p + p {
+    margin-top: 2px;
+}
+
+@media (max-width: 991px) {
+    .diatrii-platform-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    .diatrii-platform-section {
+        padding: 58px 20px 76px;
+    }
+
+    .diatrii-platform-header {
+        margin-bottom: 24px;
+    }
+
+    .diatrii-platform-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+}
+
+/* ==========================================================================
+   Pasos + influencers — HTML duplicado solo móvil (desktop / mobile toggle)
+   Clases: .diatrii-*-desktop-only, .diatrii-*-mobile-only, .diatrii-*-m-*
+   ========================================================================== */
+
+.diatrii-steps-desktop-only {
+    display: block;
+}
+
+.diatrii-steps-mobile-only {
+    display: none;
+}
+
+.diatrii-influencer-desktop-only {
+    display: block;
+}
+
+.diatrii-influencer-mobile-only {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .diatrii-steps-desktop-only,
+    .diatrii-influencer-desktop-only {
+        display: none !important;
+    }
+
+    .diatrii-steps-mobile-only,
+    .diatrii-influencer-mobile-only {
+        display: block !important;
+    }
+}
+
+/* --- Pasos (HTML móvil) --- */
+
+.diatrii-steps-m {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.diatrii-steps-m-head {
+    max-width: 17.5rem;
+    width: 100%;
+    margin: 0 auto 1.125rem;
+    padding: 0 0.5rem 0.125rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.diatrii-steps-m-kicker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 0 12px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #02FB7E;
+}
+
+.diatrii-steps-m-h2 {
+    margin: 0 0 18px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 1.375rem;
+    font-weight: 800;
+    line-height: 1.22;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+}
+
+.diatrii-steps-m-lead {
+    margin: 0;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 0.875rem;
+    line-height: 1.52;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.diatrii-steps-m-lead strong {
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 600;
+}
+
+.diatrii-steps-m-videos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.diatrii-step-m {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.diatrii-step-m-title {
+    margin: 0 0 8px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.28;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    text-align: left;
+}
+
+.diatrii-step-m-embed {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+}
+
+.diatrii-step-m-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* --- Influencers (HTML móvil) --- */
+
+.diatrii-influencer-m {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.diatrii-influencer-m-head {
+    max-width: 17.5rem;
+    width: 100%;
+    margin: 0 auto 1.125rem;
+    padding: 0 0.5rem 0.125rem;
+    box-sizing: border-box;
+    text-align: center;
+    height: auto;
+}
+
+.diatrii-influencer-m-kicker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 0 12px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #02FB7E;
+}
+
+.diatrii-influencer-m-h2 {
+    margin: 0 0 18px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 1.375rem;
+    font-weight: 800;
+    line-height: 1.22;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+}
+
+.diatrii-influencer-m-lead {
+    margin: 0;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 0.875rem;
+    line-height: 1.52;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.diatrii-influencer-m-videos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.diatrii-influencer-m-block {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.diatrii-influencer-m-name {
+    margin: 0 0 8px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.28;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    text-align: left;
+}
+
+.diatrii-influencer-m-embed {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+}
+
+.diatrii-influencer-m-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+@media (max-width: 767px) {
+    .diatrii-steps-m-lead {
+        margin-bottom: 1.25rem;
+    }
+
+    .diatrii-steps-mobile-only .diatrii-steps-m {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+
+    .diatrii-steps-mobile-only .diatrii-steps-m-head {
+        order: 1;
+    }
+
+    .diatrii-steps-mobile-only .diatrii-steps-m-videos {
+        order: 2;
+        margin-top: 1.5rem;
+    }
+
+    .diatrii-influencer-mobile-only .diatrii-influencer-m {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+}
+
+/* ==========================================================================
+   FAQ Día trii
+   ========================================================================== */
+
+.diatrii-faq-section {
+    width: 100%;
+    padding: 80px 24px 120px;
+    background-color: #0c0c0c;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.diatrii-faq-inner {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.diatrii-faq-heading {
+    margin: 0 0 36px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: clamp(26px, 3.2vw, 36px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    text-align: center;
+}
+
+.diatrii-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.diatrii-faq-item {
+    margin: 0;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.diatrii-faq-item:hover {
+    border-color: rgba(2, 251, 126, 0.35);
+}
+
+.diatrii-faq-item[open] {
+    border-color: rgba(2, 251, 126, 0.45);
+    background: rgba(2, 251, 126, 0.04);
+}
+
+.diatrii-faq-q {
+    margin: 0;
+    padding: 18px 48px 18px 20px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: clamp(16px, 1.8vw, 18px);
+    font-weight: 700;
+    line-height: 1.4;
+    color: #ffffff;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    user-select: none;
+}
+
+.diatrii-faq-q::-webkit-details-marker {
+    display: none;
+}
+
+.diatrii-faq-q::after {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid rgba(255, 255, 255, 0.45);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.45);
+    transform: translateY(-65%) rotate(45deg);
+    transition: transform 0.2s ease;
+}
+
+.diatrii-faq-item[open] .diatrii-faq-q::after {
+    transform: translateY(-20%) rotate(-135deg);
+}
+
+.diatrii-faq-q:focus {
+    outline: none;
+}
+
+.diatrii-faq-q:focus-visible {
+    outline: 2px solid #02FB7E;
+    outline-offset: 2px;
+}
+
+.diatrii-faq-a {
+    padding: 0 20px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.diatrii-faq-a p {
+    margin: 0 0 14px;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.diatrii-faq-a p:last-child {
+    margin-bottom: 0;
+}
+
+.diatrii-faq-a strong {
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 700;
+}
+
+.diatrii-faq-ul {
+    margin: 0 0 14px;
+    padding-left: 1.25em;
+    font-family: var(--font-main, 'DM Sans', sans-serif);
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.diatrii-faq-ul li {
+    margin-bottom: 8px;
+}
+
+.diatrii-faq-ul li:last-child {
+    margin-bottom: 0;
+}
+
+.diatrii-faq-link {
+    color: #02FB7E;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    word-break: break-all;
+}
+
+.diatrii-faq-link:hover {
+    color: #6dffc0;
+}
+
+@media (max-width: 767px) {
+    .diatrii-faq-section {
+        padding: 48px max(16px, env(safe-area-inset-right)) calc(80px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+    }
+
+    .diatrii-faq-heading {
+        margin-bottom: 28px;
+        text-wrap: balance;
+    }
+
+    .diatrii-faq-q {
+        display: flex;
+        align-items: center;
+        min-height: 52px;
+        padding: 14px 44px 14px 16px;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .diatrii-faq-q::after {
+        right: 18px;
+    }
+
+    .diatrii-faq-a {
+        padding: 0 16px 20px;
+    }
+
+    .diatrii-faq-a p,
+    .diatrii-faq-ul {
+        font-size: 16px;
+        line-height: 1.62;
+    }
+
+    .diatrii-faq-link {
+        padding: 6px 0;
+    }
+}
+
+@media (max-width: 991px) {
+    .diatrii-stats-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .diatrii-stats-container {
+        padding-bottom: 40px;
+    }
+
+    .diatrii-stats-header {
+        padding-bottom: 8px;
+    }
+
+    .diatrii-stat-card {
+        max-width: 420px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .diatrii-stat-desc {
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 767px) {
+    .diatrii-stats-section {
+        padding: 24px max(20px, env(safe-area-inset-right)) 0 max(20px, env(safe-area-inset-left));
+    }
+
+    .diatrii-stats-container {
+        gap: 32px;
+        padding-bottom: 32px;
+    }
+
+    .diatrii-stat-card {
+        padding: 24px max(18px, env(safe-area-inset-right)) 24px max(18px, env(safe-area-inset-left));
+    }
+
+    .diatrii-stat-desc {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+}
+
+/* Mobile adjustments form */
+@media (max-width: 991px) {
+    .diatrii-form-container {
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    .diatrii-form-left {
+        position: static;
+        max-width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .diatrii-form-aside {
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 28px 24px 32px;
+        text-align: center;
+    }
+
+    .diatrii-form-kicker {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .diatrii-form-title {
+        align-items: center;
+        text-align: center;
+    }
+
+    .diatrii-form-right {
+        max-width: 100%;
+    }
+
+    .diatrii-btn-submit {
+        width: 100%;
+        align-self: center;
+    }
+
+    .diatrii-form-success {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .diatrii-form-section {
+        padding: 40px max(20px, env(safe-area-inset-right)) calc(100px + env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+    }
+
+    .diatrii-form-title-pre {
+        font-size: 26px;
+    }
+
+    .diatrii-form-title-main {
+        font-size: 42px;
+    }
+
+    .diatrii-form-subtitle {
+        font-size: 16px;
+    }
+
+    .diatrii-form-aside {
+        padding: 24px max(20px, env(safe-area-inset-right)) 28px max(20px, env(safe-area-inset-left));
+    }
+
+    .diatrii-input-group input {
+        min-height: 48px;
+        padding: 14px 8px;
+        font-size: 16px;
+    }
+
+    .diatrii-btn-submit {
+        min-height: 52px;
+        padding: 16px 28px;
+        -webkit-tap-highlight-color: transparent;
+        box-shadow: none;
+    }
+
+    .diatrii-checkmark {
+        width: 24px;
+        height: 24px;
+        top: 1px;
+    }
+
+    .diatrii-checkmark:after {
+        left: 8px;
+        top: 4px;
+    }
+
+    .diatrii-checkbox-text {
+        font-size: 14px;
+        line-height: 1.55;
+    }
+}
+
+@media (max-width: 767px) {
+    /*
+     * border-box en todo el árbol de la landing: sin esto, width:100% + padding
+     * en contenedores (.banner-content, secciones, cards) excede el viewport.
+     */
+    main.page-diatrii,
+    main.page-diatrii * {
+        box-sizing: border-box;
+    }
+
+    /*
+     * El body es flex column: sin min-width: 0 el main hereda min-width:auto y
+     * su ancho mínimo pasa a regirlo el contenido (widgets/iframes) → scroll horizontal.
+     */
+    html:has(main.page-diatrii) {
+        overflow-x: hidden;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    html:has(main.page-diatrii),
+    body:has(main.page-diatrii) {
+        overflow-x: hidden;
+        max-width: 100%;
+    }
+
+    body:has(main.page-diatrii) > header:has(+ main.page-diatrii) {
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .page-diatrii {
+        margin-top: -80px;
+        overflow-x: hidden;
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    .diatrii-banner {
+        min-height: auto;
+        padding: max(124px, calc(env(safe-area-inset-top) + 100px)) max(20px, env(safe-area-inset-right)) 36px max(20px, env(safe-area-inset-left));
+        background: linear-gradient(180deg, #02FB7E, #00d2ff, #02FB7E);
+        background-size: 100% 200%;
+        animation: gradientMoveMobile 8s linear infinite;
+    }
+
+    .diatrii-banner-content {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding-left: max(0px, env(safe-area-inset-left, 0));
+        padding-right: max(0px, env(safe-area-inset-right, 0));
+    }
+
+    .diatrii-banner-sponsor {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .diatrii-sponsor-info {
+        align-items: center;
+        text-align: center;
+        border-right: none;
+        padding-right: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding-bottom: 12px;
+    }
+
+    .diatrii-sponsor-logo {
+        height: 136px;
+        width: auto;
+        max-width: min(620px, 100%);
+        object-fit: contain;
+    }
+
+    .diatrii-banner-disclaimer {
+        font-size: 10px;
+        margin-top: 16px;
+        padding-left: env(safe-area-inset-left, 0);
+        padding-right: env(safe-area-inset-right, 0);
+    }
+
+    /*
+     * Contención de ancho: evita scroll horizontal en viewports estrechos
+     * (flex/grid min-width:auto, sombras del mockup, pedestal fijo, TradingView, textos largos).
+     */
+    main.page-diatrii > section {
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .diatrii-hero-section {
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .diatrii-hero-container,
+    .diatrii-hero-text {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .diatrii-hero-title {
+        white-space: normal;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .diatrii-hero-desc,
+    .diatrii-hero-highlight-card {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .diatrii-hero-highlight-card p {
+        overflow-wrap: anywhere;
+    }
+
+    .diatrii-hero-cta-wrapper {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .diatrii-hero-image-wrapper {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow: hidden;
+        perspective: none;
+    }
+
+    .diatrii-hero-img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        box-sizing: border-box;
+        filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 32px rgba(2, 251, 126, 0.12));
+    }
+
+    .diatrii-mockup-pedestal {
+        width: min(280px, calc(100vw - 48px));
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+    }
+
+    .diatrii-hero-bg-glow {
+        width: min(320px, 92vw);
+        height: min(320px, 92vw);
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+    }
+
+    .diatrii-form-section {
+        overflow-x: hidden;
+    }
+
+    .diatrii-form-container,
+    .diatrii-form-left,
+    .diatrii-form-right,
+    .diatrii-form {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .diatrii-form-aside {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .diatrii-form-title-pre,
+    .diatrii-form-title-main,
+    .diatrii-form-subtitle,
+    .diatrii-form-kicker {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .diatrii-input-group {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .diatrii-input-group input {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .diatrii-checkbox-label {
+        max-width: 100%;
+    }
+
+    .diatrii-checkbox-text {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .diatrii-stats-section {
+        overflow-x: hidden;
+    }
+
+    .diatrii-stats-cards {
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .diatrii-stats-container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .diatrii-stats-header {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .diatrii-stat-card {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .diatrii-stats-title,
+    .diatrii-stats-title-soft,
+    .diatrii-stats-title-bold,
+    .diatrii-stat-value,
+    .diatrii-stat-desc {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .diatrii-market-section {
+        overflow-x: hidden;
+    }
+
+    .diatrii-market-grid {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .diatrii-market-copy,
+    .diatrii-market-widget-shell {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .diatrii-market-eyebrow,
+    .diatrii-market-title,
+    .diatrii-market-lead,
+    .diatrii-market-highlight {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .diatrii-market-cta {
+        max-width: 100%;
+    }
+
+    .diatrii-market-widget-frame {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .diatrii-market-widget-frame > .tradingview-widget-container {
+        max-width: 100%;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .diatrii-market-widget-frame .tradingview-widget-container__widget {
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .diatrii-market-widget-frame iframe {
+        max-width: 100% !important;
+        min-width: 0 !important;
+        width: 100% !important;
+    }
+
+    /* iframes (YouTube, TradingView): quitan el min-width intrínseco en móvil */
+    main.page-diatrii iframe {
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .diatrii-steps-section {
+        overflow-x: hidden;
+    }
+
+    .diatrii-steps-container,
+    .diatrii-steps-main,
+    .diatrii-steps-aside {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .diatrii-steps-desktop-only .diatrii-steps-aside-widget {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .diatrii-step {
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .diatrii-step-title {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .diatrii-step-embed {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .diatrii-steps-badge,
+    .diatrii-steps-aside-title,
+    .diatrii-steps-aside-sub {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .diatrii-influencer-section {
+        overflow-x: hidden;
+    }
+
+    .diatrii-influencer-section .diatrii-steps-container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .diatrii-influencer-section .diatrii-step-title .diatrii-influencer-handle {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .diatrii-faq-section {
+        overflow-x: hidden;
+    }
+
+    .diatrii-faq-inner,
+    .diatrii-faq-list {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .diatrii-faq-item {
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .diatrii-faq-heading {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .diatrii-faq-q {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        box-sizing: border-box;
+    }
+
+    .diatrii-faq-a,
+    .diatrii-faq-a p,
+    .diatrii-faq-ul {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        box-sizing: border-box;
+    }
+
+    .diatrii-faq-link {
+        word-break: break-all;
+    }
+
+    /*
+     * Bloques HTML solo móvil (pasos + influencers): cadena min-width + overflow
+     * para que iframes no ensanchen el documento (no afecta desktop: nodos ocultos).
+     */
+    .diatrii-steps-mobile-only,
+    .diatrii-influencer-mobile-only {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+
+    .diatrii-steps-mobile-only .diatrii-steps-m,
+    .diatrii-steps-mobile-only .diatrii-steps-m-head,
+    .diatrii-steps-mobile-only .diatrii-steps-m-videos,
+    .diatrii-influencer-mobile-only .diatrii-influencer-m,
+    .diatrii-influencer-mobile-only .diatrii-influencer-m-head,
+    .diatrii-influencer-mobile-only .diatrii-influencer-m-videos {
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .diatrii-steps-mobile-only .diatrii-step-m,
+    .diatrii-steps-mobile-only .diatrii-step-m-embed,
+    .diatrii-influencer-mobile-only .diatrii-influencer-m-block,
+    .diatrii-influencer-mobile-only .diatrii-influencer-m-embed {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .diatrii-steps-mobile-only .diatrii-step-m-embed iframe,
+    .diatrii-influencer-mobile-only .diatrii-influencer-m-embed iframe {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    /* Navbar fija: asegura border-box y tope al ancho disponible en esta página */
+    body:has(main.page-diatrii) .navbar-header {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}

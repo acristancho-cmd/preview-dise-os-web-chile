@@ -1,0 +1,1066 @@
+/* ==========================================================================
+   Asistente de IA (Asesor) - Estilos según especificación
+   ========================================================================== */
+
+/* Variables locales - Power Prompts y colores */
+:root {
+  --advisor-bg: hsl(0, 0%, 10%);
+  --advisor-fg: hsl(218, 20%, 95%);
+  --pp-market: rgb(2, 251, 126);
+  --pp-education: rgb(96, 165, 250);
+  --pp-portfolio: rgb(251, 191, 36);
+  --pp-news: rgb(244, 114, 182);
+  --neutral-200: rgb(229, 229, 229);
+  --neutral-300: rgb(212, 212, 212);
+  --neutral-400: rgb(163, 163, 163);
+  --neutral-500: rgb(115, 115, 115);
+  --neutral-700: rgb(64, 64, 64);
+  --neutral-800: rgb(38, 38, 38);
+  --neutral-900: rgb(23, 23, 23);
+  --primary: rgb(2, 251, 126);
+}
+
+/* --------------------------------------------------------------------------
+   1. Layout principal - Sin fondo. margin-top negativo para que el bloque
+   de bienvenida arranque desde el top del viewport y el centro quede en 50vh.
+   -------------------------------------------------------------------------- */
+.advisor-main-layout {
+  min-height: 100vh;
+  overflow: hidden;
+  color: var(--advisor-fg);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: transparent;
+  background-color: transparent;
+  margin-top: -70px; /* Compensa altura del header para centrado real en pantalla */
+}
+
+.header-bar {
+  width: 90%;
+  margin: 0 auto;
+  background: rgba(23, 23, 23, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--neutral-800);
+  border-radius: 9999px;
+  height: 48px;
+  padding: 0 16px;
+  margin-top: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .header-bar {
+    height: 56px;
+    padding: 0 24px;
+    margin-top: 16px;
+  }
+}
+
+.header-icon-btn {
+  width: 32px;
+  height: 32px;
+  color: var(--neutral-400);
+  border-radius: 9999px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, background 0.2s;
+}
+
+.header-icon-btn:hover {
+  color: white;
+  background: rgba(64, 64, 64, 0.5);
+}
+
+@media (min-width: 640px) {
+  .header-icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.header-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.trii-logo {
+  height: 20px;
+  width: auto;
+  margin-left: 8px;
+}
+
+@media (min-width: 640px) {
+  .trii-logo {
+    height: 24px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. Estado vacío (Welcome) - Flujo normal, ocupa 100vh, contenido centrado.
+   El layout tiene margin-top negativo para que este bloque empiece en el
+   viewport y el centro quede en el centro de la pantalla.
+   -------------------------------------------------------------------------- */
+.advisor-welcome-state {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  background-color: transparent;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.welcome-desktop {
+  display: none;
+  background: transparent;
+}
+
+@media (min-width: 768px) {
+  .welcome-desktop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    margin-bottom: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .welcome-desktop {
+    padding: 0 24px;
+  }
+}
+
+.welcome-container {
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.welcome-title {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.025em;
+  text-align: center;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .welcome-title {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .welcome-title {
+    font-size: 48px;
+  }
+}
+
+.welcome-subtitle {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 16px;
+  color: var(--neutral-400);
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .welcome-subtitle {
+    font-size: 18px;
+  }
+}
+
+/* Welcome mobile */
+.welcome-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .welcome-mobile {
+    display: none;
+  }
+}
+
+.welcome-mobile-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.025em;
+  text-align: center;
+  margin: 0;
+}
+
+.welcome-mobile-subtitle {
+  font-size: 14px;
+  color: var(--neutral-400);
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. Power Prompts - Desktop (grid 4 columnas)
+   grid-cols-4 gap-2 max-w-xl | card: p-2.5, bg, border, rounded-lg
+   Solo la card tiene fondo; el contenedor del icono no tiene fondo.
+   -------------------------------------------------------------------------- */
+.power-prompts-grid {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .power-prompts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px; /* gap-2 */
+    max-width: 576px; /* max-w-xl */
+    margin: 0 auto;
+    margin-top: 32px;
+  }
+}
+
+/* Card madre: borde sutil por defecto, más visible en hover */
+.power-prompt-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px; /* gap-1.5 */
+  padding: 10px; /* p-2.5 */
+  background: rgb(23, 23, 23); /* neutral-900 sólido */
+  border: 1px solid rgba(255, 255, 255, 0.06); /* borde sutil y elegante */
+  border-radius: 8px; /* rounded-lg */
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.power-prompt-btn:hover {
+  background: rgb(38, 38, 38);
+  border-color: rgb(64, 64, 64);
+}
+
+/* Contenedor del icono: w-7 h-7 rounded-md, SIN fondo */
+.power-prompt-icon-box {
+  width: 28px; /* w-7 */
+  height: 28px; /* h-7 */
+  border-radius: 6px; /* rounded-md */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.power-prompt-icon-box--market .power-prompt-icon {
+  color: var(--pp-market);
+}
+
+.power-prompt-icon-box--education .power-prompt-icon {
+  color: var(--pp-education);
+}
+
+.power-prompt-icon-box--portfolio .power-prompt-icon {
+  color: var(--pp-portfolio);
+}
+
+.power-prompt-icon-box--news .power-prompt-icon {
+  color: var(--pp-news);
+}
+
+/* Icono interior: w-3.5 h-3.5 */
+.power-prompt-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Label: text-xs font-medium, font del proyecto */
+.power-prompt-label {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 12px; /* text-xs */
+  font-weight: 500; /* font-medium */
+  color: var(--neutral-400);
+}
+
+.power-prompt-btn:hover .power-prompt-label {
+  color: white;
+}
+
+/* Power Prompts - Mobile (pills) */
+.power-prompts-mobile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+@media (min-width: 768px) {
+  .power-prompts-mobile {
+    display: none;
+  }
+}
+
+.power-prompt-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(23, 23, 23, 0.8);
+  border: 1px solid rgba(38, 38, 38, 0.5);
+  border-radius: 9999px;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 0;
+  font: inherit;
+  color: inherit;
+}
+
+.power-prompt-pill:hover {
+  background: rgba(38, 38, 38, 0.8);
+}
+
+.power-prompt-pill-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.power-prompt-pill-label {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 12px;
+  color: var(--neutral-300);
+}
+
+/* --------------------------------------------------------------------------
+   4. Input Cockpit - Especificación completa
+   -------------------------------------------------------------------------- */
+/* Contenedor principal (form): relative, desktop max-w-3xl, mobile h-[15vh] px-3 */
+.input-cockpit-form {
+  position: relative;
+  width: 100%;
+  max-width: 768px; /* max-w-3xl */
+  margin: 0 auto;
+}
+
+@media (max-width: 639px) {
+  .input-cockpit-form {
+    min-height: 15vh;
+    padding: 0 12px; /* px-3 */
+  }
+}
+
+.input-cockpit-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Cápsula del input: algo más de altura, contenido centrado verticalmente */
+.input-cockpit {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 12px; /* más padding vertical */
+  background: rgb(23, 23, 23); /* neutral-900 sólido, sin transparencia */
+  border: 1px solid rgba(255, 255, 255, 0.06); /* borde sutil por defecto */
+  border-radius: 28px; /* rounded-[28px] */
+  display: flex;
+  align-items: center; /* centrado vertical */
+  gap: 8px; /* gap-2 */
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .input-cockpit {
+    padding: 20px 16px; /* sm:px-4 */
+  }
+}
+
+.input-cockpit:focus-within {
+  border-color: rgb(2, 251, 126); /* borde visible solo al hacer click/focus en un hijo */
+}
+
+/* Botones proporcionados a la altura de la cápsula (elementos centrados) */
+.input-cockpit-form .input-cockpit .action-btn {
+  width: 32px;
+  height: 32px;
+}
+
+.input-cockpit-form .input-cockpit .send-btn {
+  width: 32px;
+  height: 32px;
+}
+
+.input-cockpit-form .input-cockpit .send-btn-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Contenedor action buttons (izquierda): centrado con el resto */
+.input-cockpit-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px; /* gap-0.5 */
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Badge "Pronto disponible": absolute -top-8 left-1/2 -translate-x-1/2 */
+.action-buttons-badge {
+  position: absolute;
+  top: -32px; /* -top-8 */
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--neutral-700);
+  color: var(--neutral-200);
+  font-size: 12px; /* text-xs */
+  padding: 4px 10px; /* py-1 px-2.5 */
+  border-radius: 9999px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Desktop: Paperclip y Mic siempre visibles */
+.action-buttons-desktop {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .action-buttons-desktop {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+}
+
+/* Mobile: toggle + popup */
+.action-buttons-mobile {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .action-buttons-mobile {
+    display: none;
+  }
+}
+
+/* Botones acción: w-8 h-8 rounded-lg, ícono w-4 h-4, text-neutral-500, hover */
+.action-btn {
+  width: 32px; /* w-8 */
+  height: 32px; /* h-8 */
+  color: var(--neutral-500);
+  border-radius: 8px; /* rounded-lg */
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: color 0.2s, background 0.2s;
+}
+
+.action-btn:hover {
+  color: var(--neutral-300);
+  background: rgba(38, 38, 38, 0.5); /* hover:bg-neutral-800/50 */
+}
+
+.action-btn-icon {
+  width: 16px; /* w-4 */
+  height: 16px; /* h-4 */
+}
+
+.action-btn-icon.hidden,
+.hidden {
+  display: none !important;
+}
+
+/* Popup mobile: absolute bottom-full left-0 mb-2, bg-neutral-800 border rounded-lg p-1 flex flex-col gap-1 */
+.action-buttons-popup {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 8px;
+  background: var(--neutral-800);
+  border: 1px solid var(--neutral-700);
+  border-radius: 8px;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.action-buttons-popup[hidden] {
+  display: none !important;
+}
+
+.action-btn-popup {
+  width: 36px; /* w-9 */
+  height: 36px; /* h-9 */
+  color: var(--neutral-400);
+}
+
+.action-btn-popup:hover {
+  color: white;
+  background: var(--neutral-700);
+}
+
+/* Textarea: placeholder y texto centrados verticalmente con iconos y botón */
+.input-textarea {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  color: white;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 14px; /* text-sm */
+  resize: none;
+  outline: none;
+  border: 0;
+  box-sizing: border-box;
+  /* Altura 32px: padding 6+6 = 12, línea única 20px → centrado vertical */
+  min-height: 32px;
+  padding: 6px 0;
+  line-height: 20px; /* igual a min-height - padding vertical = 32 - 12 */
+  overflow-y: auto;
+}
+
+.input-textarea::placeholder {
+  color: var(--neutral-500);
+  font-size: 12px;
+}
+
+@media (min-width: 640px) {
+  .input-textarea {
+    font-size: 16px;
+    max-height: 150px;
+  }
+  .input-textarea::placeholder {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 639px) {
+  .input-textarea {
+    height: 32px;
+    min-height: 32px;
+    max-height: 32px;
+    line-height: 20px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .input-textarea::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Botón Send: alineado al centro con el resto */
+.send-btn {
+  width: 36px; /* w-9 */
+  height: 36px; /* h-9 */
+  border-radius: 12px; /* rounded-xl */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.send-btn:active {
+  transform: scale(0.95);
+}
+
+@media (min-width: 640px) {
+  .send-btn {
+    width: 40px; /* sm:w-10 */
+    height: 40px; /* sm:h-10 */
+  }
+  .send-btn:hover:not(:disabled) {
+    transform: scale(1.05);
+  }
+}
+
+.send-btn-icon {
+  width: 16px; /* w-4 */
+  height: 16px; /* h-4 */
+}
+
+@media (min-width: 640px) {
+  .send-btn-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.send-btn--active {
+  background: rgb(2, 251, 126);
+  color: black;
+}
+
+.send-btn--inactive {
+  background: rgb(64, 64, 64);
+  color: var(--neutral-400);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.send-btn--inactive:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Disclaimer: text-[8px] sm:text-[10px] text-neutral-400, mt-2 text-center leading-tight px-2 */
+.input-disclaimer {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 8px;
+  color: var(--neutral-400);
+  margin-top: 18px; /* 8px base + 5px más abajo */
+  margin-bottom: 0;
+  text-align: center;
+  line-height: 1.25; /* leading-tight */
+  padding: 0 8px; /* px-2 */
+}
+
+@media (min-width: 640px) {
+  .input-disclaimer {
+    font-size: 10px;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   5. Chat View - Desktop
+   -------------------------------------------------------------------------- */
+.advisor-chat-state {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.chat-container-desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .chat-container-desktop {
+    display: flex;
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px 32px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--neutral-700) var(--neutral-900);
+  }
+}
+
+.chat-container-desktop::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-container-desktop::-webkit-scrollbar-track {
+  background: var(--neutral-900);
+}
+
+.chat-container-desktop::-webkit-scrollbar-thumb {
+  background: var(--neutral-700);
+  border-radius: 4px;
+}
+
+.messages-wrapper {
+  width: 100%;
+  max-width: 896px;
+  margin: 0 auto;
+}
+
+.messages-list-desktop {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.message-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  animation: advisor-fade-in-up 0.25s ease-out forwards;
+}
+
+.message-row--user {
+  flex-direction: row-reverse;
+}
+
+.message-row--bot {
+  flex-direction: row;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar--user {
+  background: var(--neutral-800);
+}
+
+.avatar--bot {
+  background: rgba(2, 251, 126, 0.1);
+}
+
+.avatar-icon--user {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+
+.avatar-icon--bot {
+  width: 20px;
+  height: 20px;
+  color: var(--primary);
+}
+
+.bubble {
+  max-width: 80%;
+  border-radius: 16px;
+  padding: 12px 16px;
+}
+
+.bubble--user {
+  background: var(--neutral-800);
+  color: white;
+}
+
+.bubble--bot {
+  background: rgba(23, 23, 23, 0.5);
+  border: 1px solid var(--neutral-800);
+}
+
+.bubble--user p {
+  font-size: 14px;
+  word-break: break-word;
+  margin: 0;
+}
+
+/* Chat mobile */
+.chat-container-mobile {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .chat-container-mobile {
+    display: none;
+  }
+}
+
+.chat-scroll-mobile {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 12px;
+  scrollbar-width: none;
+}
+
+.chat-scroll-mobile::-webkit-scrollbar {
+  display: none;
+}
+
+.messages-list-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.message-row-mobile {
+  gap: 8px;
+}
+
+.avatar-mobile {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.avatar-icon-mobile {
+  width: 16px;
+  height: 16px;
+}
+
+.bubble-mobile {
+  max-width: 85%;
+  padding: 10px 12px;
+  border-radius: 14px;
+}
+
+.bubble-mobile p {
+  font-size: 13px;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   6. Input Bar (Chat View)
+   -------------------------------------------------------------------------- */
+.input-bar-desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .input-bar-desktop {
+    display: block;
+    flex-shrink: 0;
+    padding: 8px 16px 16px;
+    border-top: 1px solid rgba(38, 38, 38, 0.5);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    backdrop-filter: blur(4px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .input-bar-desktop {
+    padding: 8px 24px 16px;
+  }
+}
+
+.input-bar-desktop .inner {
+  max-width: 896px;
+  margin: 0 auto;
+}
+
+.input-bar-mobile {
+  flex-shrink: 0;
+  padding: 8px 12px 12px;
+  border-top: 1px solid rgba(38, 38, 38, 0.3);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+@media (min-width: 768px) {
+  .input-bar-mobile {
+    display: none;
+  }
+}
+
+.input-bar-mobile .input-cockpit {
+  max-width: none;
+}
+
+/* --------------------------------------------------------------------------
+   7. Typing / Loading state
+   -------------------------------------------------------------------------- */
+.thinking-text {
+  font-size: 14px;
+  background: linear-gradient(
+    to right,
+    var(--neutral-400),
+    white,
+    var(--neutral-400)
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: advisor-shimmer 2s linear infinite;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   8. Bot message content (Markdown)
+   -------------------------------------------------------------------------- */
+.bot-content p {
+  margin-bottom: 12px;
+  line-height: 1.625;
+  color: var(--neutral-200);
+}
+
+.bot-content p:last-child {
+  margin-bottom: 0;
+}
+
+.bot-content strong {
+  font-weight: 600;
+  color: white;
+}
+
+.bot-content ul {
+  list-style: disc;
+  margin-left: 20px;
+  margin-bottom: 12px;
+  padding-left: 0;
+}
+
+.bot-content ol {
+  list-style: decimal;
+  margin-left: 20px;
+  margin-bottom: 12px;
+  padding-left: 0;
+}
+
+.bot-content li {
+  line-height: 1.625;
+  padding-left: 4px;
+  color: var(--neutral-200);
+}
+
+.bot-content h1 {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 12px;
+  margin-top: 16px;
+}
+
+.bot-content h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 8px;
+  margin-top: 12px;
+}
+
+.bot-content h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 8px;
+  margin-top: 12px;
+}
+
+.bot-content blockquote {
+  border-left: 2px solid rgba(2, 251, 126, 0.4);
+  padding-left: 12px;
+  margin: 12px 0;
+  color: var(--neutral-300);
+  font-style: italic;
+}
+
+.bot-content hr {
+  border: 0;
+  border-top: 1px solid rgba(64, 64, 64, 0.5);
+  margin: 16px 0;
+}
+
+.bot-content a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.bot-content a:hover {
+  text-decoration: underline;
+}
+
+.bot-content code {
+  color: var(--primary);
+  font-size: 12px;
+  word-break: break-all;
+}
+
+.bot-content pre {
+  overflow-x: auto;
+  max-width: 100%;
+  background: rgba(38, 38, 38, 0.5);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 12px 0;
+}
+
+.bot-content pre code {
+  word-break: normal;
+}
+
+/* --------------------------------------------------------------------------
+   9. TradingView widgets
+   -------------------------------------------------------------------------- */
+.tradingview-chart {
+  width: 100%;
+  height: 500px;
+  min-height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(64, 64, 64, 0.5);
+  margin: 12px 0;
+  background: #0f0f0f;
+}
+
+.market-summary {
+  width: 100%;
+  min-height: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(64, 64, 64, 0.5);
+  margin: 12px 0;
+  background: #0f0f0f;
+}
+
+/* --------------------------------------------------------------------------
+   10. Animaciones
+   -------------------------------------------------------------------------- */
+@keyframes advisor-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes advisor-fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes advisor-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Estado oculto (chat/thinking se muestran por JS) */
+.advisor-chat-state[hidden],
+.advisor-thinking-state[hidden] {
+  display: none !important;
+}

@@ -1,0 +1,220 @@
+@import 'config';
+
+.stocks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 52px;
+    padding-left: 16px;
+    padding-right: 16px;
+    gap:48px;
+    margin-bottom: 132px;
+}
+
+.stocks div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stocks .title {
+  display: inline;
+    @include mobile-h1-bold;
+    margin: 0px;
+    color: $white;
+}
+
+.stocks .title span {
+    color: $primary500;
+}
+
+.stocks p {
+    @include mobile-body-2-regular;
+    color: $neutral50;
+    margin: 0px;
+}
+
+.company-title{
+    position: relative;
+}
+
+.company-title .title {
+  display: inline;
+    position: relative;
+    @include mobile-h2-bold;
+    margin: 0px;
+    color: $neutral50;
+    z-index: 1;
+    text-align: center;
+}
+
+.company-title hr{
+    position: absolute;
+    width: 57px;
+    height: 24px;
+    left: 49px;
+    top: 17px;
+    border: none;
+    background: rgba(3, 151, 74, 0.5);
+    z-index: 0;
+}
+
+
+
+.stock-list {
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    margin-bottom: 132px;
+}
+
+.tab-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 83px;
+}
+
+.tab-bar button {
+    @include mobile-body-1-bold;
+    margin: 0px;
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: $neutral400;
+    border-bottom: 4px solid $neutral700;
+}
+
+.tab-bar button:nth-child(1) {
+    border-bottom: 4px solid $primary500;
+    color: white;
+}
+
+.stock-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.card_stock {
+    display: flex;
+    flex-direction: row;
+    height: 84px;
+    align-items: center;
+    gap: 12px;
+    justify-content: space-between;
+    white-space:nowrap;
+}
+
+.card_stock-info {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+.card_stock img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+}
+
+.card_stock .title {
+  display: inline;
+    @include mobile-body-1-bold;
+    margin: 0px;
+    color: $primary50;
+}
+
+.card_stock-description {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+.card_stock-description h2 {
+    @include mobile-body-2-bold;
+    margin: 0px;
+    color: $neutral200;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+.card_stock-description h3 {
+    @include mobile-body-2-regular;
+    margin: 0px;
+    color: $neutral200;
+}
+
+ul {
+    list-style: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.pagination-container {
+    display: flex;
+    align-items: center;
+    bottom: 0;
+    padding: 1rem 0;
+    justify-content: center;
+    color: #fff;
+    gap:8px
+}
+
+.pagination-number,
+.pagination-button{
+    @include mobile-body-2-bold;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    width: 30px;
+    color: $neutral50;
+    margin-left: 4px;
+}
+
+.pagination-button {
+    background: #262626;
+    border-radius: 20px;
+    width: 40px;
+    margin:0px;
+}
+
+.pagination-number.active {
+    color: $neutral900;
+    background: $primary500;
+    border-radius: 20px;
+}
+
+.pagination-button:disabled img{
+    filter: invert(52%) sepia(1%) saturate(0%) hue-rotate(25deg) brightness(96%) contrast(87%);
+}
+
+.download {
+    display: flex;
+    flex-direction: column;
+    gap:24px;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-bottom: 132px;
+}
+
+.download .title {
+  display: inline;
+    @include mobile-h2-bold;
+    color: $neutral50;
+    margin: 0px;
+}

@@ -1,0 +1,19 @@
+/* Rutas de aprendizaje - página Copilot */
+
+.copilot-rutas-aprendizaje {
+  padding: var(--space-section, 3rem) var(--space-container, 1rem);
+  min-height: 50vh;
+}
+
+.copilot-rutas-aprendizaje .copilot-page-container {
+  max-width: var(--max-width-content, 1200px);
+  margin: 0 auto;
+}
+
+.copilot-rutas-aprendizaje .copilot-page-title {
+  font-family: var(--font-heading, "DM Sans", sans-serif);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-text-primary, #fff);
+  margin: 0;
+}

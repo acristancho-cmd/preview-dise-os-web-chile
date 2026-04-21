@@ -1,0 +1,9 @@
+-r requirements.txt
+pytest
+pytest-cov ~= 4.0.0
+google-cloud-secret-manager
+google-auth
+asgi_lifespan
+trio
+httpx
+coverage

@@ -1,0 +1,27 @@
+name: 🧪 Run tests and linters pre-commit
+
+on:
+  pull_request:
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    name: Static Tests
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/linter
+
+  make_unit_test:
+    needs: pre-commit
+    name: 🧪 Make unit tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-versions: ["3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/unit-test
+        with:
+          python-version: ${{ matrix.python-versions }}
+          credentials: ${{ secrets.GCP_QA_CREDENTIALS }}
+          ssh-key: ${{ secrets.SSH_KEY }}

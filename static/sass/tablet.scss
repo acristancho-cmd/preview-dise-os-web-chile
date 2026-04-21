@@ -1,0 +1,244 @@
+@import "config";
+.input-group {
+    width: 343px;
+}
+
+.navbar-container {
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+//footer
+footer {
+    box-sizing: border-box;
+    height: 486px;
+    gap: 32px;
+    padding: 48px 32px 56px;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0px;
+}
+
+.footer-terms {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+}
+
+.footer-main {
+    width: 61px;
+}
+
+.footer-form-mail,
+.footer-form {
+    width: 389px;
+}
+
+.footer-legal {
+    width: 189px;
+}
+
+.footer-networks {
+    display: flex;
+    flex-direction: row;
+    height: 84px;
+    justify-content: space-between;
+}
+
+.footer-networks div {
+    padding-right: 113px;
+}
+
+//Home
+
+.welcome {
+    padding-left: 32px;
+    padding-right: 32px;
+    box-sizing: border-box;
+    width: 100%;
+    align-items: flex-start;
+    padding-top: 132px;
+    gap: 60px;
+}
+
+.welcome-mockup {
+    display: block;
+    width: 277.22px;
+    height: 359px;
+    position: absolute;
+    left: 458px;
+    top: 120px;
+}
+
+.welcome-text {
+    width: 413px;
+}
+
+.store {
+    flex-direction: row;
+    padding: 0px;
+    height: 0px;
+}
+
+.company {
+    padding-left: 32px;
+    padding-right: 32px;
+    flex-direction: row;
+}
+
+.company-text {
+    width: 386px;
+}
+
+.rates {
+    width: 100%;
+    padding-left: 32px;
+    padding-right: 32px;
+    box-sizing: border-box;
+}
+
+.home-pro-description {
+    display: flex;
+    flex-direction: row;
+}
+
+.home-pro-container {
+    padding: 32px 32px;
+}
+
+.pro-img {
+    width: 50%;
+}
+
+.carousel {
+    height: 235px;
+}
+
+.mobile {
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.mobile-item:nth-child(1) {
+    flex-direction: row;
+    gap: 64px;
+}
+
+.mobile-item:nth-child(1) .mobile-item-group {
+    width: 350.74px;
+    height: 190px;
+}
+
+.mobile-item:nth-child(2) {
+    flex-direction: row-reverse;
+    gap: 64px;
+}
+
+.mobile-item:nth-child(2) .mobile-item-group {
+    width: 350.97px;
+    height: 214px;
+}
+
+.mobile-item:nth-child(3) {
+    flex-direction: row;
+    gap: 64px;
+}
+
+.mobile-item:nth-child(3) .mobile-item-group {
+    width: 350.97px;
+    height: 238px;
+}
+
+.card-pricing {
+    width: 336px;
+    height: 246px;
+}
+
+.card-pricing .frame div {
+    width: 288px;
+}
+
+.home-pro {
+    gap:64px;
+}
+
+.home-pro-prices {
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.home-pro-prices div {
+    flex-direction: row;
+}
+
+.home-pro-prices p {
+    width: 704px;
+}
+
+.home-pro-prices .title {
+  display: inline;
+    max-width: 343px;
+    height: 36px;
+}
+
+.download {
+    flex-direction: row;
+    padding-left: 32px;
+    padding-right: 32px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.download-button {
+    margin-top: 0px;
+    gap:32px;
+    align-items: baseline;
+    margin: 0px;
+}
+
+.download .title {
+  display: inline;
+    width: 490px;
+}
+
+.download-qr {
+    width: 182px;
+    display: block;
+}
+
+.download-qr p {
+    @include mobile-body-2-regular;
+    color: $neutral300;
+    margin: 0px;
+    text-align: center;
+    margin-top: 12px;
+}
+
+
+//page-we-are
+.we-are {
+    flex-direction: row;
+    padding-top: 52px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.we-are div {
+    height: 264px;
+}
+
+.we-are img {
+    width: 320.57px;
+    height: 264px;
+}
+
+.allies {
+    padding-left: 32px;
+    padding-right: 32px;
+}

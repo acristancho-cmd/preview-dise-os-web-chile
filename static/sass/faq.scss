@@ -1,0 +1,105 @@
+@import "config";
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 92px;
+}
+
+.faq-question {
+    margin-top: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.faq-question .title {
+  display: inline;
+    @include mobile-h1-bold;
+    margin: 0px;
+    color: $white;
+}
+
+.faq-question .title span {
+    color: $primary500;
+}
+
+.faq-about, .faq-about-app, .faq-contact, .faq-regulation ,.faq-registration, .faq-costs{
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+    padding-right: 16px;
+    gap:32px
+}
+
+.faq-about div, .faq-about-app div, .faq-contact div, .faq-regulation div , .faq-registration div, .faq-costs div{
+    position: relative;
+}
+
+.faq-about .title, .faq-about-app .title, .faq-contact .title, .faq-regulation .title , .faq-registration .title, .faq-costs .title{
+    position: relative;
+    @include mobile-h2-bold;
+    color: $white;
+    margin: 0px;
+    z-index: 1;
+}
+
+.faq-about hr {
+    position: absolute;
+    left: 80px;
+    top: 15px;
+    width: 59px;
+    height: 24px;
+    border: 0px;
+    background-color: rgba(3, 151, 74, 0.5);
+    z-index: 0;
+}
+
+.faq-about-app hr {
+    position: absolute;
+    width: 98px;
+    height: 24px;
+    left: 80px;
+    top: 15px;
+    border: 0;
+    background: rgba(3, 151, 74, 0.5);
+    z-index: 0;
+}
+
+.faq-contact hr {
+    position: absolute;
+    width: 145px;
+    height: 24px;
+    left: 0px;
+    top: 15px;
+    border: 0;
+    background: rgba(3, 151, 74, 0.5);
+    z-index: 0;
+}
+
+.faq-regulation hr, .faq-registration hr {
+    position: absolute;
+    width: 164px;
+    height: 24px;
+    left: 0px;
+    top: 15px;
+    border: 0;
+    background: rgba(3, 151, 74, 0.5);
+    z-index: 0;
+}
+
+.faq-registration hr {
+    width: 130px;
+}
+
+.faq-costs hr {
+    position: absolute;
+    width: 108px;
+    height: 24px;
+    left: 0px;
+    top: 15px;
+    border: 0;
+    background: rgba(3, 151, 74, 0.5);
+    z-index: 0;
+}

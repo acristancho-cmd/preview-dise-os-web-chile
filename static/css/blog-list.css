@@ -1,0 +1,411 @@
+/* =========================================
+   1. VARIABLES & CONFIG
+   ========================================= */
+   :root {
+    /* Coinciden con el archivo anterior para consistencia */
+    --color-primary: #02FB7E;
+    --color-bg-dark: #191919;
+    --color-bg-card-glass: rgba(25, 25, 25, 0.6);
+    --color-bg-card-hover: rgba(25, 25, 25, 0.95);
+
+    --text-white: #E3E3E3; /* Ajustado al rgb(227, 227, 227) de tu código */
+    --text-gray: #AAAAAA;  /* Ajustado al rgb(170, 170, 170) de tu código */
+
+    --font-main: "DM Sans", sans-serif;
+
+    --border-light: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(255, 255, 255, 0.15);
+
+    --radius-card: 16px;
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* =========================================
+     2. LAYOUT CONTAINERS
+     ========================================= */
+  .blog-list-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  /* =========================================
+     3. AI BADGE COMPONENT
+     ========================================= */
+  .ai-assistant-badge {
+    display: flex; /* Mejor que inline-block para alineación */
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Reemplaza márgenes manuales en hijos */
+    margin: 20px auto 24px;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    border: 1px solid rgb(44, 44, 44);
+    background-color: rgba(25, 25, 25, 0.7);
+    width: fit-content;
+    position: relative;
+    z-index: 10;
+    line-height: 1;
+  }
+
+  .sparkles-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+    display: block;
+  }
+
+  .ai-assistant-text {
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-white);
+    margin: 0;
+    line-height: 1;
+  }
+
+  /* =========================================
+     4. ABOUT HEADER SECTION
+     ========================================= */
+  .about-header {
+    text-align: center;
+    margin-bottom: 64px;
+    padding: 0 16px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-title {
+    font-family: var(--font-main);
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-white);
+    margin: 0 0 16px 0;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .about-title-highlight {
+    color: var(--color-primary);
+  }
+
+  .about-subtitle {
+    font-family: var(--font-main);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-gray);
+    margin: 0 0 32px 0;
+    padding: 1% 10%;
+    position: relative;
+    z-index: 1;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Utility classes for responsive text switching */
+  .about-subtitle-mobile { display: none; }
+  .about-subtitle-desktop { display: block; }
+
+  /* Mobile Header Overrides */
+  @media (max-width: 767px) {
+    .about-header {
+      margin-bottom: 48px;
+      padding: 0;
+    }
+
+    .about-title {
+      font-size: 36px;
+      line-height: 1.3;
+      margin-bottom: 16px;
+      padding: 0 30px;
+    }
+
+    .about-subtitle-desktop { display: none; }
+
+    .about-subtitle-mobile {
+      display: block;
+      font-size: 16px;
+      padding: 0 30px;
+    }
+  }
+
+  /* =========================================
+     5. BLOG LIST GRID
+     ========================================= */
+  .blog-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 16px;
+    margin: 0 auto 80px;
+    max-width: 1200px;
+  }
+
+  @media (min-width: 768px) {
+    .blog-list {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .blog-list {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+  }
+
+  /* =========================================
+     6. BLOG CARD ITEM – Estilo premium (gradiente, sombra, sin borde)
+     ========================================= */
+  .blog-list .items {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    border: none;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    min-height: 0;
+    background: linear-gradient(180deg, rgb(24, 82, 52) 0%, rgb(21, 54, 37) 22%, rgb(23, 35, 29) 48%, rgb(26, 26, 26) 72%, var(--color-bg-dark) 100%);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18), 0 1px 4px rgba(0, 0, 0, 0.08);
+
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+
+  .blog-list .items:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22), 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Imagen: sin borde, esquinas superiores redondeadas */
+  .blog-list .items img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    background: rgba(19, 19, 19, 0.4);
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 1.5rem 1.5rem 0 0;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 768px) {
+    .blog-list .items img { height: 220px; }
+  }
+
+  /* Zona título + texto: bloque oscuro legible sobre el gradiente */
+  .blog-list .items .blog-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 18px 20px 20px;
+    background: linear-gradient(180deg, rgba(20, 24, 22, 0.85) 0%, rgba(15, 18, 16, 0.98) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    flex: 1;
+    min-height: 0;
+  }
+
+  .blog-list .items:hover .blog-card-body {
+    border-top-color: rgba(2, 251, 126, 0.12);
+  }
+
+  /* Título: como antes (2 líneas) */
+  .blog-list .items .title {
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.4;
+    color: var(--text-white);
+    margin: 0;
+    padding: 0;
+    transition: color 0.2s ease;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .blog-list .items:hover .title {
+    color: var(--color-primary);
+  }
+
+  /* Texto de abajo: truncado a una línea */
+  .blog-list .items .mini-description {
+    font-family: var(--font-main);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-gray);
+    margin: 0;
+    padding: 0;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Mobile: cards más estrechas (28px cada lado) y ajustes de card */
+  @media (max-width: 767px) {
+    .blog-list {
+      padding: 0 28px;
+      gap: 20px;
+    }
+    .blog-list .items {
+      border-radius: 12px;
+    }
+    .blog-list .items img {
+      height: 180px;
+      border-radius: 12px 12px 0 0;
+    }
+    .blog-list .items .blog-card-body {
+      padding: 14px 16px 16px;
+      gap: 4px;
+    }
+    .blog-list .items .title {
+      font-size: 15px;
+    }
+    .blog-list .items .mini-description {
+      font-size: 12px;
+    }
+  }
+
+  /* =========================================
+     7. ANIMATIONS
+     ========================================= */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Staggered Delays */
+  .blog-list .items:nth-child(1) { animation-delay: 0.05s; }
+  .blog-list .items:nth-child(2) { animation-delay: 0.1s; }
+  .blog-list .items:nth-child(3) { animation-delay: 0.15s; }
+  .blog-list .items:nth-child(4) { animation-delay: 0.2s; }
+  .blog-list .items:nth-child(5) { animation-delay: 0.25s; }
+  .blog-list .items:nth-child(6) { animation-delay: 0.3s; }
+
+  /* =========================================
+     8. PAGINATION
+     ========================================= */
+  .pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0 1rem;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .pagination-numbers-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  .pagination-number,
+  .pagination-button {
+    font-family: var(--font-main);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1;
+    background: rgba(25, 25, 25, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    height: 40px;
+    min-width: 40px;
+    color: var(--text-white);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Pagination Button (Prev/Next) */
+  .pagination-button {
+    width: 40px;
+    padding: 0;
+  }
+
+  .pagination-button:hover:not(:disabled) {
+    background: rgba(25, 25, 25, 0.8);
+    border-color: rgba(2, 251, 126, 0.3);
+  }
+
+  .pagination-button:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  .pagination-button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: rgba(25, 25, 25, 0.3);
+  }
+
+  .pagination-button:disabled img {
+    filter: invert(52%) sepia(1%) saturate(0%) hue-rotate(25deg) brightness(96%) contrast(87%);
+  }
+
+  /* Pagination Number */
+  .pagination-number {
+    padding: 0 12px;
+  }
+
+  .pagination-number:hover:not(.active) {
+    background: rgba(25, 25, 25, 0.8);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+  }
+
+  .pagination-number.active {
+    color: rgb(25, 25, 25);
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  /* Accessibility */
+  .pagination-button:focus-visible,
+  .pagination-number:focus-visible {
+    outline: 2px solid rgba(2, 251, 126, 0.5);
+    outline-offset: 2px;
+  }
+
+  .pagination-ellipsis {
+    font-family: var(--font-main);
+    font-size: 14px;
+    color: var(--text-gray);
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    user-select: none;
+  }

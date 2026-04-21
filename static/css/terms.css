@@ -1,0 +1,376 @@
+/**
+ * /terms — Términos y condiciones generales de uso
+ * Tipografía y acabados alineados con About / FAQ (DM Sans, verde marca).
+ */
+
+.terms-page {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 72px 20px 5rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .terms-page {
+    padding: 88px 32px 6rem;
+  }
+}
+
+/* Badge (mismo patrón que About / FAQ) */
+.terms-page .ai-assistant-badge {
+  margin: 0 auto 24px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  border: 1px solid rgb(44, 44, 44);
+  background-color: rgba(25, 25, 25, 0.7);
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.terms-page .sparkles-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.terms-page .ai-assistant-text {
+  font-size: 14px;
+  color: rgb(227, 227, 227);
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* Hero */
+.terms-hero {
+  text-align: center;
+  margin-bottom: 2.25rem;
+  padding: 0 8px;
+}
+
+.terms-main-title {
+  margin: 0 0 1rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #fafafa;
+}
+
+.terms-title-highlight {
+  color: rgb(2, 251, 126);
+}
+
+.terms-hero-meta {
+  margin: 0;
+  max-width: 36rem;
+  margin-inline: auto;
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgb(163, 163, 163);
+}
+
+/* Document card */
+.terms-layout {
+  width: 100%;
+}
+
+.terms-document {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(23, 23, 23, 0.55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem 1.125rem;
+  box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.45);
+}
+
+@media (min-width: 768px) {
+  .terms-document {
+    padding: 2.5rem 2.75rem;
+  }
+}
+
+/* Prose */
+.terms-document p {
+  margin: 0;
+  margin-bottom: 1rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.68;
+  color: rgb(212, 212, 212);
+}
+
+.terms-document p:first-of-type {
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  color: rgb(245, 245, 245);
+}
+
+.terms-document h2 {
+  margin: 2.25rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(2, 251, 126, 0.2);
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+  line-height: 1.35;
+  color: #fafafa;
+}
+
+.terms-document h3 {
+  margin: 1.75rem 0 0.75rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  color: rgb(229, 229, 229);
+}
+
+.terms-document ol {
+  margin: 0 0 1.25rem;
+  padding-left: 1.35rem;
+  list-style-type: decimal;
+}
+
+.terms-document ol li {
+  margin-bottom: 0.85rem;
+  padding-left: 0.35rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.68;
+  color: rgb(212, 212, 212);
+}
+
+.terms-document ol li::marker {
+  color: rgb(2, 251, 126);
+  font-weight: 600;
+}
+
+.terms-document ul,
+.terms-privacy-list {
+  margin: 0 0 1.25rem;
+  padding-left: 1.25rem;
+  list-style-type: disc;
+}
+
+.terms-document ul li,
+.terms-privacy-list li {
+  margin-bottom: 0.85rem;
+  padding-left: 0.35rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.68;
+  color: rgb(212, 212, 212);
+}
+
+.terms-document ul li::marker,
+.terms-privacy-list li::marker {
+  color: rgb(2, 251, 126);
+}
+
+.terms-document a {
+  color: rgb(2, 251, 126);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.terms-document a:hover {
+  color: rgb(130, 255, 190);
+}
+
+.terms-document br {
+  display: none;
+}
+
+/* Vigencia + historial (privacidad) */
+.terms-meta-panel {
+  margin-top: 1.75rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(18, 18, 18, 0.65);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 1.25rem 1.125rem 1.5rem;
+  box-shadow: 0 16px 40px -20px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 768px) {
+  .terms-meta-panel {
+    padding: 1.5rem 2rem 1.75rem;
+  }
+}
+
+.terms-meta-panel-title {
+  margin: 0 0 0.75rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2.2vw, 1.25rem);
+  color: #fafafa;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(2, 251, 126, 0.2);
+}
+
+.terms-meta-panel-subtitle {
+  margin: 1.5rem 0 0.75rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: rgb(229, 229, 229);
+}
+
+.terms-meta-panel-text {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: rgb(212, 212, 212);
+}
+
+.terms-version-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.terms-version-list li {
+  margin: 0;
+  padding: 0;
+}
+
+.terms-version-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: rgb(2, 251, 126);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(2, 251, 126, 0.35);
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.terms-version-list a:hover {
+  color: rgb(130, 255, 190);
+  border-bottom-color: rgba(130, 255, 190, 0.5);
+}
+
+.terms-version-list a::after {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-left: 2px;
+  background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M7 17L17 7M17 7H7M17 7V17'/%3E%3C/svg%3E") center / contain no-repeat;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M7 17L17 7M17 7H7M17 7V17'/%3E%3C/svg%3E") center / contain no-repeat;
+  opacity: 0.85;
+}
+
+/* Contrato Vector Capital (/contract) */
+.terms-contract-doc-title {
+  text-align: center;
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  line-height: 1.45;
+  margin: 0 0 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(2, 251, 126, 0.25);
+  color: #fafafa;
+}
+
+.terms-contract-lead {
+  font-weight: 500;
+  color: rgb(235, 235, 235);
+}
+
+.terms-contract-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+}
+
+.terms-contract-table th,
+.terms-contract-table td {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+  color: rgb(212, 212, 212);
+}
+
+.terms-contract-table th {
+  width: 32%;
+  max-width: 11rem;
+  background: rgba(2, 251, 126, 0.06);
+  font-weight: 600;
+  color: rgb(229, 229, 229);
+}
+
+.terms-contract-table-vector {
+  margin-top: 0.5rem;
+}
+
+.terms-contract-table-wide {
+  font-size: 0.88rem;
+}
+
+@media (min-width: 768px) {
+  .terms-contract-table-wide {
+    font-size: 0.95rem;
+  }
+}
+
+.terms-annex-title {
+  margin: 2.5rem 0 0.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+  color: #fafafa;
+}
+
+.terms-annex-subtitle {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(2, 251, 126);
+}
+
+.terms-signature-block {
+  margin: 1.25rem 0;
+  padding: 1rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.terms-signature-block:last-child {
+  border-bottom: none;
+}
+
+.terms-contract-place {
+  margin: 1.5rem 0 1rem;
+}

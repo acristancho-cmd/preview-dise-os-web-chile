@@ -1,0 +1,296 @@
+$white: #FFFFFF;
+$gray:  #D3D0D0;
+$neutral700: #333333;
+$neutral900: #191919;
+$neutral50:  #E3E3E3;
+$neutral100: #CACACA;
+$neutral200: #B0B0B0;
+$neutral300: #979797;
+$neutral400: #818080;
+$neutral500: #666666;
+$neutral600: #4C4C4C;
+$neutral700: #333333;
+$neutral800: #262626;
+$neutral900: #191919;
+$pro: #F4C228;
+$primary50: #F2FFF9;
+$primary100:#C2FEE0;
+$primary200: #92FDC8;
+$primary300: #62FDAF;
+$primary400 : #32FC97;
+$primary500: #02FB7E;
+$primary600:#03CA62;
+$primary700: #03974A;
+$primary800: #024C25;
+$primary900: #002612;
+$blue200 : #95DCFF;
+$blue400 : #0089FF;
+$blue600 : #0A74CF;
+$red300: #FF6679;
+$red500: #FF263A;
+$yellow700: #F7C737;
+$orange500: #FF7F00;
+$purple400: #653CFB;
+
+@font-face {
+    font-family: DM Sans;
+    src: url('/static/fonts/DMSans-Regular.ttf');
+ }
+@font-face {
+    font-family: Formula Condensed;
+    src: url('/static/fonts/FormulaCondensed-Regular.otf');
+}
+
+// Typography Desktop
+@mixin desktop-h1-bold {
+    font-family: 'Formula Condensed';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 130%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+@mixin desktop-h2-regular {
+    font-family: 'Formula Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 130%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+@mixin desktop-h2-bold {
+    font-family: 'Formula Condensed';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 130%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+@mixin desktop-h3-bold {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 150%;
+}
+
+@mixin desktop-body-1-regular {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+}
+
+@mixin desktop-body-1-bold {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+}
+@mixin desktop-body-2-regular{
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+}
+
+@mixin desktop-body-2-bold {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 150%;
+}
+
+@mixin desktop-caption-regular{
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+}
+
+@mixin desktop-caption-bold{
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 150%;
+}
+
+// Typography Mobile
+
+@mixin  mobile-h1-bold{
+    font-family: 'Formula Condensed';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 130%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+@mixin mobile-h2-regular {
+    font-family: 'Formula Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 130%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+@mixin mobile-h2-bold {
+    font-family: 'Formula Condensed';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 130%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+@mixin mobile-h3-bold {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+}
+
+@mixin mobile-body-1-regular {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+}
+
+@mixin mobile-body-1-bold {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 150%;
+}
+
+@mixin mobile-body-2-regular {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+@mixin mobile-body-2-bold {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+@mixin mobile-caption-regular {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+}
+
+@mixin mobile-caption-bold {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 150%;
+}
+
+//size
+@mixin display-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.button-solid {
+    @include mobile-body-2-bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: $neutral900;
+    padding: 16px 32px;
+    gap: 8px;
+    width: 171px;
+    height: 56px;
+    border-radius: 30px;
+    cursor: pointer;
+    border: 0;
+    background: $primary500;
+    touch-action: manipulation;
+    transition: all .5s;
+}
+
+.button-solid:hover {
+    background: $primary50;
+}
+
+.button-solid:disabled {
+    background: $neutral700;
+    color: $neutral200;
+}
+
+.button-solid:disabled .button-solid-icon {
+    filter: invert(95%) sepia(0%) saturate(2581%) hue-rotate(0deg) brightness(76%) contrast(89%);
+}
+
+.button-stroke {
+    @include mobile-body-2-bold;
+    color: $primary500;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 16px 32px;
+    gap: 8px;
+    width: 171px;
+    height: 56px;
+    border: 1px solid $primary500;
+    border-radius: 30px;
+    cursor: pointer;
+    background: transparent;
+    touch-action: manipulation;
+    transition: all .5s;
+    user-select: none;
+}
+
+.button-stroke .button-stroke-icon {
+    filter: invert(77%) sepia(80%) saturate(2895%) hue-rotate(95deg) brightness(105%) contrast(98%);
+}
+
+.button-stroke:hover {
+    color: $primary50;
+    border: 1px solid $primary50;
+}
+
+.button-stroke:hover .button-stroke-icon {
+    filter: invert(89%) sepia(13%) saturate(281%) hue-rotate(80deg) brightness(110%) contrast(109%);
+}
+
+.button-stroke:disabled {
+    color: $neutral200;
+    border: 1px solid $neutral200;
+}
+
+.button-stroke:disabled .button-stroke-icon {
+    filter: invert(94%) sepia(0%) saturate(306%) hue-rotate(209deg) brightness(78%) contrast(79%);
+}

@@ -1,0 +1,20 @@
+{% extends "_base.html" %}
+{% block title %}Rutas de aprendizaje{% endblock %}
+{% block description %}Rutas de aprendizaje - trii{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/static/css/copilot-rutas-aprendizaje.css">
+{% endblock %}
+{% block content %}
+{% from '/components/navbar.html' import navbar %}
+{% from '/components/footer.html' import footer %}
+<header>
+   {{ navbar() }}
+</header>
+<section class="copilot-page copilot-rutas-aprendizaje">
+   <div class="copilot-page-container">
+      <h1 class="copilot-page-title">Rutas de aprendizaje</h1>
+   </div>
+</section>
+{{ footer() }}
+{% endblock %}

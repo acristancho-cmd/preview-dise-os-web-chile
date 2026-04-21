@@ -1,0 +1,559 @@
+{% extends "_base.html" %}
+{% block title %}Quiénes somos | trii Chile{% endblock %}
+{% block description %}Conoce a trii, la plataforma de inversión líder en Chile. Democratizamos el acceso al mercado bursátil: acciones, fondos y ETFs desde $4.000 CLP, respaldado por Vector Capital y regulado por la CMF.{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/static/css/about.css">
+{% endblock %}
+{% block content %}
+{% from '/components/navbar.html' import navbar %}
+{% from '/components/footer.html' import footer %}
+<header>
+   {{navbar ()}}
+</header>
+
+{# AI Assistant Badge - Nuestra Historia #}
+<div class="ai-assistant-badge">
+    <svg class="sparkles-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L13.09 8.26L19 9L13.09 9.74L12 16L10.91 9.74L5 9L10.91 8.26L12 2Z" fill="rgb(2, 251, 126)"/>
+        <path d="M19 2L19.59 4.59L22 5.18L19.59 5.77L19 8.36L18.41 5.77L16 5.18L18.41 4.59L19 2Z" fill="rgb(2, 251, 126)"/>
+        <path d="M5 2L5.59 4.59L8 5.18L5.59 5.77L5 8.36L4.41 5.77L2 5.18L4.41 4.59L5 2Z" fill="rgb(2, 251, 126)"/>
+    </svg>
+    <p class="ai-assistant-text">Nuestra historia</p>
+</div>
+
+{# About Header Section #}
+<section class="about-header">
+    <h1 class="about-title">
+        Somos <span class="about-title-highlight">trii</span>
+    </h1>
+    <p class="about-subtitle">Somos trii, una Fintech que democratiza el acceso al mercado bursátil de Chile, de una forma amigable, fácil de entender, accesible y barata</p>
+</section>
+
+{# Statistics Section #}
+<section class="about-stats">
+    <div class="about-stats-grid">
+        <article class="about-stats-card" style="background: rgba(23, 23, 23, 0.3); border-color: rgba(2, 251, 126, 0.1);">
+            <p class="about-stats-text-top">Somos</p>
+            <div class="about-stats-number">+700K</div>
+            <p class="about-stats-text-bottom">inversionistas</p>
+        </article>
+
+        <article class="about-stats-card" style="background: rgba(23, 23, 23, 0.3); border-color: rgba(2, 251, 126, 0.1);">
+            <p class="about-stats-text-top">Somos</p>
+            <div class="about-stats-number">+10K</div>
+            <p class="about-stats-text-bottom">inversionistas triipro</p>
+        </article>
+
+        <article class="about-stats-card" style="background: rgba(23, 23, 23, 0.3); border-color: rgba(2, 251, 126, 0.1);">
+            <p class="about-stats-text-top">Estamos en</p>
+            <div class="about-stats-number">3</div>
+            <p class="about-stats-text-bottom">países de latinoamérica</p>
+        </article>
+    </div>
+</section>
+
+{# Partners Section #}
+<section class="about-partners" aria-labelledby="partners-heading">
+    <div class="about-partners-container">
+        {# Header #}
+        <div class="about-partners-header">
+            <h2 id="partners-heading" class="about-partners-title">Nuestros aliados estratégicos</h2>
+            <p class="about-partners-subtitle">En trii estamos trabajando para lograr convenios y trabajar con aliados estratégicos que le permitan a nuestros usuarios tener el mejor servicio.</p>
+        </div>
+
+        {# Carousel #}
+        <div class="about-partners-carousel">
+            <div class="about-partners-scroll">
+                {# Partner Cards - Primera serie con imágenes originales #}
+                <article class="about-partner-card">
+                    <div class="about-partner-content">
+                        <img src="/static/images/logos/Bolsa%20de%20Santiago%20-%20logo.svg" alt="Bolsa de Santiago" class="about-partner-logo" width="120" height="40" loading="lazy" decoding="async">
+                        <span class="about-partner-type">Bolsa</span>
+                    </div>
+                </article>
+
+                <article class="about-partner-card">
+                    <div class="about-partner-content">
+                        <img src="/static/images/logos/Alpaca-logo.svg" alt="Alpaca" class="about-partner-logo" width="120" height="40" loading="lazy" decoding="async">
+                        <span class="about-partner-type">Broker</span>
+                    </div>
+                </article>
+
+                <article class="about-partner-card">
+                    <div class="about-partner-content">
+                        <img src="/static/images/logos/Fintoc-Chile-logo.svg" alt="Fintoc Chile" class="about-partner-logo" width="120" height="40" loading="lazy" decoding="async">
+                        <span class="about-partner-type">Pagos</span>
+                    </div>
+                </article>
+
+                <article class="about-partner-card">
+                    <div class="about-partner-content">
+                        <img src="/static/images/logos/YC-logo-blanco.svg" alt="Y Combinator" class="about-partner-logo" width="120" height="40" loading="lazy" decoding="async">
+                        <span class="about-partner-type">Aceleradora</span>
+                    </div>
+                </article>
+
+                <article class="about-partner-card">
+                    <div class="about-partner-content">
+                        <img src="/static/images/logos/Vector%20Capital%20-%20logo.svg" alt="Vector Capital" class="about-partner-logo" width="120" height="40" loading="lazy" decoding="async">
+                        <span class="about-partner-type">Corredora</span>
+                    </div>
+                </article>
+
+                <article class="about-partner-card">
+                    <div class="about-partner-content">
+                        <img src="/static/images/logos/cmf_logo.svg" alt="CMF" class="about-partner-logo" width="120" height="40" loading="lazy" decoding="async">
+                        <span class="about-partner-type">Regulador</span>
+                    </div>
+                </article>
+
+                {# Partner Cards - Serie duplicada completa para efecto infinito #}
+                <article class="about-partner-card">
+                    <div class="about-partner-content">
+                        <img src="/static/images/logos/Bolsa%20de%20Santiago%20-%20logo.svg" alt="Bolsa de Santiago" class="about-partner-logo" width="120" height="40" loading="lazy" decoding="async">
+                        <span class="about-partner-type">Bolsa</span>
+                    </div>
+                </article>
+
+                <article class="about-partner-card">
+                    <div class="about-partner-content">
+                        <img src="/static/images/logos/Alpaca-logo.svg" alt="Alpaca" class="about-partner-logo" width="120" height="40" loading="lazy" decoding="async">
+                        <span class="about-partner-type">Broker</span>
+                    </div>
+                </article>
+
+                <article class="about-partner-card">
+                    <div class="about-partner-content">
+                        <img src="/static/images/logos/Fintoc-Chile-logo.svg" alt="Fintoc Chile" class="about-partner-logo" width="120" height="40" loading="lazy" decoding="async">
+                        <span class="about-partner-type">Pagos</span>
+                    </div>
+                </article>
+
+                <article class="about-partner-card">
+                    <div class="about-partner-content">
+                        <img src="/static/images/logos/YC-logo-blanco.svg" alt="Y Combinator" class="about-partner-logo" width="120" height="40" loading="lazy" decoding="async">
+                        <span class="about-partner-type">Aceleradora</span>
+                    </div>
+                </article>
+
+                <article class="about-partner-card">
+                    <div class="about-partner-content">
+                        <img src="/static/images/logos/Vector%20Capital%20-%20logo.svg" alt="Vector Capital" class="about-partner-logo" width="120" height="40" loading="lazy" decoding="async">
+                        <span class="about-partner-type">Corredora</span>
+                    </div>
+                </article>
+
+                <article class="about-partner-card">
+                    <div class="about-partner-content">
+                        <img src="/static/images/logos/cmf_logo.svg" alt="CMF" class="about-partner-logo" width="120" height="40" loading="lazy" decoding="async">
+                        <span class="about-partner-type">Regulador</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        {# Trust Badges #}
+        <aside class="about-trust-badges">
+            <div class="about-trust-badge">
+                <svg class="about-trust-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z" fill="rgb(2, 251, 126)"/>
+                </svg>
+                <span class="about-trust-text">Regulado</span>
+            </div>
+
+            <div class="about-trust-badge">
+                <svg class="about-trust-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z" fill="rgb(2, 251, 126)"/>
+                </svg>
+                <span class="about-trust-text">Miembro de la Bolsa de Chile</span>
+            </div>
+
+            <div class="about-trust-badge">
+                <svg class="about-trust-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z" fill="rgb(2, 251, 126)"/>
+                </svg>
+                <span class="about-trust-text">Operaciones respaldadas por CMF</span>
+            </div>
+        </aside>
+    </div>
+</section>
+
+{# Sección "Lo que dice la prensa" #}
+<section class="about-media-section" aria-labelledby="media-heading">
+    <div>
+        {# Header #}
+        <div class="about-media-header">
+            <h2 id="media-heading" class="about-media-title">Lo que dice la prensa</h2>
+            <p class="about-media-subtitle">
+                Nuestro impacto en el ecosistema fintech ha sido reconocido por medios líderes.
+            </p>
+        </div>
+
+        {# Grid de Cards #}
+        <div class="about-media-grid">
+            {# Forbes Chile Card #}
+            <article class="about-media-card group">
+                <img src="/static/images/logos_revistas/forbes-chile.png"
+                     alt="Forbes" class="about-media-logo" width="200" height="88" loading="lazy" decoding="async">
+                <h3 class="about-media-card-title">
+                    Trii entra a Chile permitiendo la compra y venta de acciones desde el celular
+                </h3>
+                <a href="https://forbes.cl/negocios/2022-07-28/trii-entra-a-chile-permitiendo-la-compra-y-venta-de-acciones-desde-el-celular/"
+                   target="_blank" rel="noopener noreferrer" class="about-media-link">
+                    Leer artículo completo
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="about-media-link-icon">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </article>
+
+            {# Rankia Card #}
+            <article class="about-media-card group">
+                <img src="/static/images/logos_revistas/rankia.png"
+                     alt="Rankia" class="about-media-logo" width="200" height="88" loading="lazy" decoding="async">
+                <h3 class="about-media-card-title">
+                    trii Chile: ¿es buena opción para invertir en acciones, ETFs y fondos?
+                </h3>
+                <a href="https://www.rankia.cl/blog/analisis-brokers/5587032-analisis-trii-chile-acciones-fondos-mutuos-comisiones"
+                   target="_blank" rel="noopener noreferrer" class="about-media-link">
+                    Leer artículo completo
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="about-media-link-icon">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </article>
+
+            {# Bloomberg Línea Card #}
+            <article class="about-media-card group">
+                <img src="/static/images/logos_revistas/bloomberg.png"
+                     alt="Bloomberg Línea" class="about-media-logo" width="200" height="88" loading="lazy" decoding="async">
+                <h3 class="about-media-card-title">
+                    Fintech colombiana Trii logra punto de equilibrio y apunta a expansión a México en 2026
+                </h3>
+                <a href="https://www.bloomberglinea.com/latinoamerica/colombia/fintech-colombiana-trii-logra-punto-de-equilibrio-y-apunta-a-expansion-a-mexico-en-2026/"
+                   target="_blank" rel="noopener noreferrer" class="about-media-link">
+                    Leer artículo completo
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="about-media-link-icon">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </article>
+        </div>
+
+    </div>
+</section>
+
+{# Sección "Nuestra Historia" - Timeline #}
+<section class="about-timeline-section" aria-labelledby="timeline-heading">
+    <div class="mx-auto px-4">
+        {# Header #}
+        <header class="about-timeline-header">
+            <h2 id="timeline-heading" class="about-timeline-title">Nuestra Historia</h2>
+            <p class="about-timeline-subtitle">
+                El camino que nos ha llevado a democratizar las inversiones en Latinoamérica
+            </p>
+        </header>
+
+        {# Versión Móvil #}
+        <div class="about-timeline-mobile">
+            {# Línea Vertical #}
+            <div class="about-timeline-mobile-line"></div>
+
+            {# Cards Verticales #}
+            <div class="about-timeline-mobile-cards">
+                {# 2021 - Fundación de trii #}
+                <article class="about-timeline-mobile-card" style="animation-delay: 0s;">
+                    <div class="about-timeline-mobile-dot"></div>
+                    <time class="about-timeline-badge">2021</time>
+                    <h3 class="about-timeline-mobile-title">Fundación de trii</h3>
+                    <p class="about-timeline-mobile-description">Iniciamos nuestra misión de democratizar las inversiones.</p>
+                </article>
+
+                {# 2022 - Primeros 100K usuarios #}
+                <article class="about-timeline-mobile-card" style="animation-delay: 0.15s;">
+                    <div class="about-timeline-mobile-dot"></div>
+                    <time class="about-timeline-badge">2022</time>
+                    <h3 class="about-timeline-mobile-title">Primeros 100K usuarios</h3>
+                    <p class="about-timeline-mobile-description">Alcanzamos los 100,000 inversionistas activos.</p>
+                </article>
+
+                {# 2023 - Y Combinator #}
+                <article class="about-timeline-mobile-card" style="animation-delay: 0.3s;">
+                    <div class="about-timeline-mobile-dot"></div>
+                    <time class="about-timeline-badge">2023</time>
+                    <h3 class="about-timeline-mobile-title">Y Combinator</h3>
+                    <p class="about-timeline-mobile-description">Respaldo de Y Combinator y ronda de inversión.</p>
+                </article>
+
+                {# 2024 - Expansión regional #}
+                <article class="about-timeline-mobile-card" style="animation-delay: 0.45s;">
+                    <div class="about-timeline-mobile-dot"></div>
+                    <time class="about-timeline-badge">2024</time>
+                    <h3 class="about-timeline-mobile-title">Expansión regional</h3>
+                    <p class="about-timeline-mobile-description">Operaciones en 3 países de Latinoamérica.</p>
+                </article>
+
+                {# 2025 - +700K inversionistas #}
+                <article class="about-timeline-mobile-card" style="animation-delay: 0.6s;">
+                    <div class="about-timeline-mobile-dot"></div>
+                    <time class="about-timeline-badge">2025</time>
+                    <h3 class="about-timeline-mobile-title">+700K inversionistas</h3>
+                    <p class="about-timeline-mobile-description">Más de 700,000 usuarios activos.</p>
+                </article>
+            </div>
+        </div>
+
+        {# Versión Desktop #}
+        <div class="about-timeline-desktop">
+            {# Línea Horizontal #}
+            <div class="about-timeline-desktop-line"></div>
+
+            {# Grid de 5 Columnas #}
+            <div class="about-timeline-desktop-grid">
+                {# 2021 - Posición PAR (arriba) #}
+                <article class="about-timeline-desktop-card about-timeline-desktop-card-top" style="animation-delay: 0s;">
+                    <div class="about-timeline-desktop-content">
+                        <time class="about-timeline-badge">2021</time>
+                        <h3 class="about-timeline-desktop-title">Fundación de trii</h3>
+                        <p class="about-timeline-desktop-description">Iniciamos nuestra misión de democratizar las inversiones.</p>
+                    </div>
+                    <div class="about-timeline-desktop-dot"></div>
+                </article>
+
+                {# 2022 - Posición IMPAR (abajo) #}
+                <article class="about-timeline-desktop-card about-timeline-desktop-card-bottom" style="animation-delay: 0.15s;">
+                    <div class="about-timeline-desktop-dot"></div>
+                    <div class="about-timeline-desktop-content">
+                        <time class="about-timeline-badge">2022</time>
+                        <h3 class="about-timeline-desktop-title">Primeros 100K usuarios</h3>
+                        <p class="about-timeline-desktop-description">Alcanzamos los 100,000 inversionistas activos.</p>
+                    </div>
+                </article>
+
+                {# 2023 - Posición PAR (arriba) #}
+                <article class="about-timeline-desktop-card about-timeline-desktop-card-top" style="animation-delay: 0.3s;">
+                    <div class="about-timeline-desktop-content">
+                        <time class="about-timeline-badge">2023</time>
+                        <h3 class="about-timeline-desktop-title">Y Combinator</h3>
+                        <p class="about-timeline-desktop-description">Respaldo de Y Combinator y ronda de inversión.</p>
+                    </div>
+                    <div class="about-timeline-desktop-dot"></div>
+                </article>
+
+                {# 2024 - Posición IMPAR (abajo) #}
+                <article class="about-timeline-desktop-card about-timeline-desktop-card-bottom" style="animation-delay: 0.45s;">
+                    <div class="about-timeline-desktop-dot"></div>
+                    <div class="about-timeline-desktop-content">
+                        <time class="about-timeline-badge">2024</time>
+                        <h3 class="about-timeline-desktop-title">Expansión regional</h3>
+                        <p class="about-timeline-desktop-description">Operaciones en 3 países de Latinoamérica.</p>
+                    </div>
+                </article>
+
+                {# 2025 - Posición PAR (arriba) #}
+                <article class="about-timeline-desktop-card about-timeline-desktop-card-top" style="animation-delay: 0.6s;">
+                    <div class="about-timeline-desktop-content">
+                        <time class="about-timeline-badge">2025</time>
+                        <h3 class="about-timeline-desktop-title">+700K inversionistas</h3>
+                        <p class="about-timeline-desktop-description">Más de 700,000 usuarios activos.</p>
+                    </div>
+                    <div class="about-timeline-desktop-dot"></div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# Sección "Inversionistas de clase mundial" #}
+<section class="about-investors-section" aria-labelledby="investors-heading">
+    <div class="mx-auto px-4">
+        {# Header #}
+        <header class="about-investors-header">
+            <h2 id="investors-heading" class="about-investors-title">Inversionistas de clase mundial</h2>
+            <p class="about-investors-subtitle">
+                Respaldados por los fondos de inversión más prestigiosos del ecosistema tecnológico global
+            </p>
+            <div class="about-investors-separator"></div>
+        </header>
+
+        {# Grid de Tarjetas #}
+        <div class="about-investors-grid">
+            {# Y Combinator #}
+            <article class="about-investors-card group">
+                <div class="about-investors-card-content">
+                    <div class="about-investors-logo-container">
+                        <img src="/static/images/logo_inversionistas/yc.png"
+                             alt="Logo de Y Combinator, La aceleradora de startups más prestigiosa del mundo"
+                             class="about-investors-logo"
+                             width="200" height="88" loading="eager" decoding="async">
+                    </div>
+                    <h3 class="about-investors-name">Y Combinator</h3>
+                    <p class="about-investors-description">La aceleradora de startups más prestigiosa del mundo</p>
+                    <div class="about-investors-badge-container">
+                        <span class="about-investors-badge">W23 Batch</span>
+                    </div>
+                </div>
+            </article>
+
+            {# Grupo Bancolombia #}
+            <article class="about-investors-card group">
+                <div class="about-investors-card-content">
+                    <div class="about-investors-logo-container">
+                        <img src="/static/images/logo_inversionistas/bancolombia.png"
+                             alt="Logo de Grupo Bancolombia, inversor estratégico de trii"
+                             class="about-investors-logo"
+                             width="200" height="88" loading="eager" decoding="async">
+                    </div>
+                    <h3 class="about-investors-name">Grupo Bancolombia</h3>
+                    <p class="about-investors-description">Grupo financiero líder en Latam</p>
+                    <div class="about-investors-badge-container">
+                        <span class="about-investors-badge">Inversor estratégico</span>
+                    </div>
+                </div>
+            </article>
+
+            {# Harvard #}
+            <article class="about-investors-card group">
+                <div class="about-investors-card-content">
+                    <div class="about-investors-logo-container">
+                        <img src="/static/images/logo_inversionistas/harvard.png"
+                             alt="Logo de Harvard, Universidad de prestigio mundial"
+                             class="about-investors-logo"
+                             width="200" height="88" loading="eager" decoding="async">
+                    </div>
+                    <h3 class="about-investors-name">Harvard</h3>
+                    <p class="about-investors-description">Universidad de prestigio mundial</p>
+                    <div class="about-investors-badge-container">
+                        <span class="about-investors-badge">Respaldo académico</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+{# Sección "Seguridad" #}
+<section class="about-security-section" aria-labelledby="security-heading">
+    <div class="container mx-auto px-4">
+        <div class="about-security-grid">
+            {# Columna Izquierda - Texto #}
+            <div class="about-security-content">
+                <h2 id="security-heading" class="about-security-title">Seguridad</h2>
+                <div class="about-security-separator"></div>
+                <p class="about-security-description">
+                    Tu seguridad es nuestra prioridad. Protegemos tu información y tus inversiones con los más altos estándares de seguridad de la industria financiera.
+                </p>
+
+                {# Lista de Características #}
+                <div class="about-security-features">
+                    {# Encriptación de datos #}
+                    <div class="about-security-feature">
+                        <div class="about-security-feature-icon">
+                            <svg class="about-security-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM10 17L6 13L7.41 11.59L10 14.17L16.59 7.58L18 9L10 17Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="about-security-feature-text">
+                            <h3 class="about-security-feature-title">Encriptación de datos</h3>
+                            <p class="about-security-feature-description">Protegida con encriptación de nivel bancario</p>
+                        </div>
+                    </div>
+
+                    {# Autenticación segura #}
+                    <div class="about-security-feature">
+                        <div class="about-security-feature-icon">
+                            <svg class="about-security-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 8H17V6C17 3.24 14.76 1 12 1S7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM12 17C10.9 17 10 16.1 10 15S10.9 13 12 13S14 13.9 14 15S13.1 17 12 17ZM15.1 8H8.9V6C8.9 4.29 10.29 2.9 12 2.9S15.1 4.29 15.1 6V8Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="about-security-feature-text">
+                            <h3 class="about-security-feature-title">Autenticación segura</h3>
+                            <p class="about-security-feature-description">Múltiples capas de seguridad</p>
+                        </div>
+                    </div>
+
+                    {# Cumplimiento regulatorio #}
+                    <div class="about-security-feature">
+                        <div class="about-security-feature-icon">
+                            <svg class="about-security-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2H6C4.9 2 4.01 2.9 4.01 4L4 20C4 21.1 4.89 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2ZM18 20H6V4H13V9H18V20ZM8 15.5L9.5 14L11 15.5L15.5 11L17 12.5L11 18.5L8 15.5Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="about-security-feature-text">
+                            <h3 class="about-security-feature-title">Cumplimiento regulatorio</h3>
+                            <p class="about-security-feature-description">Normativas financieras más estrictas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# Columna Derecha - Imagen #}
+            <div class="about-security-image-container">
+                <div class="about-security-image-card">
+                    <div class="about-security-image-area">
+                        <img src="/static/images/seguridad.png"
+                             alt="Seguridad trii - Protección de datos y inversiones"
+                             class="about-security-image"
+                             width="600" height="600" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# Sección "Comienza a invertir desde hoy" #}
+<section class="about-cta-section" aria-labelledby="cta-heading">
+    <div class="container mx-auto px-4 about-cta-container">
+        <div class="about-cta-grid">
+            {# Columna Izquierda - Mockup/Imagen #}
+            <div class="about-cta-image-column">
+                <div class="about-cta-image-card">
+                    <div class="about-cta-image-area">
+                        <img src="/static/images/trii_comienza_desde_hoy.png"
+                             alt="Conviértete en un triier - Comienza a invertir desde hoy"
+                             class="about-cta-image"
+                             width="600" height="600" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </div>
+
+            {# Columna Derecha - Contenido #}
+            <div class="about-cta-content">
+                {# Badge Animado #}
+                <div class="about-cta-badge">
+                    <div class="about-cta-badge-dot"></div>
+                    <span class="about-cta-badge-text">Únete a +700K inversionistas</span>
+                </div>
+
+                {# Título Principal #}
+                <h2 id="cta-heading" class="about-cta-title">
+                    Comienza a invertir <span class="about-cta-title-highlight">desde hoy</span>
+                </h2>
+
+                {# Descripción #}
+                <p class="about-cta-description">
+                    Sin comisiones ocultas. Sin mínimos complicados. Solo inversiones inteligentes.
+                </p>
+
+                {# Botones CTA #}
+                <div class="about-cta-buttons">
+                    <a href="https://web.trii.co/"
+                       class="about-cta-button-primary"
+                       aria-label="Iniciar sesión en trii">
+                        Iniciar Sesión
+                        <svg class="about-cta-button-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{{footer()}}
+
+{% endblock %}

@@ -1,0 +1,129 @@
+@import "config";
+
+.container {
+    display: flex;
+    gap: 132px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.we-are{
+    display: flex;
+    flex-direction: column;
+    padding-top:52px;
+    gap: 52px;
+    padding-left:16px;
+    padding-right: 16px;
+    align-items: center;
+}
+
+.we-are div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.we-are .title{
+    @include mobile-h1-bold;
+    margin: 0px;
+    color: $white;
+
+}
+
+.we-are .title span{
+    color: $primary500;
+}
+
+.we-are p{
+    @include mobile-body-1-regular;
+    color: $neutral50;
+    margin: 0px;
+}
+
+.we-are img {
+    width: 267.14px;
+    height: 220px;
+}
+
+.allies {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left:16px;
+    padding-right: 16px;
+}
+
+.allies-title{
+    position: relative;
+}
+
+.allies-title .title {
+  display: inline;
+    position: relative;
+    @include mobile-h2-bold;
+    margin: 0px;
+    color: $neutral50;
+    z-index: 1;
+}
+
+.allies-title hr{
+    position: absolute;
+    width: 115px;
+    height: 24px;
+    left: 128px;
+    bottom: 7px;
+    border: 0px;
+    background-color: rgba(3, 151, 74, 0.6);
+    z-index: 0;
+}
+
+.allies p {
+    @include mobile-body-2-regular;
+    color: $neutral50;
+    margin: 0px;
+}
+
+
+.carousel-we-are {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 32px;
+    margin-bottom: 132px;
+    text-align: center;
+    gap: 48px;
+    height: 144px;
+}
+
+.slider {
+    width: 100%;
+    height: auto;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.slider .slide-track {
+    display: flex;
+    animation: scroll 40s linear infinite;
+    -webkit-animation: scroll 40s linear infinite;
+    width: (calc(982.64px * 2));
+    height: 50px;
+    gap: 32px;
+    padding-left: 32px;
+}
+
+.slider .slide img {
+    height: 50px;
+}
+
+@keyframes scroll {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+        100% {
+            -webkit-transform: translateX(calc(-1190px));
+            transform: translateX(calc(-1190px));
+        }
+    }

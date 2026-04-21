@@ -1,0 +1,5 @@
+Para las rutas de diseño /blog-design: copiar aquí la imagen de diseño
+"Suspensión de negociación MGC" con el nombre:
+  design-mock-mgc-suspension.png
+
+Si no existe la imagen, la lista y la vista mostrarán un enlace roto hasta que la copies.

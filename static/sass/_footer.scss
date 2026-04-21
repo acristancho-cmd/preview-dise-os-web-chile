@@ -1,0 +1,103 @@
+@import "config";
+
+footer  {
+    @include display-column;
+    box-sizing: border-box;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 952px;
+    gap: 48px;
+    background-color: transparent;
+    padding: 48px 16px 56px;
+    border-top: 1px solid $neutral300;
+}
+
+.footer-container, .footer-terms {
+    @include display-column;
+    gap: 48px;
+}
+
+.footer-form {
+    width: 100%;
+    padding: 0px;
+    gap: 28px;
+}
+
+.footer-form-mail {
+    @include display-column;
+    gap: 12px;
+}
+
+.footer-form-mail .title {
+  display: inline;
+    @include mobile-body-2-bold;
+    color: $neutral50;
+    margin: 0px;
+}
+
+.footer-form-mail p {
+    @include mobile-body-2-regular;
+    color: $neutral50;
+    margin: 0px;
+}
+
+.footer-form form {
+    @include display-column;
+    gap: 24px;
+}
+
+.footer-main, .footer-legal {
+    @include display-column;
+    width: 100%;
+    padding: 0px;
+    gap: 12px;
+}
+
+.footer-main .title, .footer-legal .title {
+  display: inline;
+    @include mobile-caption-bold;
+    padding: 0px;
+    color: $neutral50;
+    margin: 0px;
+}
+
+.footer-main ul, .footer-legal ul {
+    @include display-column;
+    @include mobile-caption-regular;
+    color: $neutral300;
+    list-style: none;
+    gap: 8px;
+    padding: 0px;
+}
+
+.footer-main ul a, .footer-legal ul a {
+    text-decoration: none;
+    color: $neutral300;
+}
+
+.footer-networks{
+    @include display-column;
+    align-items: center;
+    width: 100%;
+    padding: 0px;
+    gap: 48px;
+}
+
+.footer-networks div {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    padding: 0;
+}
+
+.footer-networks div a {
+    width: 36px;
+    height: 36px;
+    background-color: $neutral700;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}

@@ -1,0 +1,101 @@
+@import "config";
+
+.header {
+    height: 70px;
+}
+
+.contact-container {
+    margin-top: 52px;
+    display: flex;
+    flex-direction: column;
+    gap: 132px;
+    margin-bottom: 132px;
+}
+
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.contact-message {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.work-with-us {
+    margin-bottom: 32px;
+}
+
+.contact-message .title {
+  display: inline;
+    @include mobile-h1-bold;
+    margin: 0px;
+    color: $white;
+    margin-bottom: 10px;
+}
+
+.contact-message .title span {
+    color: $primary500;
+}
+
+.contact-message div h3 {
+    @include mobile-h3-bold;
+    color: $neutral50;
+    margin: 0px;
+    padding-bottom:  20px;
+}
+
+.contact-message p {
+    @include mobile-body-1-regular;
+    color: $neutral50;
+    margin: 0px;
+    margin-bottom: 4px;
+}
+
+.contact-message p span {
+    color: $primary200;
+}
+
+.form-contact {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.form-contact form {
+    display: flex;
+    flex-direction: column;
+    gap:48px;
+}
+
+.input-group-message
+{
+    width: 100%;
+    height: 183px;
+}
+
+.input-field-message
+{
+    width: 100%;
+    height: 100%;
+}
+
+.contact-whatsapp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.contact-whatsapp .title {
+  display: inline;
+    @include mobile-h2-regular;
+    margin: 0px;
+    color: $white;
+    text-align: center;
+}
+
+.contact-whatsapp .title:nth-child(2){
+    margin-bottom: 20px;
+}

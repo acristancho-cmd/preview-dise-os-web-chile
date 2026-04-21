@@ -1,0 +1,73 @@
+{% macro footer() -%}
+<footer>
+
+    <div class="footer-container">
+        <div class="footer-terms">
+            <div class="footer-main">
+                <div class="title">Empresa</div>
+                <div>
+                    <ul>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/stock-list">Acciones</a></li>
+                        <li><a href="/about">Somos trii</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-contact-help">
+                <div class="title">Contacto y ayuda</div>
+                <div>
+                    <ul>
+                        <li><a href="/contact">Contacto</a></li>
+                        <li><a href="/faq">Ayuda</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <div class="title">Legal</div>
+                <div>
+                    <ul>
+                        <li><a href="/terms">Términos y Condiciones</a></li>
+                        <li><a href="/privacy">Política de Privacidad de Datos</a></li>
+                        <li><a href="/contract">Contrato de intermediacion Vector</a></li>
+                        <li><a href="/static/docs/codigo_de_buen_gobierno_V3.pdf">Código de buen gobierno</a></li>
+                        <li><a href="https://drive.google.com/file/d/1c5tGq18cvfEDKOnbyZN5qEre2rFXCpOD/view" target="_blank" rel="noopener noreferrer">Información relevante NCG502-202</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-form">
+
+            <div class="footer-form-mail">
+                <div class="title">¿Quieres estar al tanto?</div>
+                <p>Déjanos tu correo, y te contaremos todos nuestros pasos!</p>
+            </div>
+
+            <form>
+                <label for="email"></label>
+                <div class="input-group">
+                    <input type="email" name="email" id="email" class="input-field" placeholder="Escribe tu correo" autocomplete="off" >
+                    <div class="icon">
+                        <i><img src="/static/icons/icon_email.svg" alt=""></i>
+                    </div>
+                </div>
+                <input type="hidden" name="CSRFToken" value="{{token}}">
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAAAHVmbpfogFbYxO3"></div>
+                <input type="submit" value="Registrarme" class="button-stroke">
+            </form>
+        </div>
+    </div>
+
+    <div class="footer-networks">
+        <a href="/"><img src="/static/icons/trii_logo.svg" alt=""></a>
+        <div class="footer-networks-icons">
+            <a href="https://www.facebook.com/triichile/" target="_blank" rel="noopener noreferrer"><img src="/static/icons/icon_facebook.svg" alt=""></a>
+            <a href="https://www.instagram.com/triichile/" target="_blank" rel="noopener noreferrer"><img src="/static/icons/icon_instagram.svg" alt=""></a>
+            <a href="https://x.com/somostrii" target="_blank" rel="noopener noreferrer"><img src="/static/icons/icon_twitter.svg" alt=""></a>
+            <a href="https://www.tiktok.com/@trii_chile" target="_blank" rel="noopener noreferrer"><img src="/static/icons/icon_tiktok.svg" alt=""></a>
+            <a href="https://www.linkedin.com/company/somostrii" target="_blank" rel="noopener noreferrer"><img src="/static/icons/icon_linkedin.svg" alt=""></a>
+            <a href="https://www.youtube.com/c/SomosTrii"><img src="/static/icons/icon_youtube.svg" alt=""></a>
+        </div>
+    </div>
+
+</footer>
+{%- endmacro %}

@@ -1,0 +1,21 @@
+{% extends "_base.html" %}
+{% block title %}Página no encontrada | trii Chile{% endblock %}
+{% block description %}La página que buscas no existe. Vuelve al inicio de trii Chile y sigue invirtiendo en acciones, fondos y ETFs con las comisiones más bajas del mercado.{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/css/home.css">
+{{ super() }}
+{% endblock %}
+{% block content %}
+{% from '/components/navbar.html' import navbar %}
+{% from '/components/footer.html' import footer %}
+<header>
+   {{navbar ()}}
+</header>
+<section class="welcome">
+   <div class="welcome-text">
+      <div class="title">Pagina no encontrada</div>
+   </div>
+</section>
+{{footer()}}
+
+{% endblock %}

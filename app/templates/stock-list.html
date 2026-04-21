@@ -1,0 +1,919 @@
+{% extends "_base.html" %}
+{% block title %}Acciones locales y globales para invertir en Chile | trii{% endblock %}
+{% block description %}Invierte en acciones de la Bolsa de Santiago y mercados globales desde Chile con trii. La selección más amplia de acciones locales e internacionales, con las comisiones más bajas del mercado chileno.{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/static/css/stocks.css?v=3.9.0">
+<link rel="preconnect" href="https://s3.tradingview.com" crossorigin>
+<link rel="preconnect" href="https://widget.tradingview.com" crossorigin>
+<link rel="dns-prefetch" href="https://s3.tradingview.com">
+<link rel="dns-prefetch" href="https://widget.tradingview.com">
+<link rel="preload" href="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" as="script" crossorigin>
+<script src="/static/js/tab.js"></script>
+{% endblock %}
+{% block content %}
+{% from '/components/navbar.html' import navbar %}
+{% from '/components/footer.html' import footer %}
+<header>
+   {{navbar ()}}
+</header>
+
+<div class="ai-assistant-badge">
+   <svg class="sparkles-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <path d="M12 2L13.09 8.26L19 9L13.09 9.74L12 16L10.91 9.74L5 9L10.91 8.26L12 2Z" fill="rgb(2, 251, 126)"/>
+       <path d="M19 2L19.59 4.59L22 5.18L19.59 5.77L19 8.36L18.41 5.77L16 5.18L18.41 4.59L19 2Z" fill="rgb(2, 251, 126)"/>
+       <path d="M5 2L5.59 4.59L8 5.18L5.59 5.77L5 8.36L4.41 5.77L2 5.18L4.41 4.59L5 2Z" fill="rgb(2, 251, 126)"/>
+   </svg>
+   <p class="ai-assistant-text">Top stocks</p>
+</div>
+
+{# About Header Section #}
+<section class="about-header">
+   <h1 class="about-title">
+       Acciones <span class="about-title-highlight">disponibles</span>
+   </h1>
+   <p class="about-subtitle">Explora las acciones que tenemos disponibles para que puedas invertir, deposita dinero en tu cuenta y empieza a invertir en la acción que más te llame la atención.</p>
+</section>
+
+<section  class="stock-list">
+   <div class="stock-list-wrapper">
+      <div class="company-title" id="companies">
+         <div class="company-stats-widget">
+            <div class="stat-card stat-primary">
+               <div class="stat-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                     <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                     <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+               </div>
+               <div class="stat-content">
+                  <div class="stat-value" data-count="123">0</div>
+                  <div class="stat-label">Total Empresas</div>
+               </div>
+               <div class="stat-badge">Total</div>
+            </div>
+
+            <div class="stat-card stat-local">
+               <div class="stat-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.3639 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                     <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+               </div>
+               <div class="stat-content">
+                  <div class="stat-value" data-count="65">0</div>
+                  <div class="stat-label">Acciones Locales</div>
+               </div>
+               <div class="stat-badge stat-badge-local">COL</div>
+            </div>
+
+            <div class="stat-card stat-global">
+               <div class="stat-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                     <path d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                     <path d="M2 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+               </div>
+               <div class="stat-content">
+                  <div class="stat-value" data-count="58">0</div>
+                  <div class="stat-label">Acciones Globales</div>
+               </div>
+               <div class="stat-badge stat-badge-global">INT</div>
+            </div>
+         </div>
+      </div>
+      <div class="tab-bar-wrapper">
+         <div class="tab-bar">
+            <button id="button-local" class="tab-button active" onclick="tabAction('local')" aria-label="Ver acciones locales">
+               <span>LOCAL</span>
+            </button>
+            <button id="button-global" class="tab-button" onclick="tabAction('global')" aria-label="Ver acciones globales">
+               <span>GLOBAL</span>
+            </button>
+            <div class="tab-indicator"></div>
+         </div>
+      </div>
+   <div id="local" class="stock-container">
+      <ul class="local-stocks-grid" data-page-size="20">
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/aguas-a.png" alt="Aguas Andinas" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:AGUAS_A" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/almedral.png" alt="Almendral" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:ALMENDRAL" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/andina-b.png" alt="Andina B" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:ANDINA_B" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/antarchile.png" alt="Antarchile" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:ANTARCHILE" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/banvida.png" alt="Banvida" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:BANVIDA" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/bci.png" alt="BCI" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:BCI" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/besalco.png" alt="Besalco" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:BESALCO" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/blumar.png" alt="Blumar" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:BLUMAR" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/bolsastgo.png" alt="Bolsa de Santiago" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:BOLSASTGO" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/bsantander.png" alt="Banco Santander" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:BSANTANDER" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/camanchaga.png" alt="Camanchaga" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:CAMANCHAGA" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/cap.png" alt="CAP" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:CAP" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/ccu.png" alt="CCU" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:CCU" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/cencomalls.png" alt="Cencoshopp" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:CENCOSHOPP" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/cencosud.png" alt="Cencosud" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:CENCOSUD" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/cge.png" alt="CGE Gas" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:CGEGAS" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/cintac.png" alt="Cintac" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:CINTAC" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/cmpc.png" alt="CMPC" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:CMPC" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/colbun.png" alt="Colbun" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:COLBUN" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/conchatoro.png" alt="Concha y Toro" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:CONCHATORO" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/copec.png" alt="Copec" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:COPEC" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/cristales.png" alt="Cristales" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:CRISTALES" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/ecl.png" alt="ECL" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:ECL" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/eisa.png" alt="EISA" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:EISA" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/enaex.png" alt="Enaex" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:ENAEX" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/enelam.png" alt="Enel Américas" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:ENELAM" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/enelchile.png" alt="Enel Chile" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:ENELCHILE" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/entel.png" alt="Entel" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:ENTEL" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/falabella.png" alt="Falabella" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:FALABELLA" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/forus.png" alt="Forus" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:FORUS" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/gasco.png" alt="Gasco" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:GASCO" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/habitat.png" alt="AFP Hábitat" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:HABITAT" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/hf.png" alt="HF" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:HF" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/hites.png" alt="Hites" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:HITES" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/iam.png" alt="IAM" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:IAM" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/ilc.png" alt="ILC" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:ILC" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/indisa.png" alt="Indisa" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:INDISA" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/ingevec.png" alt="Ingevec" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:INGEVEC" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/invercap.png" alt="Invercap" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:INVERCAP" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/itaucl.png" alt="Itaú Corpbanca" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:ITAUCL" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/las%20condes.png" alt="Las Condes" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:LASCONDES" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/lipigas.png" alt="Lipigas" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:LIPIGAS" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/ltm.png" alt="LATAM Airlines" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:LTM" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/mallplaza.png" alt="Mall Plaza" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:MALLPLAZA" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/manquehue.png" alt="Manquehue" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:MANQUEHUE" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/masisa.png" alt="Masisa" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:MASISA" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/multi%20x.png" alt="Multi X" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:MULTIX" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/parauco.png" alt="Parque Arauco" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:PARAUCO" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/paz.png" alt="Paz" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:PAZ" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/quinenco.png" alt="Quinenco" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:QUINENCO" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/ripley.png" alt="Ripley" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:RIPLEY" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/salmocam.png" alt="Salmocam" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:SALMOCAM" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/security.png" alt="Grupo Security" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:SECURITY" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/sk.png" alt="SK" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:SK" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/smsaam.png" alt="SMSAAM" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:SMSAAM" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/smu.png" alt="SMU" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:SMU" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/socovesa.png" alt="Socovesa" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:SOCOVESA" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/sonda.png" alt="Sonda" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:SONDA" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/sqm-a.png" alt="SQM A" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:SQM_A" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/sqm-b.png" alt="SQM B" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:SQM_B" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/tricot.png" alt="Tricot" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:TRICOT" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/vapores.png" alt="CSAV Vapores" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:VAPORES" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/ventanas.png" alt="Ventanas" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:VENTANAS" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/watts.png" alt="Watts" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:WATTS" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header">
+               <div class="local-stock-logo"><img src="/static/images/acciones/locales/zofri.png" alt="Zofri" loading="lazy"></div>
+            </div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BCS:ZOFRI" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+      </ul>
+      <nav class="cards-pagination" aria-label="Paginación acciones locales">
+         <button class="cards-pagination-btn cards-pagination-prev" type="button" aria-label="Página anterior">Anterior</button>
+         <div class="cards-pagination-pages" aria-live="polite"></div>
+         <button class="cards-pagination-btn cards-pagination-next" type="button" aria-label="Página siguiente">Siguiente</button>
+      </nav>
+   </div>
+   <div id="global" class="stock-container" style="display:none">
+      <ul class="local-stocks-grid" data-page-size="20">
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/nvdacl.png" alt="NVIDIA" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:NVDA" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/msftcl.png" alt="Microsoft" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:MSFT" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/aaplcl.png" alt="Apple" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:AAPL" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/amzncl.png" alt="Amazon" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:AMZN" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/googcl.png" alt="Alphabet C" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:GOOG" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/googlcl.png" alt="Alphabet A" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:GOOGL" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/fbcl.png" alt="Meta" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:META" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/msftcl.png" alt="Microsoft" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:MSFT" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/jpmcl.png" alt="JPMorgan Chase" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:JPM" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/xomcl.png" alt="ExxonMobil" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:XOM" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/abtcl.png" alt="Abbott Labs" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:ABT" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/axpcl.png" alt="American Express" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:AXP" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/baccl.png" alt="Bank of America" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:BAC" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/bacl.png" alt="Boeing" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:BA" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/biibcl.png" alt="Biogen" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:BIIB" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/bkngcl.png" alt="Booking Holdings" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:BKNG" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/cat.png" alt="Caterpillar" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:CAT" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/CCL.png" alt="Carnival" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:CCL" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/chile.png" alt="Banco de Chile" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:BCH" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/cost.png" alt="Costco" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:COST" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/cscocl.png" alt="Cisco" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:CSCO" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/cvs.png" alt="CVS Health" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:CVS" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/cvxcl.png" alt="Chevron" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:CVX" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/discl.png" alt="Warner Bros. Discovery" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:WBD" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/ebaycl.png" alt="eBay" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:EBAY" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/fcxcl.png" alt="Freeport-McMoRan" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:FCX" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/gecl.png" alt="General Electric" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:GE" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/gildcl.png" alt="Gilead Sciences" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:GILD" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/halcl.png" alt="Halliburton" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:HAL" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/hdcl.png" alt="Home Depot" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:HD" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/honcl.png" alt="Honeywell" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:HON" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/ibmcl.png" alt="IBM" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:IBM" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/intccl.png" alt="Intel" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:INTC" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/jnjcl.png" alt="Johnson &amp; Johnson" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:JNJ" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/kocl.png" alt="Coca-Cola" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:KO" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/mcdcl.png" alt="McDonald's" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:MCD" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/mmmcl.png" alt="3M" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:MMM" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/mrkcl.png" alt="Merck" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:MRK" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/ms.png" alt="Morgan Stanley" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:MS" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/nemcl.png" alt="Newmont" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:NEM" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/nkecl.png" alt="Nike" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:NKE" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/nuam.png" alt="Nuam" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BVC:NUAM" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/nutresacl.png" alt="Nutresa" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BVC:NUTRESA" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/orclcl.png" alt="Oracle" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:ORCL" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/pepcl.png" alt="PepsiCo" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:PEP" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/pfecl.png" alt="Pfizer" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:PFE" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/pg.png" alt="Procter &amp; Gamble" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:PG" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/qcomcl.png" alt="Qualcomm" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:QCOM" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/sbuxcl.png" alt="Starbucks" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NASDAQ:SBUX" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/suracl.png" alt="Grupo Sura" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BVC:GRUPOSURA" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/tgtcl.png" alt="Target" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:TGT" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/unhcl.png" alt="UnitedHealth" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:UNH" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/upscl.png" alt="UPS" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:UPS" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/vcl.png" alt="Visa" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:V" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/walmartcl.png" alt="Walmart" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:WMT" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/wfccl.png" alt="Wells Fargo" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:WFC" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/xcl.png" alt="US Steel" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:X" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/bancolomcl.png" alt="Bancolombia" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="NYSE:CIB" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/cemargoscl.png" alt="Cementos Argos" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BVC:CEMARGOS" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/daviviencl.png" alt="Davivienda" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BVC:PFDAVVNDA" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+         <li class="local-stock-card">
+            <div class="local-stock-header"><div class="local-stock-logo"><img src="/static/images/acciones/Global/grpargoscl.png" alt="Grupo Argos" loading="lazy"></div></div>
+            <div class="local-stock-widget"><div class="tradingview-widget-container" data-symbol="BVC:GRUPOARGOS" data-tv-pending><div class="tradingview-widget-container__widget"></div></div></div>
+         </li>
+
+      </ul>
+      <nav class="cards-pagination" aria-label="Paginación acciones globales">
+         <button class="cards-pagination-btn cards-pagination-prev" type="button" aria-label="Página anterior">Anterior</button>
+         <div class="cards-pagination-pages" aria-live="polite"></div>
+         <button class="cards-pagination-btn cards-pagination-next" type="button" aria-label="Página siguiente">Siguiente</button>
+      </nav>
+   </div>
+   <script src="/static/js/stock-stats.js?v=0.0.1"></script>
+   <script src="/static/js/stock-list-tab.js?v=0.0.1"></script>
+   <script src="/static/js/local-stocks-loader.js?v=3.0.0"></script>
+   <script src="/static/js/cards-pagination.js?v=1.0.0"></script>
+</section>
+
+<section class="premium-cta">
+   <div class="premium-cta-background">
+      <div class="premium-cta-gradient premium-cta-gradient-1"></div>
+      <div class="premium-cta-gradient premium-cta-gradient-2"></div>
+   </div>
+   <div class="premium-cta-container">
+      <div class="premium-cta-content">
+         <div class="premium-cta-badge">
+            <svg class="premium-cta-badge-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+               <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+               <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Inversión Inteligente</span>
+         </div>
+         <h2 class="premium-cta-title">
+            <span class="premium-cta-title-line">Haz que tu dinero</span>
+            <span class="premium-cta-title-line premium-cta-title-accent">empiece a trabajar por ti</span>
+         </h2>
+         <p class="premium-cta-description">Únete a miles de chilenos que ya están invirtiendo y haciendo crecer su patrimonio con trii</p>
+         <div class="premium-cta-button-wrapper">
+            <a href="https://web.trii.co/" target="_blank" class="premium-cta-button">
+               <span class="premium-cta-button-text">Iniciar Sesión</span>
+               <svg class="premium-cta-button-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+               </svg>
+            </a>
+         </div>
+      </div>
+   </div>
+</section>
+
+
+{{footer()}}
+
+{% endblock %}

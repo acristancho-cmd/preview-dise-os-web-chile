@@ -1,0 +1,233 @@
+.button-solid {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: #191919;
+  padding: 16px 32px;
+  gap: 8px;
+  width: 171px;
+  height: 56px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 0;
+  background: #02FB7E;
+  touch-action: manipulation;
+  transition: all 0.5s;
+}
+
+.button-solid:hover {
+  background: #F2FFF9;
+}
+
+.button-solid:disabled {
+  background: #333333;
+  color: #B0B0B0;
+}
+
+.button-solid:disabled .button-solid-icon {
+  filter: invert(95%) sepia(0%) saturate(2581%) hue-rotate(0deg) brightness(76%) contrast(89%);
+}
+
+.button-stroke {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  color: #02FB7E;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 16px 32px;
+  gap: 8px;
+  width: 171px;
+  height: 56px;
+  border: 1px solid #02FB7E;
+  border-radius: 30px;
+  cursor: pointer;
+  background: transparent;
+  touch-action: manipulation;
+  transition: all 0.5s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.button-stroke .button-stroke-icon {
+  filter: invert(77%) sepia(80%) saturate(2895%) hue-rotate(95deg) brightness(105%) contrast(98%);
+}
+
+.button-stroke:hover {
+  color: #F2FFF9;
+  border: 1px solid #F2FFF9;
+}
+
+.button-stroke:hover .button-stroke-icon {
+  filter: invert(89%) sepia(13%) saturate(281%) hue-rotate(80deg) brightness(110%) contrast(109%);
+}
+
+.button-stroke:disabled {
+  color: #B0B0B0;
+  border: 1px solid #B0B0B0;
+}
+
+.button-stroke:disabled .button-stroke-icon {
+  filter: invert(94%) sepia(0%) saturate(306%) hue-rotate(209deg) brightness(78%) contrast(79%);
+}
+
+.terms {
+  margin-top: 52px;
+  margin-bottom: 250px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+  padding-right: 16px;
+  justify-content: center;
+  text-align: left;
+}
+
+@media (min-width: 700px) {
+  .terms {
+    margin-left: 120px;
+  }
+}
+
+.terms .title {
+  display: inline;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 150%;
+  color: #E3E3E3;
+  margin: 0px;
+  margin-bottom: 56px;
+}
+
+.terms h2 {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 150%;
+  color: #979797;
+  margin: 0px;
+  margin-bottom: 20px;
+}
+
+.terms h3 {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 150%;
+  color: #979797;
+  margin: 0px;
+  margin-bottom: 20px;
+}
+
+.terms a {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  text-decoration: none;
+  color: #CACACA;
+  margin: 0px;
+  cursor: pointer;
+  margin-bottom: 60px;
+}
+
+.versions a {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  text-decoration: none;
+  color: #CACACA;
+  margin: 0px;
+  cursor: pointer;
+}
+
+.terms a:active {
+  color: #02FB7E;
+}
+
+.versions {
+  display: flex;
+  flex-direction: column;
+  margin-left: 120px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-bottom: 120px;
+}
+
+.versions .title {
+  display: inline;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 150%;
+  color: #979797;
+  margin: 0px 0px 20px 0px;
+
+}
+
+.terms a,
+.terms p,
+.terms li {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  color: #E3E3E3;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.terms ol {
+  padding-left: 20px;
+  margin-left: 0;
+}
+
+.terms ul {
+  padding-left: 20px;
+  margin-left: 0;
+}
+
+.extra-space {
+  margin-bottom: 1.5em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th,
+td {
+  border: 1px solid #E3E3E3;
+  padding: 8px;
+  text-align: left;
+  font-family: "DM Sans";
+  font-size: 18px;
+  color: #E3E3E3;
+}
+
+th {
+  background-color: #333;
+  color: white;
+}

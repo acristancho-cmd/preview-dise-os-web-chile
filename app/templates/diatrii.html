@@ -1,0 +1,777 @@
+{% extends "_base.html" %}
+{% block title %}Día trii | Invierte en Chile sin pagar comisión{% endblock %}
+{% block description %}El Día trii es el evento de inversión más grande de Chile: compra acciones de empresas chilenas y globales sin pagar comisión. Únete a miles de inversores en la Bolsa de Santiago.{% endblock %}
+{% block head %}
+   <link rel="stylesheet" href="/static/css/diatrii.css?1.0.0">
+{% endblock %}
+
+{% block content %}
+{% from '/components/navbar.html' import navbar %}
+{% from '/components/footer.html' import footer %}
+
+<header>
+    {{ navbar() }}
+</header>
+
+<main class="page-diatrii">
+    <section class="diatrii-banner">
+        <div class="diatrii-noise"></div>
+
+        <div class="diatrii-banner-content">
+            <div class="diatrii-banner-sponsor">
+                <img src="/static/images/dia-trii/patrocinador.png" alt="Patrocinador Día trii" class="diatrii-sponsor-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Section: Información y Mockup -->
+    <section class="diatrii-hero-section">
+        <!-- Fondo Premium -->
+        <div class="diatrii-hero-bg-grid"></div>
+        <div class="diatrii-hero-bg-glow"></div>
+
+        <div class="diatrii-hero-container">
+            <div class="diatrii-hero-text">
+                <div class="diatrii-hero-badge">
+                    <span class="diatrii-hero-badge-dot"></span>
+                    Edición Especial 2026
+                </div>
+
+                <h2 class="diatrii-hero-title">
+                    Un día para invertir<br>sin pagar comisión
+                </h2>
+
+                <p class="diatrii-hero-desc">
+                    Un día en abril para entrar al mercado sin barreras. Aprovecha esta oportunidad y haz tu primera (o próxima) inversión sin costos únicamente en este día.
+                </p>
+
+                <div class="diatrii-hero-highlight-card">
+                    <div class="diatrii-highlight-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#02FB7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 8V12L15 15" stroke="#02FB7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <p>Solo por esta fecha, puedes hacer tu primera (o tu próxima) inversión <strong>sin pagar comisión.</strong></p>
+                </div>
+
+                <div class="diatrii-hero-cta-wrapper">
+                    <a href="#registro" class="diatrii-btn-premium">
+                        <span>Inscríbete al Día trii</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="diatrii-hero-image-wrapper">
+                <div class="diatrii-mockup-pedestal"></div>
+                <img src="/static/images/dia-trii/mockup-hero.png" alt="App trii - Día trii" class="diatrii-hero-img">
+            </div>
+        </div>
+    </section>
+
+    <section class="diatrii-counter-section" id="diatrii-counter-section" aria-labelledby="diatrii-counter-title">
+        <div class="diatrii-counter-container">
+            <h2 id="diatrii-counter-title" class="diatrii-counter-title">Ya somos más de</h2>
+            <div class="diatrii-counter-number" id="diatrii-counter-number" data-target="700000">
+                <span class="diatrii-counter-value">0+</span>
+            </div>
+            <p class="diatrii-counter-subtitle">inversionistas confiando en trii</p>
+            <p class="diatrii-counter-date">XX / 05 / 2026</p>
+            <p class="diatrii-counter-note">Regístrate y serás de los primeros en conocerlas.</p>
+        </div>
+    </section>
+
+    <section class="diatrii-what-section" aria-labelledby="diatrii-what-title">
+        <div class="diatrii-what-grid">
+            <div class="diatrii-what-content">
+                <h2 id="diatrii-what-title" class="diatrii-what-title">¿Qué es el Día trii?</h2>
+                <p class="diatrii-what-desc">
+                    El Día trii es un día especial en el que puedes invertir en la bolsa de valores sin pagar comisión; así de simple: lo que normalmente pagarías por cada compra o venta, ese día es $0, convirtiéndose en la forma más fácil de entrar al mundo de la inversión sin fricción y sin costos escondidos.
+                </p>
+            </div>
+
+            <div class="diatrii-what-image-wrap">
+                <div class="diatrii-what-image-card">
+                    <img
+                        src="/static/images/Deposita y retira.png"
+                        alt="Deposita y retira cuando quieras"
+                        class="diatrii-what-image"
+                        loading="lazy"
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="diatrii-why-section" aria-labelledby="diatrii-why-title">
+        <div class="diatrii-why-container">
+            <aside class="diatrii-why-aside">
+                <div class="diatrii-why-aside-widget">
+                    <p class="diatrii-why-kicker">
+                        <span class="diatrii-why-kicker-dot" aria-hidden="true"></span>
+                        Beneficio exclusivo
+                    </p>
+                    <h2 id="diatrii-why-title" class="diatrii-why-title">¿Por qué aprovecharlo?</h2>
+                    <p class="diatrii-why-lead">Porque no pasa todos los días… y tiene ventajas reales:</p>
+                </div>
+            </aside>
+            <div class="diatrii-why-main">
+                <div class="diatrii-why-timeline-line"></div>
+                <article class="diatrii-why-item">
+                    <div class="diatrii-why-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <div class="diatrii-why-text">
+                        <h3>Ahorras dinero desde la primera inversión</h3>
+                        <p>Todo lo que inviertas, trabaja completo para ti.</p>
+                    </div>
+                </article>
+                <article class="diatrii-why-item">
+                    <div class="diatrii-why-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div class="diatrii-why-text">
+                        <h3>Empiezas sin miedo</h3>
+                        <p>Ideal si nunca has invertido: pruebas sin costo.</p>
+                    </div>
+                </article>
+                <article class="diatrii-why-item">
+                    <div class="diatrii-why-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                    </div>
+                    <div class="diatrii-why-text">
+                        <h3>Maximizas tu rentabilidad</h3>
+                        <p>Menos costos = más ganancia potencial.</p>
+                    </div>
+                </article>
+                <article class="diatrii-why-item">
+                    <div class="diatrii-why-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="diatrii-why-text">
+                        <h3>Es limitado</h3>
+                        <p>Hay un número de operaciones gratis… y se acaban.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="diatrii-how-section" aria-labelledby="diatrii-how-title">
+        <div class="diatrii-how-container">
+            <aside class="diatrii-how-aside">
+                <div class="diatrii-how-aside-widget">
+                    <p class="diatrii-how-kicker">
+                        <span class="diatrii-how-kicker-dot" aria-hidden="true"></span>
+                        Paso a paso
+                    </p>
+                    <h2 id="diatrii-how-title" class="diatrii-how-title">Cómo funciona</h2>
+                </div>
+            </aside>
+            <div class="diatrii-how-main">
+                <div class="diatrii-how-timeline-line"></div>
+                <article class="diatrii-how-step">
+                    <div class="diatrii-how-step-node">1</div>
+                    <div class="diatrii-how-step-content">
+                        <h3>Inscríbete en la lista de espera</h3>
+                        <p>Este año daremos prioridad según el orden de inscripción. Las operaciones sin comisión son limitadas.</p>
+                    </div>
+                </article>
+                <article class="diatrii-how-step">
+                    <div class="diatrii-how-step-node">2</div>
+                    <div class="diatrii-how-step-content">
+                        <h3>Descarga trii y regístrate</h3>
+                        <p>La vinculación puede tardar un par de días, te recomendamos empezarla antes.</p>
+                    </div>
+                </article>
+                <article class="diatrii-how-step">
+                    <div class="diatrii-how-step-node">3</div>
+                    <div class="diatrii-how-step-content">
+                        <h3>Deposita dinero en tu cuenta</h3>
+                        <p>Para operar sin comisión cuando llegue el Día trii 🚀</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    <!-- Sección Formulario de Registro -->
+    <section id="registro" class="diatrii-form-section">
+        <div class="diatrii-form-container">
+            <div class="diatrii-form-left">
+                <div class="diatrii-form-aside">
+                    <p class="diatrii-form-kicker">
+                        <span class="diatrii-form-kicker-dot" aria-hidden="true"></span>
+                        Reserva tu cupo
+                    </p>
+                    <h2 class="diatrii-form-title" id="diatrii-form-heading">
+                        <span class="diatrii-form-title-pre">Inscríbete al</span>
+                        <span class="diatrii-form-title-main">
+                            Día <span class="diatrii-form-title-brand">trii</span>
+                        </span>
+                    </h2>
+                    <div class="diatrii-form-subtitle-wrap">
+                        <p class="diatrii-form-subtitle">
+                            Regístrate ahora y asegura tu beneficio exclusivo para invertir sin comisiones.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="diatrii-form-right">
+                <form id="diatrii-registration-form" class="diatrii-form" aria-labelledby="diatrii-form-heading">
+                    <div class="diatrii-input-group">
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre" autocomplete="given-name" required>
+                    </div>
+
+                    <div class="diatrii-input-group">
+                        <input type="text" id="apellido" name="apellido" placeholder="Apellido" autocomplete="family-name" required>
+                    </div>
+
+                    <div class="diatrii-input-group">
+                        <input type="email" id="email" name="email" placeholder="Correo electrónico" autocomplete="email" required>
+                    </div>
+
+                    <div class="diatrii-input-group">
+                        <input type="tel" id="celular" name="celular" placeholder="Número de celular" autocomplete="tel" required>
+                    </div>
+
+                    <div class="diatrii-checkbox-group">
+                        <label class="diatrii-checkbox-label">
+                            <input type="checkbox" id="tratamiento_datos" name="tratamiento_datos" required>
+                            <span class="diatrii-checkmark"></span>
+                            <span class="diatrii-checkbox-text">
+                                Acepto la <a href="/privacy" target="_blank" rel="noopener noreferrer">política de tratamiento de datos personales</a> y los <a href="/terms" target="_blank" rel="noopener noreferrer">términos y condiciones</a>.
+                            </span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="diatrii-btn-submit" disabled aria-disabled="true">
+                        <span>Quiero invertir sin comisión</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </form>
+
+                <!-- Estado de Éxito (Oculto por defecto) -->
+                <div id="diatrii-form-success" class="diatrii-form-success" style="display: none;">
+                    <div class="diatrii-success-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="#02FB7E" stroke-width="2"/>
+                            <path d="M8 12L11 15L16 9" stroke="#02FB7E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>¡Registro Exitoso!</h3>
+                    <p>Prepárate para invertir sin comisiones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="diatrii-stats-section" aria-labelledby="diatrii-stats-heading">
+        <div class="diatrii-stats-container">
+            <div class="diatrii-stats-header">
+                <div class="diatrii-stats-header-content">
+                    <h2 id="diatrii-stats-heading" class="diatrii-stats-title">Así se vivió en el 2025</h2>
+                    <p class="diatrii-stats-subtitle">Descubre el impacto que logramos juntos en nuestra edición anterior y prepárate para lo que viene.</p>
+                </div>
+            </div>
+            <div class="diatrii-stats-cards">
+                <article class="diatrii-stat-card">
+                    <div class="diatrii-stat-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <p class="diatrii-stat-value">1.786</p>
+                    <p class="diatrii-stat-desc">personas invirtieron por primera vez en acciones ese día.</p>
+                </article>
+                <article class="diatrii-stat-card">
+                    <div class="diatrii-stat-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    </div>
+                    <p class="diatrii-stat-value">+45.000</p>
+                    <p class="diatrii-stat-desc">operaciones realizadas en el día trii</p>
+                </article>
+                <article class="diatrii-stat-card">
+                    <div class="diatrii-stat-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                    </div>
+                    <p class="diatrii-stat-value">16.188</p>
+                    <p class="diatrii-stat-desc">usuarios negociaron acciones en todo el día</p>
+                </article>
+            </div>
+        </div>
+        <div class="diatrii-stats-divider" aria-hidden="true"></div>
+    </section>
+
+    <section class="diatrii-market-section" aria-labelledby="diatrii-market-heading">
+        <div class="diatrii-market-container">
+            <div class="diatrii-market-header">
+                <div class="diatrii-market-header-content">
+                    <p class="diatrii-market-eyebrow">Mercados</p>
+                    <h2 id="diatrii-market-heading" class="diatrii-market-title">Invierte en lo que te interesa</h2>
+                    <p class="diatrii-market-subtitle">El Día trii podrás invertir en una amplia variedad de acciones locales, globales y ETFs sin costo de comisión. <a href="https://trii.co/stock-list" target="_blank" rel="noopener noreferrer" class="diatrii-market-link">¡Conoce más aquí!</a></p>
+                </div>
+            </div>
+            <div class="diatrii-market-carousel-wrapper">
+                {% raw %}
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                    {
+                    "symbols": [
+                        {
+                        "proName": "BVC:ECOPETROL",
+                        "title": "Ecopetrol"
+                        },
+                        {
+                        "proName": "BVC:BCOLOMBIA",
+                        "title": "Bancolombia"
+                        },
+                        {
+                        "proName": "BVC:PFBCOLOM",
+                        "title": "Pref. Bancolombia"
+                        },
+                        {
+                        "proName": "BVC:GEB",
+                        "title": "GEB"
+                        },
+                        {
+                        "proName": "BVC:ISA",
+                        "title": "ISA"
+                        },
+                        {
+                        "proName": "NASDAQ:AAPL",
+                        "title": "Apple"
+                        },
+                        {
+                        "proName": "NASDAQ:MSFT",
+                        "title": "Microsoft"
+                        },
+                        {
+                        "proName": "NASDAQ:TSLA",
+                        "title": "Tesla"
+                        },
+                        {
+                        "proName": "NASDAQ:AMZN",
+                        "title": "Amazon"
+                        },
+                        {
+                        "proName": "NYSE:NU",
+                        "title": "Nubank"
+                        }
+                    ],
+                    "showSymbolLogo": true,
+                    "isTransparent": true,
+                    "displayMode": "adaptive",
+                    "colorTheme": "dark",
+                    "locale": "es"
+                    }
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
+                {% endraw %}
+            </div>
+        </div>
+    </section>
+
+    <section class="diatrii-steps-section" id="pasos-dia-trii" aria-label="Pasos para aprovechar el Día trii">
+        <div class="diatrii-steps-container">
+            <div class="diatrii-steps-header">
+                <p class="diatrii-steps-badge">
+                    <span class="diatrii-steps-badge-dot" aria-hidden="true"></span>
+                    Guía en video
+                </p>
+                <h2 id="diatrii-steps-heading" class="diatrii-steps-title">
+                    Sigue estos 3 pasos para aprovechar el Día trii
+                </h2>
+            </div>
+            <div class="diatrii-steps-grid">
+                <article class="diatrii-step" id="paso-1">
+                    <h3 class="diatrii-step-title">1. Ten listo tu depósito: aquí te mostramos cómo hacerlo</h3>
+                    <div class="diatrii-step-embed">
+                        <iframe src="https://www.youtube.com/embed/E95PVgPw8NQ?si=RFveqYYBUTdmW1LS" title="Cómo hacer tu depósito — trii" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </article>
+                <article class="diatrii-step" id="paso-2">
+                    <h3 class="diatrii-step-title">2. Para que puedas invertir sin comisión: aprende a colocar una orden aquí</h3>
+                    <div class="diatrii-step-embed">
+                        <iframe src="https://www.youtube.com/embed/QT80TTNIaZU?si=XYVPhk0sRjEp2l7v" title="Cómo colocar una orden — trii" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </article>
+                <article class="diatrii-step" id="paso-3">
+                    <h3 class="diatrii-step-title">3. Conoce más sobre Día trii y cómo aprovecharlo (versión 2024)</h3>
+                    <div class="diatrii-step-embed">
+                        <iframe src="https://www.youtube.com/embed/QT80TTNIaZU?si=D6QNgNAoRCo3AivQ" title="Cómo comprar acciones — trii" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="diatrii-influencer-section" id="influencers-dia-trii" aria-label="Influencers Día trii">
+        <div class="diatrii-steps-container">
+            <div class="diatrii-steps-header">
+                <p class="diatrii-steps-badge">
+                    <span class="diatrii-steps-badge-dot" aria-hidden="true"></span>
+                    Comunidad
+                </p>
+                <h2 id="diatrii-influencer-heading" class="diatrii-steps-title">
+                    Tu influencer favorito
+                </h2>
+            </div>
+            <div class="diatrii-steps-grid">
+                <article class="diatrii-step">
+                    <h3 class="diatrii-step-title">
+                        Sofía Rincón <span class="diatrii-influencer-handle">(@alternativainversiones)</span>
+                    </h3>
+                    <div class="diatrii-step-embed">
+                        <iframe src="https://www.youtube.com/embed/7ztzqempW-Y?si=KxO5VYiKimZrNk-A" title="Sofía Rincón — alternativainversiones" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </article>
+                <article class="diatrii-step">
+                    <h3 class="diatrii-step-title">
+                        Finanzas Plus <span class="diatrii-influencer-handle">(@finanzasplus.co)</span>
+                    </h3>
+                    <div class="diatrii-step-embed">
+                        <iframe src="https://www.youtube.com/embed/WFkT3KhrupM?si=wZaSJnOiVwfYqh3X" title="Finanzas Plus — @finanzasplus.co" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </article>
+                <article class="diatrii-step">
+                    <h3 class="diatrii-step-title">
+                        Alejandro Pino Rodriguez <span class="diatrii-influencer-handle">(@alejoo_rodriguuez)</span>
+                    </h3>
+                    <div class="diatrii-step-embed">
+                        <iframe src="https://www.youtube.com/embed/0QrZ3Mcmbn8?si=ubM9hmkvYPr0BiaS" title="Alejandro Pino Rodriguez — @alejoo_rodriguuez" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="diatrii-platform-section" id="por-que-trii" aria-labelledby="diatrii-platform-heading">
+        <div class="diatrii-platform-container">
+            <div class="diatrii-platform-header">
+                <p class="diatrii-platform-badge">¿POR QUÉ TRII?</p>
+                <h2 id="diatrii-platform-heading" class="diatrii-platform-title">
+                    La plataforma que <span>simplifica</span> invertir
+                </h2>
+            </div>
+
+            <div class="diatrii-platform-grid">
+                <article class="diatrii-platform-card">
+                    <div class="diatrii-platform-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 4L5 7.5L12 11L19 7.5L12 4Z" />
+                            <path d="M5 12.5L12 16L19 12.5" />
+                            <path d="M5 17.5L12 21L19 17.5" />
+                        </svg>
+                    </div>
+                    <h3>Todo en un mismo lugar</h3>
+                    <p>Invierte y sigue tus movimientos desde una sola app.</p>
+                    <p>Sin saltar de una plataforma a otra.</p>
+                </article>
+
+                <article class="diatrii-platform-card">
+                    <div class="diatrii-platform-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 3L18 5.5V11C18 15.2 15.4 19 12 20.5C8.6 19 6 15.2 6 11V5.5L12 3Z" />
+                        </svg>
+                    </div>
+                    <h3>Eres dueño de lo que compras</h3>
+                    <p>Las acciones quedan a tu nombre.</p>
+                    <p>Estás armando tu propio patrimonio de verdad.</p>
+                </article>
+
+                <article class="diatrii-platform-card">
+                    <div class="diatrii-platform-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="8" />
+                            <path d="M4 12H20" />
+                            <path d="M12 4C13.8 6.1 14.8 8.9 14.8 12C14.8 15.1 13.8 17.9 12 20" />
+                            <path d="M12 4C10.2 6.1 9.2 8.9 9.2 12C9.2 15.1 10.2 17.9 12 20" />
+                        </svg>
+                    </div>
+                    <h3>Diversifica sin límites</h3>
+                    <p>Accede a miles de opciones internacionales.</p>
+                    <p>Arma un plan a tu medida, en dólares.</p>
+                </article>
+
+                <article class="diatrii-platform-card">
+                    <div class="diatrii-platform-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <ellipse cx="12" cy="12" rx="8" ry="5" />
+                            <circle cx="12" cy="12" r="1.6" />
+                        </svg>
+                    </div>
+                    <h3>Transparencia total</h3>
+                    <p>Sin comisiones ocultas ni letras chicas.</p>
+                    <p>Siempre sabes qué estás pagando: nada.</p>
+                </article>
+
+                <article class="diatrii-platform-card">
+                    <div class="diatrii-platform-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <rect x="5.5" y="7" width="13" height="10" rx="2" />
+                            <path d="M9 10.5H15" />
+                            <path d="M9 13.5H13" />
+                        </svg>
+                    </div>
+                    <h3>Tu plata cuando quieras</h3>
+                    <p>Tu patrimonio siempre estará disponible.</p>
+                    <p>Puedes vender y retirar cuando lo necesites.</p>
+                </article>
+
+                <article class="diatrii-platform-card">
+                    <div class="diatrii-platform-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M13.5 4L8.5 12H13L10.5 20L15.5 12H11L13.5 4Z" />
+                        </svg>
+                    </div>
+                    <h3>Invierte sin fricciones</h3>
+                    <p>Todo pensado para que partas rápido y sin complicaciones.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="diatrii-faq-section" id="faq-dia-trii" aria-labelledby="diatrii-faq-heading">
+        <div class="diatrii-faq-inner">
+            <h2 id="diatrii-faq-heading" class="diatrii-faq-heading">Preguntas frecuentes</h2>
+            <div class="diatrii-faq-list">
+                <details class="diatrii-faq-item">
+                    <summary class="diatrii-faq-q">
+                        ¿El Día trii solo aplica para un día o estará disponible por más días?
+                    </summary>
+                    <div class="diatrii-faq-a">
+                        <p>Aplica solo para un día. ¡Muy pronto conocerás la fecha exacta!</p>
+                        <p>Ese día celebramos el compromiso con el futuro financiero de miles de personas.</p>
+                        <p>¡Aprovecha la oportunidad y conviértete en accionista de las empresas más grandes de Chile y del mundo sin pagar comisión! 🚀📈</p>
+                        <p>No lo dejes pasar, es tu momento de invertir. 💚</p>
+                    </div>
+                </details>
+                <details class="diatrii-faq-item">
+                    <summary class="diatrii-faq-q">
+                        ¿Todas las operaciones son gratis?
+                    </summary>
+                    <div class="diatrii-faq-a">
+                        <p>Durante el Día trii, habilitaremos un número limitado de operaciones sin comisión. ¡Mantente atento a nuestras redes y notificaciones para saber cuántas operaciones gratis van quedando!</p>
+                    </div>
+                </details>
+                <details class="diatrii-faq-item">
+                    <summary class="diatrii-faq-q">
+                        ¿A qué hora inicia y termina el Día trii?
+                    </summary>
+                    <div class="diatrii-faq-a">
+                        <p>El Día trii comienza a las 8:30 a.m., cuando abre el mercado, y finaliza cuando se agoten las operaciones habilitadas con comisión gratis.</p>
+                    </div>
+                </details>
+                <details class="diatrii-faq-item">
+                    <summary class="diatrii-faq-q">
+                        ¿Puedo hacer varias operaciones sin comisión o solo una?
+                    </summary>
+                    <div class="diatrii-faq-a">
+                        <p>¡Sí! Puedes hacer varias operaciones sin comisión durante el Día trii.</p>
+                        <p>Iremos actualizando en nuestras redes sociales y en la app cómo va el conteo de operaciones disponibles. 📱👀</p>
+                        <p>Además, cuando ingreses tu orden, verás la palabra &quot;gratis&quot; en la sección de comisión si todavía aplicas al beneficio. 💚</p>
+                    </div>
+                </details>
+                <details class="diatrii-faq-item">
+                    <summary class="diatrii-faq-q">
+                        ¿Aplica para todas las acciones o solo para acciones chilenas?
+                    </summary>
+                    <div class="diatrii-faq-a">
+                        <p>✅ ¡Sí, aplica para todas las acciones disponibles en la app de trii!</p>
+                        <p>Invierte en cualquiera con $0 en comisión durante el Día trii.</p>
+                        <p>Es tu oportunidad de convertirte en accionista de las empresas más grandes de Chile y del mundo. 🌎📈</p>
+                    </div>
+                </details>
+                <details class="diatrii-faq-item">
+                    <summary class="diatrii-faq-q">
+                        ¿Puedo vender acciones sin comisión?
+                    </summary>
+                    <div class="diatrii-faq-a">
+                        <p>Sí. Las comisiones gratis aplican tanto para la compra como para la venta de acciones durante el Día trii.</p>
+                    </div>
+                </details>
+                <details class="diatrii-faq-item">
+                    <summary class="diatrii-faq-q">
+                        ¿Puedo invertir menos de $30.000 ese día?
+                    </summary>
+                    <div class="diatrii-faq-a">
+                        <p>No. El valor mínimo para comprar acciones es de $30.000, incluso si ese día hay comisión gratis.</p>
+                        <p>Este monto asegura que puedas vender luego sin problemas y que tu inversión sea rentable.</p>
+                        <p>¡Queremos que inviertas con inteligencia y obtengas beneficios! 🤑💚</p>
+                    </div>
+                </details>
+                <details class="diatrii-faq-item">
+                    <summary class="diatrii-faq-q">
+                        ¿Existe un monto máximo de inversión para tener comisión en $0?
+                    </summary>
+                    <div class="diatrii-faq-a">
+                        <p>No hay un monto máximo. Puedes invertir lo que desees, mientras las operaciones sin comisión sigan activas. 🙌</p>
+                    </div>
+                </details>
+                <details class="diatrii-faq-item">
+                    <summary class="diatrii-faq-q">
+                        ¿Por qué no me deja comprar a precio de mercado si deposité $30.000?
+                    </summary>
+                    <div class="diatrii-faq-a">
+                        <p>Esto pasa porque las órdenes a mercado no usan el 100% de tu saldo. Debes dejar un 10% extra disponible como margen.</p>
+                        <p><strong>¿Por qué sucede esto?</strong></p>
+                        <p>Los precios del mercado pueden variar rápidamente, y este margen te protege de quedarte con una &quot;deuda&quot; accidental. 👀</p>
+                        <p><strong>¿Qué puedo hacer?</strong></p>
+                        <ul class="diatrii-faq-ul">
+                            <li>Depositar un poco más.</li>
+                            <li>Cambiar tu orden a precio límite.</li>
+                        </ul>
+                        <p>👉 Aquí te dejamos un video donde explicamos los tipos de órdenes en trii:</p>
+                        <p><a class="diatrii-faq-link" href="https://acortar.link/PlDWaj" target="_blank" rel="noopener noreferrer">https://acortar.link/PlDWaj</a> 💚</p>
+                    </div>
+                </details>
+                <details class="diatrii-faq-item">
+                    <summary class="diatrii-faq-q">
+                        ¿Dónde veo cuántas operaciones quedan disponibles?
+                    </summary>
+                    <div class="diatrii-faq-a">
+                        <p>Estaremos actualizando el conteo de operaciones sin comisión en nuestras redes y enviando notificaciones por la app. 📱</p>
+                        <p>También podrás verlo al ingresar tu orden: si aún aplica el beneficio, verás &quot;gratis&quot; en la sección de comisión. 💚</p>
+                    </div>
+                </details>
+                <details class="diatrii-faq-item">
+                    <summary class="diatrii-faq-q">
+                        Aún no me validan la cuenta y quiero operar sin comisión
+                    </summary>
+                    <div class="diatrii-faq-a">
+                        <p>Tu cuenta está en proceso de validación. Este paso toma aproximadamente 5 días hábiles, ya que debemos crear tu cuenta en nuestra comisionista aliada (Acciones y Valores), en Deceval y en la Cámara de Riesgo. 🙌</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('diatrii-registration-form');
+        const successMsg = document.getElementById('diatrii-form-success');
+        const webhookUrl = 'https://trii-growth.app.n8n.cloud/webhook/b912eb1d-338f-4d72-8fad-fe98125ee64c';
+        const counterSection = document.getElementById('diatrii-counter-section');
+        const counterNumber = document.getElementById('diatrii-counter-number');
+        const counterValue = counterNumber ? counterNumber.querySelector('.diatrii-counter-value') : null;
+        if (!form) return;
+
+        const btn = form.querySelector('.diatrii-btn-submit');
+        const dataPolicyCheckbox = form.querySelector('input[name="tratamiento_datos"]');
+        const btnInitialHtml = btn ? btn.innerHTML : '';
+
+        const updateSubmitState = () => {
+            const isAccepted = Boolean(dataPolicyCheckbox && dataPolicyCheckbox.checked);
+            if (!btn) return;
+            btn.disabled = !isAccepted;
+            btn.setAttribute('aria-disabled', String(!isAccepted));
+        };
+
+        updateSubmitState();
+        if (dataPolicyCheckbox) {
+            dataPolicyCheckbox.addEventListener('change', updateSubmitState);
+        }
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            if (!dataPolicyCheckbox || !dataPolicyCheckbox.checked) {
+                updateSubmitState();
+                return;
+            }
+
+            if (!btn) return;
+
+            btn.innerHTML = '<span>Procesando...</span>';
+            btn.disabled = true;
+            btn.setAttribute('aria-disabled', 'true');
+            const formData = new FormData(form);
+            const payload = {
+                nombre: String(formData.get('nombre') || '').trim(),
+                apellido: String(formData.get('apellido') || '').trim(),
+                email: String(formData.get('email') || '').trim(),
+                celular: String(formData.get('celular') || '').trim(),
+                tratamiento_datos: Boolean(dataPolicyCheckbox.checked),
+                fuente: 'landing_diatrii',
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Webhook request failed');
+                }
+
+                form.style.display = 'none';
+                successMsg.style.display = 'flex';
+                successMsg.style.opacity = '0';
+                successMsg.style.transform = 'translateY(20px)';
+
+                setTimeout(() => {
+                    successMsg.style.transition = 'all 0.5s ease';
+                    successMsg.style.opacity = '1';
+                    successMsg.style.transform = 'translateY(0)';
+                }, 50);
+            } catch (error) {
+                btn.innerHTML = btnInitialHtml;
+                updateSubmitState();
+                alert('No pudimos enviar tu registro. Inténtalo de nuevo.');
+            }
+        });
+
+        if (counterSection && counterNumber && counterValue) {
+            const target = Number(counterNumber.dataset.target || 700000);
+            let animated = false;
+
+            const animateCounter = () => {
+                if (animated) return;
+                animated = true;
+
+                const duration = 2200;
+                const startTime = performance.now();
+
+                const tick = (now) => {
+                    const progress = Math.min((now - startTime) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const current = Math.floor(target * eased);
+                    counterValue.textContent = current.toLocaleString('es-CO') + '+';
+
+                    if (progress < 1) {
+                        requestAnimationFrame(tick);
+                    }
+                };
+
+                requestAnimationFrame(tick);
+            };
+
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        animateCounter();
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.35 });
+
+            counterObserver.observe(counterSection);
+        }
+    });
+</script>
+
+{{ footer() }}
+{% endblock %}

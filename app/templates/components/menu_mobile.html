@@ -1,0 +1,44 @@
+
+<nav id="m-menu" class="menu_mobile display-none">
+    <div class="left-container">
+        <div class="menu">
+            <div class="menu-mobile-header">
+                <a href="/" class="menu-mobile-logo-link">
+                    <img src="/static/icons/trii_logo.svg" alt="logo trii" class="menu-mobile-logo">
+                </a>
+                <button class="menu-mobile-close" onclick="closeMenu()" aria-label="Cerrar menú">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <a href="/" class="menu-mobile-link">Inicio</a>
+            {# Copilot desplegable desconectado temporalmente; solo Aprende -> /blog #}
+            {# <div class="menu-mobile-section" id="copilot-section"> ... 4 enlaces Copilot ... </div> #}
+            <div class="menu-mobile-section" id="productos-section">
+                <button class="menu-mobile-section-title" onclick="toggleProductsMenu()" aria-expanded="false">
+                    <span>Productos</span>
+                    <svg class="menu-mobile-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="menu-mobile-section-content">
+                    <a href="/stock-list?tab=local" class="menu-mobile-link menu-mobile-subitem">Acciones Locales</a>
+                    <a href="/stock-list?tab=global" class="menu-mobile-link menu-mobile-subitem">Acciones Globales</a>
+                    <a href="/etf" class="menu-mobile-link menu-mobile-subitem">ETF</a>
+                    <a href="/fondos" class="menu-mobile-link menu-mobile-subitem">Fondos</a>
+                </div>
+            </div>
+            <a href="/about" class="menu-mobile-link">Sobre trii</a>
+            <a href="/blog" class="menu-mobile-link">Aprende</a>
+            <a
+                href="https://web.trii.co/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="menu-mobile-link menu-mobile-cta"
+            >
+                Iniciar Sesión
+            </a>
+        </div>
+    </div>
+</nav>

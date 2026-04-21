@@ -1,0 +1,124 @@
+{% extends "_base.html" %}
+{% block title %}{{blog.title | safe}}{% endblock %}
+{% block description %}{{ blog.description_short | striptags | truncate(155, True, '') | trim }}{% endblock %}
+{% block cannonical %}<link rel="canonical" href="https://trii.co/blog/{{blog.slug}}" />{% endblock %}
+{% block og_image %}{{ blog.image_cover }}{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/static/css/blog-view.css">
+<link rel="stylesheet" href="/static/css/blog-list.css">
+<script src="/static/js/tab.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ blog.title | safe | replace('"', '\\"') }}",
+  "image": "{{ blog.image_cover }}",
+  "url": "https://trii.co/blog/{{ blog.slug }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://trii.co/blog/{{ blog.slug }}"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "trii Chile",
+    "url": "https://trii.co"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "trii Chile",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://trii.co/static/icons/trii_logo.svg"
+    }
+  },
+  "datePublished": "{{ blog.date_creation | safe }}",
+  "inLanguage": "es-CL"
+}
+</script>
+{% endblock %}
+{% block content %}
+{% from '/components/navbar.html' import navbar %}
+{% from '/components/footer.html' import footer %}
+<header>
+   {{navbar ()}}
+</header>
+
+<section class="blog-view-hero">
+   <div class="blog-view-hero-container">
+      <div class="blog-view-badge">
+         <span class="blog-view-badge-text">{{blog.tag}}</span>
+      </div>
+      <h1 class="blog-view-title">{{blog.title |safe }}</h1>
+      <div class="blog-view-meta">
+         <span class="blog-view-date">{{blog.date_creation|safe }}</span>
+      </div>
+      <div class="blog-view-cover-wrapper">
+         <img class="blog-view-cover" src="{{blog.image_cover}}" alt="{{blog.title}}" loading="eager" decoding="async">
+      </div>
+   </div>
+</section>
+
+<section class="blog-view-content">
+   <article class="blog-view-article">
+      <div class="blog-view-article-content">
+         {{blog.content|safe }}
+      </div>
+   </article>
+</section>
+
+{% if related_post %}
+<section class="blog-view-related">
+   <div class="blog-view-related-container">
+      <div class="blog-view-related-header">
+         <h2 class="blog-view-related-title">Te podría interesar</h2>
+         <p class="blog-view-related-subtitle">Descubre más contenido relacionado</p>
+      </div>
+      <div class="blog-view-related-carousel-wrapper">
+         <div class="blog-view-related-carousel-track" id="blog-related-carousel-track">
+            {% for item in related_post %}
+            <a href="/blog/{{item.slug}}" class="blog-view-related-card">
+               <div class="blog-view-related-image-wrapper">
+                  <img src="{{item.image_list}}" alt="{{item.title}}" loading="lazy" decoding="async">
+               </div>
+               <div class="blog-view-related-content">
+                  <h3 class="blog-view-related-card-title">{{item.title | safe}}</h3>
+                  <p class="blog-view-related-card-description">{{ (item.description_short | striptags) | truncate(75, True, '…') }}</p>
+               </div>
+            </a>
+            {% endfor %}
+            {% for item in related_post %}
+            <a href="/blog/{{item.slug}}" class="blog-view-related-card">
+               <div class="blog-view-related-image-wrapper">
+                  <img src="{{item.image_list}}" alt="{{item.title}}" loading="lazy" decoding="async">
+               </div>
+               <div class="blog-view-related-content">
+                  <h3 class="blog-view-related-card-title">{{item.title | safe}}</h3>
+                  <p class="blog-view-related-card-description">{{ (item.description_short | striptags) | truncate(75, True, '…') }}</p>
+               </div>
+            </a>
+            {% endfor %}
+         </div>
+      </div>
+   </div>
+</section>
+<script>
+   (function() {
+      const carouselTrack = document.getElementById('blog-related-carousel-track');
+      if (carouselTrack) {
+         carouselTrack.addEventListener('mouseenter', function() {
+            this.style.animationPlayState = 'paused';
+         });
+         carouselTrack.addEventListener('mouseleave', function() {
+            this.style.animationPlayState = 'running';
+         });
+         carouselTrack.style.willChange = 'transform';
+      }
+   })();
+</script>
+{% endif %}
+
+{{footer()}}
+
+{% endblock %}

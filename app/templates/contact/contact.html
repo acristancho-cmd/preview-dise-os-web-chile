@@ -1,0 +1,157 @@
+{% extends "_base.html" %}
+{% block title %}Contacto{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/static/css/contact.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock %}
+{% block content %}
+{% from '/components/navbar.html' import navbar %}
+{% from '/components/footer.html' import footer %}
+<header>
+   {{navbar ()}}
+</header>
+
+<div class="ai-assistant-badge">
+    <svg class="sparkles-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L13.09 8.26L19 9L13.09 9.74L12 16L10.91 9.74L5 9L10.91 8.26L12 2Z" fill="rgb(2, 251, 126)"/>
+        <path d="M19 2L19.59 4.59L22 5.18L19.59 5.77L19 8.36L18.41 5.77L16 5.18L18.41 4.59L19 2Z" fill="rgb(2, 251, 126)"/>
+        <path d="M5 2L5.59 4.59L8 5.18L5.59 5.77L5 8.36L4.41 5.77L2 5.18L4.41 4.59L5 2Z" fill="rgb(2, 251, 126)"/>
+    </svg>
+    <p class="ai-assistant-text">Contáctanos</p>
+</div>
+
+{# Contact Header Section #}
+<section class="about-header">
+    <h1 class="about-title">
+        Envíanos un <span class="about-title-highlight">mensaje</span>
+    </h1>
+    <p class="about-subtitle">Estamos aquí para ayudarte. Escríbenos y te responderemos lo antes posible.</p>
+</section>
+
+{# Main Contact Section #}
+<section class="contact-main-section">
+    <div class="container mx-auto px-4">
+        <div class="contact-main-grid">
+            {# Contact Information Cards #}
+            <div class="contact-info-column">
+                {# Trabaja con nosotros #}
+                <article class="contact-info-card">
+                    <div class="contact-info-card-content">
+                        <h3 class="contact-info-title">Trabaja con nosotros</h3>
+                        <p class="contact-info-description">En trii siempre estamos buscando talento para sumar al equipo.</p>
+                        <a href="mailto:talento@trii.co" class="contact-info-email">talento@trii.co</a>
+                    </div>
+                    <div class="contact-info-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </article>
+
+                {# Retroalimentación #}
+                <article class="contact-info-card">
+                    <div class="contact-info-card-content">
+                        <h3 class="contact-info-title">Retroalimentación</h3>
+                        <p class="contact-info-description">¿Tienes alguna idea o mejora? Escríbenos, queremos construir la mejor versión de trii junto a ti.</p>
+                        <a href="mailto:edisson@trii.co" class="contact-info-email">edisson@trii.co</a>
+                    </div>
+                    <div class="contact-info-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </article>
+
+                {# PQRS #}
+                <article class="contact-info-card">
+                    <div class="contact-info-card-content">
+                        <h3 class="contact-info-title">PQRS</h3>
+                        <p class="contact-info-description">¿Tienes alguna petición, queja, reclamo y/o sugerencia?</p>
+                        <a href="https://form.jotform.com/243446979104666" target="_blank" class="contact-info-link">
+                            Escríbenos aquí
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="contact-info-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C4.9 2 4.01 2.9 4.01 4L4 20C4 21.1 4.89 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2ZM18 20H6V4H13V9H18V20Z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                </article>
+            </div>
+
+            {# Contact Form #}
+            <div class="contact-form-column">
+                <div class="contact-form-card">
+                    <h2 class="contact-form-title">Envía tu mensaje</h2>
+                    <form action="/contact" method="post" class="contact-form">
+                        <div class="contact-input-group">
+                            <input type="text" name="name" id="name" class="contact-input-field" placeholder="Tu nombre" autocomplete="off" required>
+                            <div class="contact-input-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="contact-input-group">
+                            <input type="email" name="email" id="email" class="contact-input-field" placeholder="Tu correo electrónico" autocomplete="off" required>
+                            <div class="contact-input-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="contact-input-group contact-input-group-message">
+                            <textarea name="message" id="message" class="contact-input-field contact-input-message" placeholder="Tu mensaje (opcional)" autocomplete="off" rows="4"></textarea>
+                            <div class="contact-input-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="CSRFToken" value="{{CSRF_token}}">
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAAAHVmbpfogFbYxO3"></div>
+
+                        <button type="submit" class="contact-submit-button">
+                            Enviar mensaje
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polygon points="22,2 15,22 11,13 2,9 22,2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# WhatsApp Section #}
+<section class="contact-whatsapp-section">
+    <div class="container mx-auto px-4">
+        <div class="contact-whatsapp-content">
+            <div class="contact-whatsapp-icon">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+            <h1 class="contact-whatsapp-title">¿No te gustan los formularios?</h1>
+            <h3 class="contact-whatsapp-subtitle">Escríbenos directamente a WhatsApp</h3>
+            <a href="https://wa.me/573225383294" class="contact-whatsapp-button" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                Ir a WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+
+{{footer()}}
+
+{% endblock %}

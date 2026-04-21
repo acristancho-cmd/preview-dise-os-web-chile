@@ -1,0 +1,30 @@
+@font-face {
+  font-display: swap;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 100 900;
+  src: url(/static/fonts/DMSans-VariableFont.ttf) format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "DM Sans";
+  font-style: italic;
+  font-weight: 100 900;
+  src: url(/static/fonts/DMSans-VariableFont.ttf) format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Formula Condensed";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/static/fonts/FormulaCondensed-Regular.otf) format("opentype");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Formula Condensed";
+  font-style: normal;
+  font-weight: 700;
+  src: url(/static/fonts/FormulaCondensed-Bold.otf) format("opentype");
+}

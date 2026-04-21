@@ -1,0 +1,20 @@
+{% extends "_base.html" %}
+{% block title %}Radar de mercado{% endblock %}
+{% block description %}Radar de mercado - trii{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/static/css/copilot-radar-mercado.css">
+{% endblock %}
+{% block content %}
+{% from '/components/navbar.html' import navbar %}
+{% from '/components/footer.html' import footer %}
+<header>
+   {{ navbar() }}
+</header>
+<section class="copilot-page copilot-radar-mercado">
+   <div class="copilot-page-container">
+      <h1 class="copilot-page-title">Radar de mercado</h1>
+   </div>
+</section>
+{{ footer() }}
+{% endblock %}

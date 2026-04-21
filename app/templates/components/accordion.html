@@ -1,0 +1,13 @@
+{% macro accordion(id, title, description='') -%}
+<div class="accordion">
+    <input type="checkbox" id="{{id}}">
+    <div class="accordion-tittle">
+        <label for="{{id}}" class="title_question">{{title}}</label>
+        <label for="{{id}}" class="open-accordion"><img class="close" src="/static/icons/icon_add.svg" alt="close"></label>
+        <label for="{{id}}" class="open"><img src="/static/icons/icon_remove.svg" alt="open" ></label>
+    </div>
+    <div class="description">
+        {{description}}
+    </div>
+</div>
+{%- endmacro %}

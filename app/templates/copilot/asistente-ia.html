@@ -1,0 +1,174 @@
+{% extends "_base.html" %}
+{% block title %}Asistente de IA{% endblock %}
+{% block description %}Asistente de IA - trii{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/static/css/copilot-asistente-ia.css">
+{% endblock %}
+{% block content %}
+{% from '/components/navbar.html' import navbar %}
+{% from '/components/footer.html' import footer %}
+<header>
+   {{ navbar() }}
+</header>
+
+{# Asesor / Asistente de IA - Layout principal #}
+<section class="advisor-main-layout" aria-label="Asistente de IA">
+   {# Estado vacío (Welcome) - visible por defecto #}
+   <div class="advisor-welcome-state" id="advisor-welcome-state">
+      {# Desktop #}
+      <div class="welcome-desktop">
+         <div class="welcome-container">
+            <h1 class="welcome-title">¿Qué quieres saber hoy?</h1>
+            <p class="welcome-subtitle">Análisis de mercado, comparación de activos y educación financiera</p>
+            {# Power Prompts - Desktop grid #}
+            <div class="power-prompts-grid">
+               <button type="button" class="power-prompt-btn" data-category="market">
+                  <span class="power-prompt-icon-box power-prompt-icon-box--market"><svg class="power-prompt-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
+                  <span class="power-prompt-label">Mercado</span>
+               </button>
+               <button type="button" class="power-prompt-btn" data-category="education">
+                  <span class="power-prompt-icon-box power-prompt-icon-box--education"><svg class="power-prompt-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+                  <span class="power-prompt-label">Educación</span>
+               </button>
+               <button type="button" class="power-prompt-btn" data-category="portfolio">
+                  <span class="power-prompt-icon-box power-prompt-icon-box--portfolio"><svg class="power-prompt-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                  <span class="power-prompt-label">Portafolio</span>
+               </button>
+               <button type="button" class="power-prompt-btn" data-category="news">
+                  <span class="power-prompt-icon-box power-prompt-icon-box--news"><svg class="power-prompt-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg></span>
+                  <span class="power-prompt-label">Noticias</span>
+               </button>
+            </div>
+         </div>
+      </div>
+      {# Mobile #}
+      <div class="welcome-mobile">
+         <div>
+            <h1 class="welcome-mobile-title">¿Qué quieres saber hoy?</h1>
+            <p class="welcome-mobile-subtitle">Análisis de mercado, comparación de activos y educación financiera</p>
+            <div class="power-prompts-mobile">
+               <button type="button" class="power-prompt-pill" data-category="market">
+                  <svg class="power-prompt-pill-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgb(2, 251, 126)" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                  <span class="power-prompt-pill-label">Mercado</span>
+               </button>
+               <button type="button" class="power-prompt-pill" data-category="education">
+                  <svg class="power-prompt-pill-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgb(96, 165, 250)" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                  <span class="power-prompt-pill-label">Educación</span>
+               </button>
+               <button type="button" class="power-prompt-pill" data-category="portfolio">
+                  <svg class="power-prompt-pill-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgb(251, 191, 36)" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                  <span class="power-prompt-pill-label">Portafolio</span>
+               </button>
+               <button type="button" class="power-prompt-pill" data-category="news">
+                  <svg class="power-prompt-pill-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgb(244, 114, 182)" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
+                  <span class="power-prompt-pill-label">Noticias</span>
+               </button>
+            </div>
+         </div>
+      </div>
+
+      {# Input Cockpit - especificación completa #}
+      <form class="input-cockpit-form" action="#" method="get" aria-label="Escribe tu pregunta">
+         <div class="input-cockpit-wrapper">
+            <div class="input-cockpit">
+               {# Contenedor action buttons (izquierda) - Desktop: Paperclip + Mic; Mobile: toggle + popup #}
+               <div class="input-cockpit-actions">
+                  <div class="action-buttons-desktop">
+                     <button type="button" class="action-btn" aria-label="Adjuntar"><svg class="action-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg></button>
+                     <button type="button" class="action-btn" aria-label="Voz"><svg class="action-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></button>
+                  </div>
+                  <div class="action-buttons-mobile">
+                     <button type="button" class="action-btn action-btn-toggle" aria-label="Más opciones" aria-expanded="false" data-action-popup-toggle><svg class="action-btn-icon action-btn-icon-plus" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><svg class="action-btn-icon action-btn-icon-close hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+                     <div class="action-buttons-popup" hidden>
+                        <button type="button" class="action-btn action-btn-popup" aria-label="Adjuntar"><svg class="action-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg></button>
+                        <button type="button" class="action-btn action-btn-popup" aria-label="Voz"><svg class="action-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></button>
+                     </div>
+                  </div>
+               </div>
+               <textarea class="input-textarea" rows="1" placeholder="Analiza, compara o pregunta lo que quieras..." data-placeholder-mobile="Pregúntame algo..." aria-label="Escribe tu pregunta"></textarea>
+               <button type="submit" class="send-btn send-btn--inactive" aria-label="Enviar"><svg class="send-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+            </div>
+            <p class="input-disclaimer">Soy un asistente de IA y puedo cometer errores. No ofrezco asesoría financiera.</p>
+         </div>
+      </form>
+   </div>
+
+   {# Vista Chat (oculta por defecto; mostrar cuando haya mensajes) #}
+   <div class="advisor-chat-state" id="advisor-chat-state" hidden>
+      {# Chat desktop #}
+      <div class="chat-container-desktop">
+         <div class="messages-wrapper">
+            <div class="messages-list-desktop">
+               <div class="message-row message-row--user">
+                  <div class="avatar avatar--user"><svg class="avatar-icon--user" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                  <div class="bubble bubble--user"><p>¿Cómo va el índice COLCAP hoy?</p></div>
+               </div>
+               <div class="message-row message-row--bot">
+                  <div class="avatar avatar--bot"><svg class="avatar-icon--bot" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>
+                  <div class="bubble bubble--bot">
+                     <div class="bot-content">
+                        <p>El <strong>COLCAP</strong> es el índice principal de la Bolsa de Valores de Colombia. Aquí tienes un resumen:</p>
+                        <ul><li>Rendimiento del día</li><li>Principales subidas y bajadas</li></ul>
+                        <div class="tradingview-chart" data-widget="chart" aria-label="Gráfico TradingView"><!-- Widget TradingView --></div>
+                        <p>Recuerda que esta información es referencial.</p>
+                        <div class="market-summary" data-widget="market-summary" aria-label="Resumen de mercado"><!-- Widget Market Summary --></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      {# Chat mobile #}
+      <div class="chat-container-mobile">
+         <div class="chat-scroll-mobile">
+            <div class="messages-wrapper">
+               <div class="messages-list-mobile">
+                  <div class="message-row message-row-mobile message-row--user">
+                     <div class="avatar avatar-mobile avatar--user"><svg class="avatar-icon-mobile avatar-icon--user" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                     <div class="bubble bubble-mobile bubble--user"><p>¿Cómo va el índice COLCAP hoy?</p></div>
+                  </div>
+                  <div class="message-row message-row-mobile message-row--bot">
+                     <div class="avatar avatar-mobile avatar--bot"><svg class="avatar-icon-mobile avatar-icon--bot" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>
+                     <div class="bubble bubble-mobile bubble--bot">
+                        <div class="bot-content">
+                           <p>El <strong>COLCAP</strong> es el índice principal de la Bolsa de Valores de Colombia.</p>
+                           <p>Recuerda que esta información es referencial.</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="input-bar-mobile">
+            <div class="input-cockpit">
+               <textarea class="input-textarea input-textarea--mobile" rows="1" placeholder="Pregúntame algo..." aria-label="Escribe tu pregunta"></textarea>
+               <button type="button" class="send-btn send-btn--active" aria-label="Enviar"><svg class="send-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+            </div>
+         </div>
+      </div>
+      <div class="input-bar-desktop">
+         <div class="inner">
+            <div class="input-cockpit">
+               <textarea class="input-textarea" rows="1" placeholder="Analiza, compara o pregunta lo que quieras..." aria-label="Escribe tu pregunta"></textarea>
+               <button type="button" class="action-btn" aria-label="Adjuntar"><svg class="action-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg></button>
+               <button type="button" class="action-btn" aria-label="Voz"><svg class="action-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></button>
+               <button type="button" class="send-btn send-btn--active" aria-label="Enviar"><svg class="send-btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   {# Estado "Pensando..." / Loading #}
+   <div class="advisor-thinking-state" id="advisor-thinking-state" hidden>
+      <div class="messages-wrapper">
+         <div class="message-row message-row--bot">
+            <div class="avatar avatar--bot"><svg class="avatar-icon--bot" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>
+            <div class="bubble bubble--bot"><p class="thinking-text">Pensando...</p></div>
+         </div>
+      </div>
+   </div>
+</section>
+
+{{ footer() }}
+{% endblock %}

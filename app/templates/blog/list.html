@@ -1,0 +1,61 @@
+{% extends "_base.html" %}
+{% block title %}Educación Financiera y Consejos de financieros | Blog de trii{% endblock %}
+{% block description %}Descubre estrategias de inversión, consejos financieros y las últimas tendencias del mercado en el Blog de trii. Aprende a invertir inteligentemente y maximiza tus ingresos con nuestra experta guía en educación financiera.{% endblock %}
+
+{% block cannonical %}<link rel="canonical" href="https://trii.co/blog" />{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/static/css/blog-list.css">
+<script src="/static/js/tab.js"></script>
+{% endblock %}
+{% block content %}
+{% from '/components/navbar.html' import navbar %}
+{% from '/components/footer.html' import footer %}
+<header>
+   {{navbar ()}}
+</header>
+
+<div class="ai-assistant-badge">
+    <svg class="sparkles-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L13.09 8.26L19 9L13.09 9.74L12 16L10.91 9.74L5 9L10.91 8.26L12 2Z" fill="rgb(2, 251, 126)"/>
+        <path d="M19 2L19.59 4.59L22 5.18L19.59 5.77L19 8.36L18.41 5.77L16 5.18L18.41 4.59L19 2Z" fill="rgb(2, 251, 126)"/>
+        <path d="M5 2L5.59 4.59L8 5.18L5.59 5.77L5 8.36L4.41 5.77L2 5.18L4.41 4.59L5 2Z" fill="rgb(2, 251, 126)"/>
+    </svg>
+    <p class="ai-assistant-text">Educación financiera</p>
+</div>
+
+<section class="about-header">
+    <h1 class="about-title">
+        Aprende con <span class="about-title-highlight">nosotros</span>
+    </h1>
+    <p class="about-subtitle about-subtitle-desktop">En trii, estamos comprometidos con la educación financiera, por esta razón hemos diseñado este Blog. De esta manera, aprende a invertir, conoce formas de ganar dinero, descubre qué es un ETF, y mucho más en estos artículos.</p>
+    <p class="about-subtitle about-subtitle-mobile">Aprende a invertir, conoce formas de ganar dinero, descubre qué es un ETF y más en nuestro blog de educación financiera.</p>
+</section>
+<section class="blog-list-container">
+   <div id="blog-paginated-list" class="blog-list" data-current-page="1" aria-live="polite">
+      {% for item in list_post %}
+      <a href="blog/{{item.slug}}" class="items">
+         <img src="{{item.image_list}}" alt="{{ item.title }}">
+         <div class="blog-card-body">
+            <p class="title">{{ item.title | safe }}</p>
+            <div class="mini-description">{{ (item.description_short | striptags) | truncate(75, True, '…') }}</div>
+         </div>
+      </a>
+      {% endfor %}
+   </div>
+   <div class="pagination-container">
+      <button class="pagination-button" id="prev-button-blog" aria-label="Página anterior" title="Página anterior" width="40px" height="40px">
+         <img src="/static/icons/icon_back.png" alt="Página anterior">
+      </button>
+      <div id="pagination-numbers-blog" class="pagination-numbers-wrapper"></div>
+      <button class="pagination-button" id="next-button-blog" aria-label="Página siguiente" title="Página siguiente" width="40px" height="40px">
+         <img src="/static/icons/icon_forward.png" alt="Página siguiente">
+      </button>
+   </div>
+</section>
+
+{{footer()}}
+
+<script src="/static/js/pagination-utils.js?v=0.0.1"></script>
+<script src="/static/js/paginacion-blog-list.js?v=0.0.1"></script>
+{% endblock %}

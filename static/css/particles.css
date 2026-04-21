@@ -1,0 +1,37 @@
+/* Floating Particles Background */
+#floating-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 3px; /* Temporalmente más grande para debug */
+  height: 3px;
+  background-color: rgb(2, 251, 126); /* Verde neón exacto */
+  border-radius: 50%;
+  animation: float ease infinite;
+  box-shadow: 0 0 6px rgba(2, 251, 126, 0.8); /* Glow para visibilidad */
+}
+
+/* Animación exacta como especificaste */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-70px) translateX(35px);
+  }
+  50% {
+    transform: translateY(35px) translateX(-35px);
+  }
+  75% {
+    transform: translateY(-35px) translateX(20px);
+  }
+}

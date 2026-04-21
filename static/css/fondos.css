@@ -1,0 +1,177 @@
+/**
+ * /fondos — listado de fondos (misma base visual de /etf)
+ */
+
+.funds-grid-section {
+  padding: 0 16px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+ul.funds-stocks-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+}
+
+@media (max-width: 900px) {
+  ul.funds-stocks-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .funds-grid-section {
+    padding: 0 30px 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  ul.funds-stocks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .funds-grid-section {
+    padding: 0 16px 48px;
+  }
+}
+
+ul.funds-stocks-grid > li.local-stock-card {
+  list-style: none;
+  width: auto;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color 0.25s ease, background 0.25s ease;
+  min-width: 0;
+}
+
+ul.funds-stocks-grid > li.local-stock-card:hover {
+  border-color: rgba(2, 251, 126, 0.2);
+  background: #1f1f1f;
+}
+
+.funds-grid-section .local-stock-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 24px 28px;
+}
+
+.funds-grid-section .local-stock-logo {
+  width: 142px;
+  height: 142px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.funds-grid-section .local-stock-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 14px;
+}
+
+.funds-grid-section .local-stock-widget {
+  padding: 0;
+  overflow: hidden;
+}
+
+.funds-grid-section .local-stock-widget .tradingview-widget-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.funds-grid-section .local-stock-widget .tradingview-widget-container__widget {
+  width: 100%;
+  overflow: hidden;
+  min-height: 80px;
+}
+
+.funds-grid-section .local-stock-widget .tradingview-widget-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: linear-gradient(to bottom, transparent, #1a1a1a);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.funds-grid-section .local-stock-widget [data-tv-pending] .tradingview-widget-container__widget {
+  min-height: 80px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 25%,
+    rgba(255, 255, 255, 0.07) 50%,
+    rgba(255, 255, 255, 0.03) 75%
+  );
+  background-size: 200% 100%;
+  animation: funds-skeleton 1.4s ease-in-out infinite;
+}
+
+@keyframes funds-skeleton {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.funds-pagination {
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.funds-pagination-pages {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.funds-pagination-btn,
+.funds-pagination-page {
+  height: 36px;
+  min-width: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.02);
+  color: rgba(255, 255, 255, 0.86);
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.funds-pagination-btn:hover,
+.funds-pagination-page:hover {
+  border-color: rgba(2, 251, 126, 0.35);
+  background: rgba(2, 251, 126, 0.08);
+  color: #fff;
+}
+
+.funds-pagination-page.is-active {
+  border-color: rgba(2, 251, 126, 0.55);
+  background: rgba(2, 251, 126, 0.16);
+  color: #fff;
+}
+
+.funds-pagination-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}

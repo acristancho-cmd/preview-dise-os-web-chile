@@ -1,0 +1,123 @@
+{% macro navbar() -%}
+  <header class="navbar-header">
+      <div class="navbar-wrapper">
+          <div class="navbar">
+              {# Logo Section - Left #}
+              <a href="/" class="navbar-logo-link" aria-label="trii inicio">
+                  <img src="/static/icons/trii_logo.svg" alt="trii" class="navbar-logo-img">
+              </a>
+
+              {# Mobile Menu Toggle Button - Visible only on mobile #}
+              <div class="navbar-mobile-button">
+                  <button onclick="openMenu()" class="navbar-mobile-toggle" aria-label="Menú">
+                      <img src="/static/icons/icon_main.svg" alt="Menú">
+                  </button>
+              </div>
+
+              {# Desktop Navigation - Center Section #}
+              <nav class="navbar-desktop" aria-label="Navegación principal">
+                  <ul class="navbar-main">
+                      <li class="navbar-item">
+                          <a href="/" class="navbar-link">Inicio</a>
+                      </li>
+                      {# Products Dropdown Menu #}
+                      <li class="navbar-item navbar-item-dropdown" id="navbar-item-productos">
+                          <a href="#" class="navbar-link navbar-link-dropdown" aria-expanded="false" onclick="return false;">
+                              Productos
+                              <svg class="navbar-chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                          </a>
+                          <div class="dropdown dropdown-categories" role="menu">
+                              <div class="dropdown-content">
+                                  <div class="dropdown-categories-column">
+                                      {# Acciones Locales #}
+                                      <div class="dropdown-category">
+                                          <a href="/stock-list?tab=local" class="dropdown-category-card-link" role="menuitem">
+                                              <div class="dropdown-category-header">
+                                                  <svg class="dropdown-category-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                      <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  </svg>
+                                                  <div class="dropdown-category-info">
+                                                      <div class="dropdown-category-title">Acciones Locales</div>
+                                                      <div class="dropdown-category-desc">Inversión en bolsa local</div>
+                                                  </div>
+                                              </div>
+                                          </a>
+                                      </div>
+
+                                      {# Acciones Globales #}
+                                      <div class="dropdown-category">
+                                          <a href="/stock-list?tab=global" class="dropdown-category-card-link" role="menuitem">
+                                              <div class="dropdown-category-header">
+                                                  <svg class="dropdown-category-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                      <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M2 12H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  </svg>
+                                                  <div class="dropdown-category-info">
+                                                      <div class="dropdown-category-title">Acciones Globales</div>
+                                                      <div class="dropdown-category-desc">Mercados internacionales</div>
+                                                  </div>
+                                              </div>
+                                          </a>
+                                      </div>
+
+                                      {# ETF #}
+                                      <div class="dropdown-category">
+                                          <a href="/etf" class="dropdown-category-card-link" role="menuitem">
+                                              <div class="dropdown-category-header">
+                                                  <svg class="dropdown-category-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                      <path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  </svg>
+                                                  <div class="dropdown-category-info">
+                                                      <div class="dropdown-category-title">ETF</div>
+                                                      <div class="dropdown-category-desc">Fondos cotizados en bolsa</div>
+                                                  </div>
+                                              </div>
+                                          </a>
+                                      </div>
+
+                                      {# Fondos #}
+                                      <div class="dropdown-category">
+                                          <a href="/fondos" class="dropdown-category-card-link" role="menuitem">
+                                              <div class="dropdown-category-header">
+                                                  <svg class="dropdown-category-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                      <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M3 9H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                      <path d="M9 21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                  </svg>
+                                                  <div class="dropdown-category-info">
+                                                      <div class="dropdown-category-title">Fondos</div>
+                                                      <div class="dropdown-category-desc">Fondos de inversión</div>
+                                                  </div>
+                                              </div>
+                                          </a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li class="navbar-item">
+                          <a href="/about" class="navbar-link">Sobre trii</a>
+                      </li>
+                      <li class="navbar-item">
+                          <a href="/blog" class="navbar-link">Aprende</a>
+                      </li>
+                  </ul>
+              </nav>
+
+              {# CTA Button - Right Section (Desktop only) #}
+              <div class="navbar-cta">
+                  <a href="https://web.trii.co/" target="_blank" rel="noopener noreferrer">
+                      <button class="navbar-button-cta" id="button-download" type="button">
+                          Iniciar Sesión
+                      </button>
+                  </a>
+              </div>
+          </div>
+      </div>
+  </header>
+  {%- endmacro %}

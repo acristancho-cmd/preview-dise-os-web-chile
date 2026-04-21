@@ -1,0 +1,728 @@
+{% extends "_base.html" %}
+{% block title %}Trii Pro Chile | Suscripción Premium para Invertir en Bolsa{% endblock %}
+{% block description %}Invierte en la Bolsa de Santiago con ventaja real. Trii Pro Chile: 50% descuento en comisiones, herramientas profesionales y análisis en tiempo real. Respaldado por Vector Capital y regulado por la CMF.{% endblock %}
+{% block head %}
+   <!-- Preconnect to TradingView domains for faster loading -->
+   <link rel="preconnect" href="https://s3.tradingview.com" crossorigin>
+   <link rel="preconnect" href="https://www.tradingview.com" crossorigin>
+   <!-- Preload TradingView widget scripts -->
+   <link rel="preload" href="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" as="script">
+   <link rel="preload" href="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" as="script">
+   <link rel="preload" href="https://s3.tradingview.com/external-embedding/embed-widget-mini-chart.js" as="script">
+   <link rel="preload" href="https://s3.tradingview.com/external-embedding/embed-widget-ticker.js" as="script">
+   <link rel="preload" href="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" as="script">
+   <link rel="preload" href="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" as="script">
+   <link rel="preload" href="https://s3.tradingview.com/external-embedding/embed-widget-financials.js" as="script">
+
+   <link rel="stylesheet" href="/static/css/home.css">
+   <link rel="stylesheet" href="/static/css/triipro.css">
+   {{ super() }}
+{% endblock %}
+{% block content %}
+{% from '/components/navbar.html' import navbar %}
+{% from '/components/footer.html' import footer %}
+
+{{navbar ()}}
+
+{% set app_url = "https://web.trii.co/" %}
+
+<main>
+   <!-- SVG Sprite - Reusable Icons -->
+   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="icon-checkmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+         <path d="M20 6L9 17l-5-5"/>
+      </symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+         <path d="M5 12h14m-7-7l7 7-7 7"/>
+      </symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+         <path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z"/>
+      </symbol>
+      <symbol id="icon-layers" viewBox="0 0 24 24" fill="none" stroke="rgb(2, 251, 126)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+         <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
+         <path d="M2 17L12 22L22 17"/>
+         <path d="M2 12L12 17L22 12"/>
+      </symbol>
+      <symbol id="icon-star-benefit" viewBox="0 0 24 24" fill="none" stroke="rgb(2, 251, 126)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+         <path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z"/>
+      </symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="rgb(2, 251, 126)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+         <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21"/>
+         <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z"/>
+      </symbol>
+      <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="rgb(2, 251, 126)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+         <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z"/>
+         <path d="M9 12L11 14L15 10"/>
+      </symbol>
+      <symbol id="icon-chart" viewBox="0 0 24 24" fill="none" stroke="rgb(2, 251, 126)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+         <path d="M3 3V21H21"/>
+         <path d="M7 16L12 11L16 15L21 10"/>
+         <path d="M21 10V3H14"/>
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="rgb(2, 251, 126)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+         <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"/>
+         <path d="M22 6L12 13L2 6"/>
+      </symbol>
+      <symbol id="icon-technical" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+         <path d="M3 3V21H21"/>
+         <path d="M7 16L12 11L16 15L21 10"/>
+      </symbol>
+      <symbol id="icon-dollar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+         <path d="M12 2V22M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6312 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6312 13.6815 18 14.5717 18 15.5C18 16.4283 17.6312 17.3185 16.9749 17.9749C16.3185 18.6312 15.4283 19 14.5 19H6"/>
+      </symbol>
+   </svg>
+   <section class="triipro-hero-premium">
+      <div class="triipro-hero-premium-container">
+         <div class="triipro-hero-premium-content">
+            <h1 class="triipro-hero-premium-title">
+               Lleva tus inversiones al <span class="triipro-title-highlight">siguiente nivel</span>
+            </h1>
+
+            <p class="triipro-hero-premium-description">
+               Accede a herramientas profesionales, análisis en tiempo real y beneficios exclusivos diseñados para inversores serios.
+            </p>
+
+            <div class="triipro-hero-premium-stats">
+               <div class="triipro-stat-item">
+                  <div class="triipro-stat-value">50%</div>
+                  <div class="triipro-stat-label">
+                     <span class="label-desktop">Descuento en comisiones</span>
+                     <span class="label-mobile">Descuento</span>
+                  </div>
+               </div>
+               <div class="triipro-stat-divider"></div>
+               <div class="triipro-stat-item">
+                  <div class="triipro-stat-value">24/7</div>
+                  <div class="triipro-stat-label">
+                     <span class="label-desktop">Análisis en tiempo real</span>
+                     <span class="label-mobile">Análisis</span>
+                  </div>
+               </div>
+               <div class="triipro-stat-divider"></div>
+               <div class="triipro-stat-item">
+                  <div class="triipro-stat-value">100%</div>
+                  <div class="triipro-stat-label">
+                     <span class="label-desktop">Digital y sin papeleos</span>
+                     <span class="label-mobile">Digital</span>
+                  </div>
+               </div>
+            </div>
+
+            <div class="triipro-hero-premium-cta">
+               <a href="{{ app_url }}" class="triipro-premium-cta-button">
+                  <span>Suscríbete ahora</span>
+                  <svg width="20" height="20"><use href="#icon-arrow-right"/></svg>
+               </a>
+               <p class="triipro-premium-cta-note">Cancela cuando quieras</p>
+            </div>
+         </div>
+
+         <div class="triipro-hero-premium-dashboard">
+            <div class="triipro-dashboard-ticker-tape">
+               <div class="tradingview-widget-container">
+                 <div class="tradingview-widget-container__widget"></div>
+                 <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/" rel="noopener nofollow" target="_blank"><span class="blue-text">Ticker tape</span></a><span class="trademark"> by TradingView</span></div>
+                 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                 {
+                 "symbols": [
+                   {
+                     "proName": "FOREXCOM:SPXUSD",
+                     "title": "S&P 500 Index"
+                   },
+                   {
+                     "proName": "FOREXCOM:NSXUSD",
+                     "title": "US 100 Cash CFD"
+                   },
+                   {
+                     "proName": "FX_IDC:EURUSD",
+                     "title": "EUR to USD"
+                   },
+                   {
+                     "proName": "BITSTAMP:BTCUSD",
+                     "title": "Bitcoin"
+                   },
+                   {
+                     "proName": "BITSTAMP:ETHUSD",
+                     "title": "Ethereum"
+                   }
+                 ],
+                 "colorTheme": "dark",
+                 "locale": "en",
+                 "largeChartUrl": "",
+                 "isTransparent": false,
+                 "showSymbolLogo": true,
+                 "displayMode": "adaptive"
+                 }
+                 </script>
+               </div>
+            </div>
+
+            <div class="triipro-dashboard-main-chart">
+               <div class="chart-loading-overlay" id="main-chart-loading">
+                  <div class="chart-loading-content">
+                     <div class="chart-loading-spinner">
+                        <div class="spinner-ring"></div>
+                        <div class="spinner-ring"></div>
+                        <div class="spinner-ring"></div>
+                     </div>
+                     <p class="chart-loading-text">Cargando gráfico...</p>
+                  </div>
+               </div>
+               <div class="tradingview-widget-container">
+                  <div class="tradingview-widget-container__widget"></div>
+                  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener nofollow" target="_blank"><span class="blue-text">AAPL stock chart</span></a> by TradingView</div>
+                  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                  {
+                  "allow_symbol_change": true,
+                  "calendar": false,
+                  "details": false,
+                  "hide_side_toolbar": true,
+                  "hide_top_toolbar": false,
+                  "hide_legend": false,
+                  "hide_volume": false,
+                  "hotlist": false,
+                  "interval": "D",
+                  "locale": "en",
+                  "save_image": true,
+                  "style": "1",
+                  "symbol": "NASDAQ:AAPL",
+                  "theme": "dark",
+                  "timezone": "Etc/UTC",
+                  "backgroundColor": "#171717",
+                  "gridColor": "rgba(242, 242, 242, 0.06)",
+                  "watchlist": [],
+                  "withdateranges": false,
+                  "compareSymbols": [],
+                  "studies": [],
+                  "autosize": true
+                  }
+                  </script>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section class="triipro-benefits-premium">
+      <div class="triipro-benefits-premium-container">
+         <div class="triipro-benefits-premium-header">
+            <h2 class="triipro-benefits-premium-title">
+               Invierte como un profesional
+            </h2>
+            <p class="triipro-benefits-premium-subtitle">
+               Todo lo que necesitas para invertir como un profesional, en un solo lugar
+            </p>
+         </div>
+
+         <div class="triipro-benefits-carousel-wrapper">
+            <div class="triipro-benefits-carousel-track" id="benefits-carousel-track">
+               <article class="triipro-benefit-carousel-card">
+                  <div class="triipro-benefit-carousel-badge">
+                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 1L7.5 4.5L11 5.5L8.5 8L9 11.5L6 9.5L3 11.5L3.5 8L1 5.5L4.5 4.5L6 1Z" stroke="rgba(2, 251, 126, 0.6)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                     </svg>
+                  </div>
+                  <div class="triipro-benefit-carousel-content">
+                     <div class="triipro-benefit-carousel-number">01</div>
+                     <div class="triipro-benefit-carousel-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="rgb(2, 251, 126)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M2 17L12 22L22 17" stroke="rgb(2, 251, 126)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M2 12L12 17L22 12" stroke="rgb(2, 251, 126)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                     </div>
+                     <div class="triipro-benefit-carousel-image">
+                        <img src="/static/images/triipro/Diseño sin título (1).png" alt="Descuento en comisiones" width="260" height="340" loading="lazy" decoding="async">
+                        <div class="triipro-benefit-carousel-image-overlay"></div>
+                     </div>
+                     <h3 class="triipro-benefit-carousel-title">50% Descuento</h3>
+                     <div class="triipro-benefit-carousel-text-wrapper">
+                        <div class="triipro-benefit-carousel-icon-badge">
+                           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M7 1V13M1 7H13" stroke="#191919" stroke-width="1.5" stroke-linecap="round"/>
+                              <circle cx="7" cy="7" r="4" stroke="#191919" stroke-width="1.5"/>
+                           </svg>
+                        </div>
+                        <p class="triipro-benefit-carousel-description">50% de descuento en comisiones al operar acciones.</p>
+                     </div>
+                  </div>
+               </article>
+
+               <article class="triipro-benefit-carousel-card">
+                  <div class="triipro-benefit-carousel-content">
+                     <div class="triipro-benefit-carousel-number">02</div>
+                     <div class="triipro-benefit-carousel-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z" stroke="rgb(2, 251, 126)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                     </div>
+                     <div class="triipro-benefit-carousel-image">
+                        <img src="/static/images/triipro/Diseño sin título (2).png" alt="Informes Premium" width="260" height="340" loading="lazy" decoding="async">
+                        <div class="triipro-benefit-carousel-image-overlay"></div>
+                     </div>
+                     <h3 class="triipro-benefit-carousel-title">Informes Premium</h3>
+                     <div class="triipro-benefit-carousel-text-wrapper">
+                        <div class="triipro-benefit-carousel-icon-badge">
+                           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M3.5 3.5H10.5V10.5H3.5V3.5Z" stroke="#191919" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M3.5 5.25H10.5M5.25 3.5V10.5" stroke="#191919" stroke-width="1.2" stroke-linecap="round"/>
+                           </svg>
+                        </div>
+                        <p class="triipro-benefit-carousel-description">Análisis expertos y oportunidades de inversión exclusivas cada semana.</p>
+                     </div>
+                  </div>
+               </article>
+
+               <article class="triipro-benefit-carousel-card">
+                  <div class="triipro-benefit-carousel-content">
+                     <div class="triipro-benefit-carousel-number">03</div>
+                     <div class="triipro-benefit-carousel-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="rgb(2, 251, 126)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="rgb(2, 251, 126)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                     </div>
+                     <div class="triipro-benefit-carousel-image">
+                        <img src="/static/images/triipro/Diseño sin título (3).png" alt="Atención Personalizada" width="260" height="340" loading="lazy" decoding="async">
+                        <div class="triipro-benefit-carousel-image-overlay"></div>
+                     </div>
+                     <h3 class="triipro-benefit-carousel-title">Atención Personalizada</h3>
+                     <div class="triipro-benefit-carousel-text-wrapper">
+                        <div class="triipro-benefit-carousel-icon-badge">
+                           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <circle cx="7" cy="5" r="2" stroke="#191919" stroke-width="1.2"/>
+                              <path d="M3.5 12C3.5 9.5 5 8.5 7 8.5C9 8.5 10.5 9.5 10.5 12" stroke="#191919" stroke-width="1.2" stroke-linecap="round"/>
+                           </svg>
+                        </div>
+                        <p class="triipro-benefit-carousel-description">Equipo especializado dedicado exclusivamente a ti.</p>
+                     </div>
+                  </div>
+               </article>
+
+               <article class="triipro-benefit-carousel-card">
+                  <div class="triipro-benefit-carousel-content">
+                     <div class="triipro-benefit-carousel-number">04</div>
+                     <div class="triipro-benefit-carousel-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" stroke="rgb(2, 251, 126)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M9 12L11 14L15 10" stroke="rgb(2, 251, 126)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                     </div>
+                     <div class="triipro-benefit-carousel-image">
+                        <img src="/static/images/triipro/Diseño sin título (4).png" alt="Órdenes Stop Loss" width="260" height="340" loading="lazy" decoding="async">
+                        <div class="triipro-benefit-carousel-image-overlay"></div>
+                     </div>
+                     <h3 class="triipro-benefit-carousel-title">Órdenes Stop Loss</h3>
+                     <div class="triipro-benefit-carousel-text-wrapper">
+                        <div class="triipro-benefit-carousel-icon-badge">
+                           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M7 2L9.5 5H11.5L8.5 8.5L9.5 12L7 10L4.5 12L5.5 8.5L2.5 5H4.5L7 2Z" stroke="#191919" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                           </svg>
+                        </div>
+                        <p class="triipro-benefit-carousel-description">Protege tus inversiones con órdenes stop loss automáticas.</p>
+                     </div>
+                  </div>
+               </article>
+
+               <article class="triipro-benefit-carousel-card">
+                  <div class="triipro-benefit-carousel-content">
+                     <div class="triipro-benefit-carousel-number">05</div>
+                     <div class="triipro-benefit-carousel-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M3 3V21H21" stroke="rgb(2, 251, 126)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M7 16L12 11L16 15L21 10" stroke="rgb(2, 251, 126)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M21 10V3H14" stroke="rgb(2, 251, 126)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                     </div>
+                     <div class="triipro-benefit-carousel-image">
+                        <img src="/static/images/triipro/Diseño sin título (5).png" alt="Líneas de Profundidad" width="260" height="340" loading="lazy" decoding="async">
+                        <div class="triipro-benefit-carousel-image-overlay"></div>
+                     </div>
+                     <h3 class="triipro-benefit-carousel-title">Líneas Profundidad</h3>
+                     <div class="triipro-benefit-carousel-text-wrapper">
+                        <div class="triipro-benefit-carousel-icon-badge">
+                           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M2 11L5 8L7 10L12 4" stroke="#191919" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M9 4H12V7" stroke="#191919" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                           </svg>
+                        </div>
+                        <p class="triipro-benefit-carousel-description">Visualiza el libro de órdenes completo en tiempo real.</p>
+                     </div>
+                  </div>
+               </article>
+
+               <article class="triipro-benefit-carousel-card">
+                  <div class="triipro-benefit-carousel-content">
+                     <div class="triipro-benefit-carousel-number">06</div>
+                     <div class="triipro-benefit-carousel-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="rgb(2, 251, 126)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M22 6L12 13L2 6" stroke="rgb(2, 251, 126)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                     </div>
+                     <div class="triipro-benefit-carousel-image">
+                        <img src="/static/images/triipro/Diseño sin título.png" alt="Noticias Premium" width="260" height="340" loading="lazy" decoding="async">
+                        <div class="triipro-benefit-carousel-image-overlay"></div>
+                     </div>
+                     <h3 class="triipro-benefit-carousel-title">Noticias Premium</h3>
+                     <div class="triipro-benefit-carousel-text-wrapper">
+                        <div class="triipro-benefit-carousel-icon-badge">
+                           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M3.5 3.5H10.5C11.05 3.5 11.5 3.95 11.5 4.5V10.5C11.5 11.05 11.05 11.5 10.5 11.5H3.5C2.95 11.5 2.5 11.05 2.5 10.5V4.5C2.5 3.95 2.95 3.5 3.5 3.5Z" stroke="#191919" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M3.5 5.25H11.5" stroke="#191919" stroke-width="1.2" stroke-linecap="round"/>
+                           </svg>
+                        </div>
+                        <p class="triipro-benefit-carousel-description">Noticias exclusivas de economía y mercado antes que todos.</p>
+                     </div>
+                  </div>
+               </article>
+               <!-- Cloned cards will be added here by JavaScript for infinite scroll -->
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section class="triipro-showcase-premium triipro-tools-section" aria-labelledby="triipro-tools-heading">
+      <div class="triipro-showcase-premium-container triipro-tools-container">
+         <div class="triipro-tools-intro">
+            <h2 id="triipro-tools-heading" class="triipro-tools-title">triipro es tu solución</h2>
+            <p class="triipro-tools-lead">Paga menos e invierte mejor con herramientas de ventaja real en el mercado chileno y análisis en vivo cada semana para que tomes mejores decisiones.</p>
+         </div>
+
+         <div class="triipro-tools-sessions-row">
+            <div class="triipro-tools-video-wrap">
+               <iframe src="https://www.youtube.com/embed/G2I-lR54EzI?si=PZ5pZg6EUFe3v_TH" title="Sesiones de análisis técnico triipro" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen width="560" height="315"></iframe>
+            </div>
+            <ul class="triipro-tools-sessions-list">
+               <li class="triipro-tools-session-item">
+                  <span class="triipro-tools-session-icon" aria-hidden="true">
+                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
+                  </span>
+                  <div class="triipro-tools-session-item-text">
+                     <span class="triipro-tools-session-item-title">Sesiones en vivo semanales</span>
+                     <span class="triipro-tools-session-item-desc">Únete a nuestras transmisiones donde analizamos el mercado en tiempo real y respondemos tus preguntas.</span>
+                  </div>
+               </li>
+               <li class="triipro-tools-session-item">
+                  <span class="triipro-tools-session-icon" aria-hidden="true">
+                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg>
+                  </span>
+                  <div class="triipro-tools-session-item-text">
+                     <span class="triipro-tools-session-item-title">Análisis de tendencias</span>
+                     <span class="triipro-tools-session-item-desc">Aprende a identificar tendencias alcistas y bajistas para entrar y salir en el momento correcto.</span>
+                  </div>
+               </li>
+               <li class="triipro-tools-session-item">
+                  <span class="triipro-tools-session-icon" aria-hidden="true">
+                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 16l4-5 4 2 4-6"/></svg>
+                  </span>
+                  <div class="triipro-tools-session-item-text">
+                     <span class="triipro-tools-session-item-title">Indicadores explicados</span>
+                     <span class="triipro-tools-session-item-desc">RSI, MACD, medias móviles y más. Te enseñamos a usarlos de forma práctica.</span>
+                  </div>
+               </li>
+               <li class="triipro-tools-session-item">
+                  <span class="triipro-tools-session-icon" aria-hidden="true">
+                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h2v4H2z"/><path d="M6 8h2v8H6z"/><path d="M10 4h2v16h-2z"/><path d="M14 8h2v8h-2z"/><path d="M18 12h2v4h-2z"/></svg>
+                  </span>
+                  <div class="triipro-tools-session-item-text">
+                     <span class="triipro-tools-session-item-title">Acceso a grabaciones</span>
+                     <span class="triipro-tools-session-item-desc">¿Te perdiste una sesión? Todas las grabaciones quedan disponibles para usuarios triipro.</span>
+                  </div>
+               </li>
+            </ul>
+         </div>
+
+      </div>
+   </section>
+
+   <section class="triipro-pricing-premium">
+      <div class="triipro-pricing-premium-container">
+         <div class="triipro-pricing-premium-header">
+            <div class="triipro-pricing-premium-badge">
+               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z"/>
+               </svg>
+               <span>Planes Premium</span>
+            </div>
+            <h2 class="triipro-pricing-premium-title">
+               Elige el plan que mejor se adapte a ti
+            </h2>
+            <p class="triipro-pricing-premium-subtitle">
+               Todos los planes incluyen acceso completo a todas las funcionalidades premium
+            </p>
+         </div>
+
+         <div class="triipro-pricing-premium-cards">
+            <article class="triipro-pricing-premium-card triipro-pricing-card-standard">
+               <div class="triipro-pricing-premium-badge-card">Más Flexible</div>
+               <div class="triipro-pricing-premium-header-card">
+                  <h3 class="triipro-pricing-premium-plan-title">Mensual</h3>
+                  <p class="triipro-pricing-premium-plan-desc">Ideal para probar todas las funcionalidades premium</p>
+               </div>
+
+               <div class="triipro-pricing-premium-amount">
+                  <span class="triipro-pricing-premium-price">$27.900</span>
+                  <span class="triipro-pricing-premium-period">/mes</span>
+               </div>
+
+               <a href="{{ app_url }}" class="triipro-pricing-premium-cta triipro-pricing-cta-standard">
+                  Suscríbete ahora
+                  <svg width="16" height="16"><use href="#icon-arrow-right"/></svg>
+               </a>
+
+               <div class="triipro-pricing-premium-features">
+                  {% set monthly_features = [
+                     '50% descuento en comisiones',
+                     'Informes premium semanales',
+                     'Atención personalizada',
+                     'Órdenes stop loss',
+                     'Líneas de profundidad',
+                     'Noticias premium'
+                  ] %}
+                  {% for feature in monthly_features %}
+                  <div class="triipro-pricing-premium-feature">
+                     <svg width="20" height="20"><use href="#icon-checkmark"/></svg>
+                     <span>{{ feature }}</span>
+                  </div>
+                  {% endfor %}
+               </div>
+
+               <div class="triipro-pricing-premium-footer">
+                  <span class="triipro-pricing-premium-note">Cancelación en cualquier momento</span>
+               </div>
+            </article>
+
+            <article class="triipro-pricing-premium-card triipro-pricing-card-featured">
+               <div class="triipro-pricing-premium-badge-featured">
+                  <svg width="16" height="16"><use href="#icon-star"/></svg>
+                  <span>Mejor Valor</span>
+               </div>
+               <div class="triipro-pricing-premium-header-card">
+                  <h3 class="triipro-pricing-premium-plan-title">Anual</h3>
+                  <p class="triipro-pricing-premium-plan-desc">Ahorra 2 meses y maximiza tus beneficios</p>
+               </div>
+
+               <div class="triipro-pricing-premium-amount">
+                  <span class="triipro-pricing-premium-price">$279.000</span>
+                  <span class="triipro-pricing-premium-period">/año</span>
+               </div>
+
+               <div class="triipro-pricing-premium-savings">
+                  <span class="triipro-pricing-premium-savings-badge">Ahorra $55.800</span>
+                  <span class="triipro-pricing-premium-savings-text">Equivale a $23.250/mes</span>
+               </div>
+
+               <a href="{{ app_url }}" class="triipro-pricing-premium-cta triipro-pricing-cta-featured">
+                  Suscríbete ahora
+                  <svg width="16" height="16"><use href="#icon-arrow-right"/></svg>
+               </a>
+
+               <div class="triipro-pricing-premium-features">
+                  {% set annual_features = [
+                     ('50% descuento en comisiones', false),
+                     ('Informes premium semanales', false),
+                     ('Atención personalizada', false),
+                     ('Órdenes stop loss', false),
+                     ('Líneas de profundidad', false),
+                     ('Noticias premium', false),
+                     ('Órdenes take profit (próximamente)', true),
+                     ('2 meses gratis incluidos', true)
+                  ] %}
+                  {% for feature, is_exclusive in annual_features %}
+                  <div class="triipro-pricing-premium-feature{% if is_exclusive %} triipro-pricing-premium-feature-exclusive{% endif %}">
+                     <svg width="20" height="20"><use href="#icon-checkmark"/></svg>
+                     <span>{{ feature }}</span>
+                  </div>
+                  {% endfor %}
+               </div>
+
+               <div class="triipro-pricing-premium-footer">
+                  <span class="triipro-pricing-premium-note">Pago único anual</span>
+               </div>
+            </article>
+         </div>
+
+         <p class="triipro-pricing-premium-disclaimer">
+            Para adquirir esta suscripción debes ingresar al app de trii. Este pago deberás realizarlo con tarjeta de crédito, a través de nuestra plataforma segura.
+         </p>
+      </div>
+   </section>
+</main>
+
+{{footer()}}
+
+<script>
+  (function() {
+    'use strict';
+
+    // ==================== CONSTANTS ====================
+    const TIMING = {
+      LOADING_OVERLAY_HIDE: 800,
+      WIDGET_FIX_IMMEDIATE: 100,
+      WIDGET_FIX_SHORT: 300,
+      WIDGET_FIX_MEDIUM: 500,
+      WIDGET_FIX_LONG: 1000,
+      WIDGET_FIX_EXTENDED: 1500
+    };
+
+    const DIMENSIONS = {
+      TICKER_HEIGHT: 65,
+      COPYRIGHT_HEIGHT: 32
+    };
+
+    const SELECTORS = {
+      TICKER_CONTAINER: '.triipro-dashboard-ticker-tape',
+      CHART_CONTAINER: '.triipro-dashboard-main-chart',
+      WIDGET_CONTAINER: '.tradingview-widget-container__widget',
+      CAROUSEL_TRACK: '#benefits-carousel-track',
+      CAROUSEL_CARDS: '.triipro-benefit-carousel-card',
+      PRICING_CARDS: '.triipro-pricing-premium-card'
+    };
+
+    // ==================== LOADING OVERLAYS ====================
+    const loadingOverlayIds = ['main-chart-loading'];
+
+    loadingOverlayIds.forEach(id => {
+      const overlay = document.getElementById(id);
+      if (overlay) {
+        setTimeout(() => overlay.classList.add('hidden'), TIMING.LOADING_OVERLAY_HIDE);
+      }
+    });
+
+    // ==================== TICKER TAPE WIDGET FIX ====================
+    function fixTickerTapeWidget() {
+      const tickerContainer = document.querySelector(SELECTORS.TICKER_CONTAINER);
+      if (!tickerContainer) return;
+
+      const widgetContainer = tickerContainer.querySelector(SELECTORS.WIDGET_CONTAINER);
+      const iframe = tickerContainer.querySelector('iframe');
+
+      if (widgetContainer) {
+        widgetContainer.style.height = '100%';
+        widgetContainer.style.minHeight = DIMENSIONS.TICKER_HEIGHT + 'px';
+        widgetContainer.style.maxHeight = DIMENSIONS.TICKER_HEIGHT + 'px';
+      }
+
+      if (iframe) {
+        iframe.style.height = DIMENSIONS.TICKER_HEIGHT + 'px';
+        iframe.style.minHeight = DIMENSIONS.TICKER_HEIGHT + 'px';
+        iframe.style.width = '100%';
+
+        // Trigger resize event for TradingView widget
+        try {
+          iframe.contentWindow?.postMessage({event: 'resize'}, '*');
+        } catch(e) {
+          // Cross-origin restriction, safe to ignore
+        }
+      }
+    }
+
+    // Monitor ticker tape for iframe insertion
+    const tickerContainer = document.querySelector(SELECTORS.TICKER_CONTAINER);
+    if (tickerContainer) {
+      const tickerObserver = new MutationObserver(() => {
+        if (tickerContainer.querySelector('iframe')) {
+          fixTickerTapeWidget();
+          setTimeout(fixTickerTapeWidget, TIMING.WIDGET_FIX_IMMEDIATE);
+          setTimeout(fixTickerTapeWidget, TIMING.WIDGET_FIX_SHORT);
+          setTimeout(fixTickerTapeWidget, TIMING.WIDGET_FIX_MEDIUM);
+          setTimeout(fixTickerTapeWidget, TIMING.WIDGET_FIX_LONG);
+        }
+      });
+      tickerObserver.observe(tickerContainer, { childList: true, subtree: true });
+    }
+
+    // ==================== MAIN CHART WIDGET FIX ====================
+    function fixTradingViewIframeHeight() {
+      const chartContainer = document.querySelector(SELECTORS.CHART_CONTAINER);
+      if (!chartContainer) return;
+
+      const iframe = chartContainer.querySelector('iframe');
+      if (!iframe) return;
+
+      const containerHeight = chartContainer.offsetHeight;
+      const widgetHeight = containerHeight - DIMENSIONS.COPYRIGHT_HEIGHT;
+
+      if (containerHeight > 0) {
+        const widgetContainer = iframe.closest(SELECTORS.WIDGET_CONTAINER);
+        if (widgetContainer) {
+          widgetContainer.style.height = widgetHeight + 'px';
+          widgetContainer.style.minHeight = widgetHeight + 'px';
+        }
+        iframe.style.height = widgetHeight + 'px';
+        iframe.style.minHeight = widgetHeight + 'px';
+      }
+
+      // Trigger resize event for TradingView widget
+      try {
+        iframe.contentWindow?.postMessage({event: 'resize'}, '*');
+      } catch(e) {
+        // Cross-origin restriction, safe to ignore
+      }
+    }
+
+    // Monitor main chart for iframe insertion
+    const chartContainer = document.querySelector(SELECTORS.CHART_CONTAINER);
+    if (chartContainer) {
+      const chartObserver = new MutationObserver(() => {
+        if (chartContainer.querySelector('iframe')) {
+          fixTradingViewIframeHeight();
+          setTimeout(fixTradingViewIframeHeight, TIMING.WIDGET_FIX_IMMEDIATE);
+          setTimeout(fixTradingViewIframeHeight, TIMING.WIDGET_FIX_MEDIUM);
+          setTimeout(fixTradingViewIframeHeight, TIMING.WIDGET_FIX_LONG);
+        }
+      });
+      chartObserver.observe(chartContainer, { childList: true, subtree: true });
+
+      // Also fix on window load
+      window.addEventListener('load', () => {
+        fixTickerTapeWidget();
+        setTimeout(fixTickerTapeWidget, TIMING.WIDGET_FIX_MEDIUM);
+        setTimeout(fixTradingViewIframeHeight, TIMING.WIDGET_FIX_MEDIUM);
+        setTimeout(fixTradingViewIframeHeight, TIMING.WIDGET_FIX_EXTENDED);
+      });
+    }
+
+    // ==================== INFINITE CAROUSEL ====================
+    const carouselTrack = document.querySelector(SELECTORS.CAROUSEL_TRACK);
+    if (carouselTrack) {
+      // Clone cards for infinite scroll effect
+      const originalCards = carouselTrack.querySelectorAll(SELECTORS.CAROUSEL_CARDS);
+      originalCards.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true'); // Accessibility: mark clones as decorative
+        carouselTrack.appendChild(clone);
+      });
+
+      // Pause animation on hover for better UX
+      carouselTrack.addEventListener('mouseenter', function() {
+        this.style.animationPlayState = 'paused';
+      });
+      carouselTrack.addEventListener('mouseleave', function() {
+        this.style.animationPlayState = 'running';
+      });
+
+      // Optimize animation performance
+      carouselTrack.style.willChange = 'transform';
+    }
+
+    // ==================== PRICING CARDS ANIMATION ====================
+    const pricingObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll(SELECTORS.PRICING_CARDS).forEach(card => {
+      pricingObserver.observe(card);
+    });
+  })();
+</script>
+
+{% endblock %}

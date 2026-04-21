@@ -1,0 +1,768 @@
+.button-solid {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 150%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: #191919;
+  padding: 16px 32px;
+  gap: 8px;
+  width: 171px;
+  height: 56px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 0;
+  background: #02FB7E;
+  touch-action: manipulation;
+  transition: all 0.5s;
+  margin-left: 10px;
+}
+
+.button-solid:hover {
+  background: #F2FFF9;
+}
+
+.button-solid:disabled {
+  background: #333333;
+  color: #B0B0B0;
+}
+
+.button-solid:disabled .button-solid-icon {
+  filter: invert(95%) sepia(0%) saturate(2581%) hue-rotate(0deg) brightness(76%) contrast(89%);
+}
+
+.button-stroke {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  color: #02FB7E;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 16px 32px;
+  gap: 8px;
+  width: 171px;
+  height: 56px;
+  border: 1px solid #02FB7E;
+  border-radius: 30px;
+  cursor: pointer;
+  background: transparent;
+  touch-action: manipulation;
+  transition: all 0.5s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.button-stroke .button-stroke-icon {
+  filter: invert(77%) sepia(80%) saturate(2895%) hue-rotate(95deg) brightness(105%) contrast(98%);
+}
+
+.button-stroke:hover {
+  color: #F2FFF9;
+  border: 1px solid #F2FFF9;
+}
+
+.button-stroke:hover .button-stroke-icon {
+  filter: invert(89%) sepia(13%) saturate(281%) hue-rotate(80deg) brightness(110%) contrast(109%);
+}
+
+.button-stroke:disabled {
+  color: #B0B0B0;
+  border: 1px solid #B0B0B0;
+}
+
+.button-stroke:disabled .button-stroke-icon {
+  filter: invert(94%) sepia(0%) saturate(306%) hue-rotate(209deg) brightness(78%) contrast(79%);
+}
+
+/* Header styles - Excluding navbar-header to prevent conflicts */
+header:not(.navbar-header) {
+  height: 96px;
+}
+
+.card-pricing {
+  height: 349px;
+  align-items: center;
+  border: unset
+}
+
+.card-pricing img {
+  right: 24px;
+}
+
+.card-pricing .frame {
+  width: 360px;
+  height: 217px;
+}
+
+.card-pricing div h3 {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-size: 24px;
+  line-height: 150%;
+  width: 288px;
+  height: 32px;
+}
+
+.card-pricing-anualy {
+  font-family: "Formula Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 130%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.card-pricing-monthly {
+  font-family: "Formula Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 130%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0px;
+}
+
+.desktop_img {
+  height: 600px;
+  width: 314px;
+}
+
+.navbar-main-mobile {
+  display: none;
+}
+
+footer {
+  height: 486px;
+  padding: 48px 150px 56px;
+}
+
+.we-are {
+  padding-left: 150px;
+  padding-right: 150px;
+  align-items: flex-start;
+  margin-top: 120px;
+}
+
+.we-are .title {
+  display: inline;
+  font-family: "Formula Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 130%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.we-are p {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 150%;
+}
+
+.we-are img {
+  width: 485.71px;
+  height: 400px;
+}
+
+.allies {
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+.allies .title {
+  display: inline;
+  font-family: "Formula Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 130%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.allies p {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 150%;
+}
+
+.carousel-we-are {
+  margin-top: 72px;
+}
+
+/*# sourceMappingURL=desktop.css.map */
+
+/* Legacy welcome styles - mantener para compatibilidad */
+.welcome {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+
+
+
+.mockup_1 {
+  display: flex;
+  position: absolute;
+  top: 150px;
+  height: 800px;
+  width: auto;
+  right: 98px;
+  left: 525px;
+  margin-bottom: 50px;
+}
+
+.sc_image {
+  display: none;
+}
+
+.welcome-text {
+  width: 520px;
+}
+
+.welcome-text-home {
+  max-width: 588px;
+}
+
+.welcome-text .title {
+  display: inline;
+  font-size: 100px !important;
+
+}
+
+.welcome-text-home .title {
+  display: inline;
+  font-size: 60px;
+
+}
+
+.welcome-text p {
+  font-size: 24px;
+  margin-left: 14px;
+}
+
+
+.company {
+  margin-top: 580px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 201px;
+  padding-right: 150px;
+  gap: 112px;
+
+}
+
+
+.company-text {
+  font-size: 48px;
+  width: 584px;
+  height: 186px;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 130%;
+}
+
+.desktop_image {
+  width: 393;
+  height: 453;
+}
+
+.download {
+  max-width: 1234px;
+  margin: 100px auto;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.download .title {
+  font-size: 48px;
+}
+
+.rates {
+  width: 100%;
+  padding-left: 150px;
+  padding-right: 150px;
+  box-sizing: border-box;
+}
+
+.home-pro-prices p {
+  font-size: 20px;
+  width: 860px
+}
+
+.home-pro-container {
+  padding: 32px 88px 32px 150px;
+}
+
+.home-pro-container li span {
+  font-size: 20px;
+}
+
+.home-pro-container li {
+  font-size: 20px;
+}
+
+.home-pro-container .title {
+  display: inline;
+  font-size: 48px;
+  padding: 0;
+}
+
+.home-pro-container p {
+  font-size: 20px;
+  padding: 0;
+}
+
+.pro-img {
+  width: 40%;
+}
+
+.mobile {
+  padding: 0px 0px;
+}
+
+
+.mobile-item:nth-child(1) {
+  flex-direction: row-reverse;
+  gap: 200px;
+
+}
+
+.mobile-item:nth-child(1) .mobile-item-group {
+  width: 350.74px;
+  height: 190px;
+}
+
+.mobile-item:nth-child(2) {
+  flex-direction: row;
+  gap: 200px;
+}
+
+.mobile-item:nth-child(2) .mobile-item-group {
+  width: 350.97px;
+  height: 214px;
+}
+
+.mobile-item:nth-child(3) {
+  flex-direction: row-reverse;
+}
+
+.mobile-item:nth-child(3) .mobile-item-group {
+  width: 350.97px;
+}
+
+.mobile-item img {
+  height: 600px;
+}
+
+.mw-700 {
+  margin: 150px auto 0px;
+  max-width: 1600px;
+}
+
+.stock-container {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.stock-container ul li {
+  width: 24%;
+}
+
+.stock-container ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+
+/* Stock Cards - Desktop Specific Styles */
+/* Cards más grandes y centradas para desktop */
+.card_stock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px 20px;
+  background: rgba(25, 25, 25, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  min-height: 160px;
+}
+
+.card_stock::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(2, 251, 126, 0.05) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card_stock:hover {
+  transform: translateY(-2px);
+  border-color: rgba(2, 251, 126, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(2, 251, 126, 0.1);
+  background: rgba(25, 25, 25, 0.8);
+}
+
+.card_stock:hover::before {
+  opacity: 1;
+}
+
+.card_stock:active {
+  transform: translateY(0);
+}
+
+.card_stock:focus-visible {
+  outline: 2px solid rgba(2, 251, 126, 0.5);
+  outline-offset: 2px;
+}
+
+.card_stock-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.stock-logo-wrapper {
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6px;
+}
+
+.card_stock img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.card_stock-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.card_stock-description h2 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0;
+  color: rgb(242, 255, 249);
+  text-align: center;
+}
+
+.card_stock-description h3 {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+  color: rgb(170, 170, 170);
+  text-align: center;
+}
+
+.stock-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  font-family: "DM Sans", sans-serif;
+}
+
+.price-symbol {
+  font-weight: 600;
+  font-size: 14px;
+  color: rgb(170, 170, 170);
+}
+
+.price-value {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  color: rgb(242, 255, 249);
+  letter-spacing: -0.01em;
+}
+
+.menu_mobile {
+  display: none;
+}
+
+.stocks {
+  height: 50%;
+  margin: 120 21% 120 21%
+}
+
+.stocks.no-margin {
+  height: auto;
+  margin: 120 21% 220px 21%
+}
+
+.stocks div {
+  text-align: center;
+}
+
+.stocks div .title {
+  font-size: 64px;
+
+}
+
+.stocks div p {
+
+  /* Desktop/Body2 Regular */
+  font-size: 20px;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+
+}
+
+.title-intro {
+  margin: 0 auto;
+  max-width: 1140px;
+}
+
+
+.faq-about,
+.faq-about-app,
+.faq-contact,
+.faq-regulation,
+.faq-registration,
+.faq-costs {
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: 224px;
+  margin-right: 200px;
+  gap: 32px;
+}
+
+.mockup1_funds_desktop {
+  height: 300px;
+}
+
+.welcome-mockup_funds_desktop {
+  position: absolute;
+  top: 100px;
+  height: 564px;
+  width: auto;
+}
+
+.fund_description {
+  display: flex;
+  background-color: #262626;
+  min-height: 650px;
+}
+
+.text_funds {
+  margin-top: 70px;
+}
+
+#funds-card .frame {
+  width: 349px;
+  height: 267px;
+}
+
+#funds-card img {
+  height: 135px;
+}
+
+#funds-card .frame div {
+  padding: 0px;
+}
+
+#funds-card div h3 {
+  font-size: 20px;
+  height: 50px;
+  max-width: 140px;
+}
+
+
+
+.benefit-icon {
+  font-size: 1.75rem;
+  width: 40px;
+  height: 40px;
+}
+
+
+#funds-card div h3 {
+  max-width: unset;
+}
+
+
+
+.mobile-item-text .title {
+  font-size: 48px;
+}
+
+
+
+/* Dropdown styles are now in navbar.css with new design */
+/* Legacy styles removed to avoid conflicts */
+
+
+.cards-descriptions-landing {
+  display: flex;
+}
+
+.text_funds p {
+  font-size: 48px;
+}
+
+.second-item {
+  width: auto !important;
+  width: auto !important;
+  margin-top: 65px;
+}
+
+.colombians-text {
+  width: 1, 144px;
+  height: 124px;
+  gap: 200px;
+}
+
+.colombians {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.cards-descriptions-landing {
+  justify-content: center;
+  max-width: 1140px;
+  margin-bottom: 64px;
+}
+
+.welcome-funds-landing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 32px;
+  padding-top: 72px;
+}
+
+.welcome-text {
+  order: 1;
+  min-width: 722px;
+  font-size: 100px;
+}
+
+.steps-desktop {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.steps_image {
+  order: 2;
+  justify-content: center;
+}
+
+.steps {
+  padding: 0%;
+  margin: 0px 0px 48px 0px;
+}
+
+
+.text-steps {
+  padding: 0px;
+  font-size: 24px;
+}
+
+.welcome-mockup {
+  order: 2;
+  justify-content: center;
+  width: 551px !important;
+  height: 722px !important;
+}
+
+.welcome-mockup-home {
+  background-position-x: 60%;
+  height: 700px;
+  top: 100px;
+}
+
+.welcome-mockup-giftcard {
+  order: 2;
+  justify-content: center;
+  width: 551px !important;
+}
+
+.buttons-landing {
+  order: 3;
+  text-align: left;
+  padding-top: 24px;
+  margin: 0px 0px 0px 134px;
+}
+
+.text-landing {
+  max-width: 588px;
+  margin-left: 134px;
+}
+
+.title-landing {
+  font-size: 100px !important;
+  margin-top: 120px !important;
+  max-width: 588px !important;
+}
+
+.steps_type {
+  font-size: 24px;
+}
+
+.steps-component {
+  order: 1;
+  margin-left: 150px;
+  width: 567px;
+
+}

@@ -1,0 +1,70 @@
+@import "config";
+
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-bottom: 1px solid $neutral700;
+    padding: 0px 0px 24px 0px;
+    position: relative;
+}
+
+.accordion-tittle {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.accordion-tittle img {
+    width: 16.8px;
+    height: 16.8px;
+    margin-left: 10px;
+}
+
+.accordion input {
+    display: none;
+}
+
+.accordion .title {
+  display: inline;
+  @include mobile-body-2-bold;
+  color: $white;
+  margin: 0px;
+  cursor: pointer;
+}
+
+.accordion .description {
+    @include mobile-body-2-regular;
+    color: $neutral50;
+    margin: 0px;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    display: none;
+}
+
+.accordion input:checked ~ .accordion-tittle .title {
+  display: inline;
+    color: #00F897;
+}
+
+.accordion input:checked ~ .accordion-tittle .close {
+    display: none;
+}
+
+.open {
+    display: none;
+}
+
+.accordion input:checked ~ .accordion-tittle .open {
+    display: block;
+    filter: invert(67%) sepia(65%) saturate(2347%) hue-rotate(108deg) brightness(105%) contrast(107%);
+}
+
+
+.accordion input:checked ~ .description, .open-accordion input:checked ~ .description{
+    display: block;
+    width: 100%;
+}

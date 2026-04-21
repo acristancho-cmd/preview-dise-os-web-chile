@@ -1,0 +1,801 @@
+{% extends "_base.html" %}
+{% block title %}Invierte en acciones, fondos y ETFs en Chile | trii{% endblock %}
+{% block description %}trii es la plataforma para invertir en acciones, fondos y ETFs en Chile. Comisiones más bajas del mercado, desde $4.000 CLP, sin papeleo, 100% digital. Respaldado por Vector Capital y regulado por la CMF.{% endblock %}
+{% block head %}
+   <link rel="stylesheet" href="/static/css/home.css">
+   <script src="https://unpkg.com/@phosphor-icons/web"></script>
+   <script data-rh="true" type="application/ld+json">
+   {
+     "@context": "https://schema.org",
+     "@type": "Organization",
+     "@id": "https://trii.co/#organization",
+     "name": "trii Chile",
+     "alternateName": ["trii", "somostrii"],
+     "url": "https://trii.co/",
+     "logo": {
+       "@type": "ImageObject",
+       "url": "https://trii.co/static/icons/trii_logo.svg",
+       "height": 250,
+       "width": 250
+     },
+     "foundingDate": "2021-03-01",
+     "description": "Plataforma de inversión en acciones, fondos y ETFs en Chile. Respaldado por Vector Capital Corredores de Bolsa, regulado por la CMF.",
+     "areaServed": {
+       "@type": "Country",
+       "name": "Chile"
+     },
+     "sameAs": [
+       "https://www.facebook.com/somostrii",
+       "https://www.instagram.com/somostrii/",
+       "https://twitter.com/somostrii",
+       "https://www.tiktok.com/@somostrii",
+       "https://www.linkedin.com/company/somostrii/mycompany/",
+       "https://www.youtube.com/c/SomosTrii"
+     ]
+   }
+   </script>
+   <script type="application/ld+json">
+   {
+     "@context": "https://schema.org",
+     "@type": "WebSite",
+     "@id": "https://trii.co/#website",
+     "url": "https://trii.co/",
+     "name": "trii Chile",
+     "description": "Invierte en acciones, fondos y ETFs en Chile",
+     "publisher": { "@id": "https://trii.co/#organization" },
+     "inLanguage": "es-CL"
+   }
+   </script>
+   <meta data-rh="true" name="application-name" content="trii" />
+   {{ super() }}
+{% endblock %}
+{% block content %}
+   {% from '/components/navbar.html' import navbar %}
+   {% from '/components/footer.html' import footer %}
+   <header>
+      {{ navbar () }}
+   </header>
+   {# Hero Section - Nueva Estructura #}
+   <section class="hero-section">
+      {# Glow Effect #}
+      <div class="hero-glow"></div>
+
+      {# Hero Content Container #}
+      <div class="hero-content">
+         {# Título - Desktop #}
+         <h1 class="hero-title hero-title-home hero-title-desktop">
+            <span class="hero-title-line hero-title-line-top">Invertir en Acciones, ETFs y Fondos</span>
+            <span class="hero-title-line hero-title-line-bottom">nunca fue tan <span class="hero-rotating-word" id="hero-rotating-word-desktop">Seguro</span></span>
+         </h1>
+         {# Título - Mobile #}
+         <h1 class="hero-title hero-title-home hero-title-mobile">
+            <span class="hero-title-line hero-title-line-top">Invertir en Acciones, ETFs y Fondos</span>
+            <span class="hero-title-line hero-title-line-bottom">nunca fue tan <span class="hero-rotating-word" id="hero-rotating-word-mobile">Seguro</span></span>
+         </h1>
+
+         {# Subtítulo - Desktop #}
+         <p class="hero-subtitle hero-subtitle-desktop">
+            Invierte en +10.000 empresas de EE. UU., +300 empresas chilenas, ETFs y fondos con el respaldo Vector Capital SA corredor de bolsa
+         </p>
+         {# Subtítulo - Mobile #}
+         <p class="hero-subtitle hero-subtitle-mobile">
+            Invierte en +10.000 empresas de EE. UU., +300 empresas chilenas, ETFs y fondos. Simple, rápido y seguro con trii con el respaldo Vector Capital SA corredor de bolsa
+         </p>
+
+         {# Botones CTA #}
+         <div class="hero-cta-buttons">
+            <a
+               id="hero-cta-invest"
+               href="https://web.trii.co/"
+               target="_blank"
+               rel="noopener"
+               class="hero-button-primary"
+               data-desktop-href="https://web.trii.co/"
+               data-mobile-android-href="https://play.google.com/store/apps/details?id=com.triico.app&hl=es_CO"
+               data-mobile-ios-href="https://apps.apple.com/co/app/trii/id1513826307"
+            >
+               <span class="hero-cta-desktop-label">Quiero invertir</span>
+               <span class="hero-cta-mobile-label">Descargar app</span>
+               <svg class="hero-button-icon hero-cta-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+               </svg>
+            </a>
+         </div>
+      </div>
+
+      {# Product Showcase #}
+      <div class="hero-showcase">
+         <div class="hero-showcase-inner">
+            <div class="hero-pc-wrapper">
+               <img src="/static/images/header-trii.co.png" alt="trii" class="hero-pc-mockup hero-pc-mockup-desktop" loading="lazy">
+               <img src="/static/images/Header%20trii.co%20-%20mobile.png" alt="trii" class="hero-pc-mockup hero-pc-mockup-mobile" loading="lazy">
+            </div>
+         </div>
+      </div>
+   </section>
+   {# Sección Futurista - ¿Cómo empezar? #}
+   <section class="home-how-section" aria-labelledby="home-how-title">
+      <div class="home-how-container">
+         <div class="home-how-intro">
+            <h2 id="home-how-title" class="home-how-title">¿Cómo empezar?</h2>
+            <p class="home-how-subtitle">
+               Empieza en minutos con un flujo simple y diseñado para invertir sin fricción.
+            </p>
+         </div>
+
+         <div class="home-how-grid">
+            <article class="home-step-card">
+               <div class="home-step-number">01</div>
+               <div class="home-how-card-content">
+                  <h3>Descarga la app</h3>
+                  <p>Disponible para Android y iOS. Únete a miles de inversionistas que gestionan su portafolio de manera fácil y rápida, con acceso directo al mercado en tiempo real.</p>
+               </div>
+               <div class="home-how-geom">
+                  <svg viewBox="0 0 160 120" stroke-width="1.5" stroke="rgba(255, 255, 255, 0.5)" fill="none" stroke-linejoin="round">
+                     <polygon points="80,105 125,85 80,65 35,85" />
+                     <polygon points="35,85 80,105 80,112 35,92" />
+                     <polygon points="125,85 80,105 80,112 125,92" />
+                     <polygon points="80,75 115,60 80,45 45,60" />
+                     <polygon points="45,60 80,75 80,82 45,67" />
+                     <polygon points="115,60 80,75 80,82 115,67" />
+                     <polygon points="80,45 105,35 80,25 55,35" />
+                     <polygon points="55,35 80,45 80,52 55,42" />
+                     <polygon points="105,35 80,45 80,52 105,42" />
+                     <line x1="80" y1="52" x2="80" y2="105" stroke-dasharray="2 4" stroke-opacity="0.4"/>
+                  </svg>
+               </div>
+            </article>
+
+            <article class="home-step-card">
+               <div class="home-step-number">02</div>
+               <div class="home-how-card-content">
+                  <h3>Regístrate</h3>
+                  <p>Crea tu cuenta en minutos. Solo necesitas tu cédula de identidad física y completar un proceso de validación seguro y automatizado para proteger tus inversiones.</p>
+               </div>
+               <div class="home-how-geom">
+                  <svg viewBox="0 0 160 120" stroke-width="1.5" stroke="rgba(255, 255, 255, 0.5)" fill="none" stroke-linejoin="round">
+                     <polygon points="65,65 105,45 65,25 25,45" />
+                     <polygon points="25,45 65,65 65,105 25,85" />
+                     <polygon points="105,45 65,65 65,105 105,85" />
+                     <polygon points="105,85 140,65 105,45 70,65" />
+                     <polygon points="70,65 105,85 105,115 70,95" />
+                     <polygon points="140,65 105,85 105,115 140,95" />
+                     <line x1="35" y1="55" x2="55" y2="65" />
+                     <line x1="35" y1="68" x2="55" y2="78" />
+                  </svg>
+               </div>
+            </article>
+
+            <article class="home-step-card">
+               <div class="home-step-number">03</div>
+               <div class="home-how-card-content">
+                  <h3>Deposita e invierte</h3>
+                  <p>Fondea de manera ágil usando Fintoc. Tu dinero estará gestionado y respaldado por Vector Capital, regulado por la CMF, dejándote listo para comprar acciones.</p>
+               </div>
+               <div class="home-how-geom">
+                  <svg viewBox="0 0 160 120" stroke-width="1.5" stroke="rgba(255, 255, 255, 0.5)" fill="none" stroke-linejoin="round">
+                     <polygon points="45,95 65,85 45,75 25,85" />
+                     <polygon points="25,85 45,95 45,115 25,105" />
+                     <polygon points="65,85 45,95 45,115 65,105" />
+                     <polygon points="80,75 100,65 80,55 60,65" />
+                     <polygon points="60,65 80,75 80,115 60,105" />
+                     <polygon points="100,65 80,75 80,115 100,105" />
+                     <polygon points="115,55 135,45 115,35 95,45" />
+                     <polygon points="95,45 115,55 115,115 95,105" />
+                     <polygon points="135,45 115,55 115,115 135,105" />
+                  </svg>
+               </div>
+            </article>
+         </div>
+      </div>
+   </section>
+
+   {# Sección "Ya somos más de..." - Contador y Características #}
+   <section class="user-count-section" id="user-count-section">
+      {# Contador Animado de Usuarios #}
+      <div class="user-count-container">
+         <div class="user-count-content" id="user-count-content">
+            <h2 class="user-count-title">Únete a los más de</h2>
+            <div class="user-count-number-wrapper">
+               <div class="celebration-glow" id="celebration-glow"></div>
+               <div class="celebration-ripple" id="celebration-ripple"></div>
+               <div class="user-count-number" id="user-count-number">
+                  <span class="user-count-value">0</span>
+               </div>
+            </div>
+            <p class="user-count-subtitle">inversionistas que ya confían en trii para hacer crecer su dinero</p>
+         </div>
+
+         {# Partículas de Celebración - Se generan durante el conteo #}
+         <div class="celebration-particles" id="celebration-particles"></div>
+      </div>
+   </section>
+
+   {# TradingView Ticker Tape Widget - Acciones Chilenas y EE.UU. #}
+   <section class="home-ticker-section">
+      <div class="home-ticker-header">
+         <h2 class="home-ticker-title">Acciones y ETFs en los que puedes invertir</h2>
+         <p class="home-ticker-subtitle">Diversifica tu portafolio con las empresas más grandes de Estados Unidos y Chile, además de los mejores ETFs.</p>
+      </div>
+      <script type="module" src="https://widgets.tradingview-widget.com/w/es/tv-ticker-tape.js"></script>
+      <tv-ticker-tape theme="dark" is-transparent="true" transparent="true" symbols="NASDAQ:AAPL,NASDAQ:MSFT,BCS:CHILE,AMEX:SPY,NASDAQ:AMZN,BCS:SQM_B,NASDAQ:NVDA,NASDAQ:TSLA,BCS:FALABELLA,NASDAQ:QQQ,NASDAQ:GOOGL,BCS:CENCOSUD,NASDAQ:META,NYSE:JPM,BCS:LTM,AMEX:DIA,NASDAQ:NFLX,BCS:ENELCHILE,NYSE:V,BCS:BCI,NYSE:DIS,BCS:CAP,NYSE:KO,BCS:COPEC,AMEX:VT,BCS:VAPORES,BCS:CCU" hover-type="performance-grid" show-hover></tv-ticker-tape>
+   </section>
+
+   {# Nueva Sección de Tarifas Premium #}
+   <section class="home-premium-rates">
+      <div class="home-premium-rates-container">
+         <div class="premium-rates-left">
+            <div class="premium-rates-header">
+               <h2 class="premium-rates-title">Tarifas</h2>
+               <p class="premium-rates-subtitle">Tenemos los costos más bajos del mercado para que tu dinero rinda más.</p>
+            </div>
+         </div>
+         <div class="premium-rates-right">
+            <div class="premium-rates-grid">
+               <article class="premium-rate-card highlight-card scroll-reveal">
+                  <div class="rate-card-top">
+                     <span class="rate-card-category highlight-text">Por operaciones</span>
+                     <p class="rate-card-condition">Para montos hasta $1.115.000 CLP</p>
+                  </div>
+                  <div class="rate-card-middle">
+                     <h3 class="rate-card-price highlight-text">$1.990</h3>
+                     <p class="rate-card-iva">(IVA incluido)</p>
+                  </div>
+                  <div class="rate-card-bottom">
+                     <p class="rate-card-desc">Compra o venta de acciones</p>
+                  </div>
+               </article>
+               <article class="premium-rate-card highlight-card scroll-reveal">
+                  <div class="rate-card-top">
+                     <span class="rate-card-category highlight-text">Por operaciones</span>
+                     <p class="rate-card-condition">Para montos mayores a $1.115.000 CLP</p>
+                  </div>
+                  <div class="rate-card-middle">
+                     <h3 class="rate-card-price highlight-text">0.15%</h3>
+                     <p class="rate-card-iva">+ IVA</p>
+                  </div>
+                  <div class="rate-card-bottom">
+                     <p class="rate-card-desc">Compra o venta de acciones</p>
+                  </div>
+               </article>
+               <article class="premium-rate-card highlight-card scroll-reveal">
+                  <div class="rate-card-top">
+                     <span class="rate-card-category highlight-text">Por depósitos y retiros</span>
+                     <p class="rate-card-condition">Acciones</p>
+                  </div>
+                  <div class="rate-card-middle">
+                     <h3 class="rate-card-price highlight-text">Gratis</h3>
+                     <p class="rate-card-iva">Sin comisiones ocultas</p>
+                  </div>
+                  <div class="rate-card-bottom">
+                     <p class="rate-card-desc">No tiene ningún costo</p>
+                  </div>
+               </article>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   {# Script para el efecto scroll-reveal de las tarifas #}
+   <script>
+      document.addEventListener("DOMContentLoaded", function() {
+         const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+               if (entry.isIntersecting) {
+                  entry.target.classList.add('active');
+               }
+            });
+         }, { threshold: 0.2 });
+
+         document.querySelectorAll('.scroll-reveal').forEach(card => {
+            observer.observe(card);
+         });
+      });
+   </script>
+
+   {# Sección 1: Invierte desde tu celular - Imagen izquierda, Texto derecha #}
+   <section class="home-benefit-section" aria-labelledby="home-benefit-heading">
+      <div class="container mx-auto px-4">
+         <div class="home-benefit-grid home-benefit-grid-text-right">
+            {# Columna Izquierda - Imagen #}
+            <div class="home-benefit-image-container">
+               <div class="home-benefit-image-card home-benefit-image-card-celular">
+                  <img src="/static/images/Mockup home.png"
+                       alt="Invierte y ahorra desde tu celular"
+                       class="home-benefit-image home-benefit-image-celular"
+                       loading="lazy">
+               </div>
+            </div>
+
+            {# Columna Derecha - Texto #}
+            <div class="home-benefit-content">
+               <h2 id="home-benefit-heading" class="home-benefit-title">Invierte desde tu celular y computador.</h2>
+               <div class="home-benefit-separator"></div>
+            </div>
+         </div>
+      </div>
+   </section>
+   {# Sección 2: Precios más bajos - Texto izquierda, Imagen derecha #}
+   <section class="home-benefit-section" aria-labelledby="home-benefit-2-heading">
+      <div class="container mx-auto px-4">
+         <div class="home-benefit-grid home-benefit-grid-text-left">
+            {# Columna Izquierda - Texto #}
+            <div class="home-benefit-content">
+               <h2 id="home-benefit-2-heading" class="home-benefit-title">Comisión más baja del mercado</h2>
+               <div class="home-benefit-separator"></div>
+            </div>
+
+            {# Columna Derecha - Imagen #}
+            <div class="home-benefit-image-container">
+               <div class="home-benefit-image-card home-benefit-image-card-celular">
+                  <img src="/static/images/Mockup stock - trii.co.png"
+                       alt="Precios más bajos"
+                       class="home-benefit-image home-benefit-image-celular"
+                       loading="lazy">
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section class="home-download-section" aria-labelledby="home-download-heading">
+      <div class="home-download-wrap">
+         <div class="home-download-badges">
+            <span class="home-download-badge">Sin mínimo de inversión</span>
+         </div>
+         <h2 id="home-download-heading" class="home-download-title">
+            Empieza a invertir hoy
+         </h2>
+         <p class="home-download-description">
+            Únete a la comunidad y empieza a invertir desde tu celular o la web. Da el primer paso.
+         </p>
+         <div class="home-download-cta-buttons">
+            <a
+               id="home-download-cta-invest"
+               href="https://web.trii.co/"
+               target="_blank"
+               rel="noopener"
+               class="hero-button-primary"
+               data-desktop-href="https://web.trii.co/"
+               data-mobile-android-href="https://play.google.com/store/apps/details?id=com.triico.app&hl=es_CO"
+               data-mobile-ios-href="https://apps.apple.com/co/app/trii/id1513826307"
+            >
+               Quiero invertir
+               <svg class="hero-button-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+               </svg>
+            </a>
+            <a
+               href="https://play.google.com/store/apps/details?id=com.triico.app&hl=es_CO"
+               target="_blank"
+               rel="noopener"
+               class="hero-button-secondary js-download-app"
+            >
+               Descargar app
+            </a>
+         </div>
+      </div>
+   </section>
+
+   {# Modal Descargar app (solo PC): diseño premium, un solo QR trii #}
+   <div id="hero-download-modal" class="hero-download-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="hero-download-modal-title" aria-describedby="hero-download-modal-subtitle" tabindex="-1">
+      <div class="hero-download-modal-overlay"></div>
+      <div class="hero-download-modal-box">
+         <button type="button" class="hero-download-modal-close" aria-label="Cerrar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+         </button>
+         <div class="hero-download-modal-header">
+            <h2 id="hero-download-modal-title" class="hero-download-modal-title">Descarga trii en tu celular</h2>
+            <p id="hero-download-modal-subtitle" class="hero-download-modal-subtitle">Escanea con tu celular para descargar la app</p>
+         </div>
+         <div class="hero-download-modal-qr-single">
+            <div class="hero-download-modal-qr-frame">
+               <img src="/static/icons/qr_code_trii.png" alt="QR para descargar la app trii" class="hero-download-modal-qr-img" width="260" height="260">
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   {{ footer() }}
+
+   <script>
+      (function() {
+         const rotatingWords = ['Seguro', 'rapido', 'facil'];
+         const rotatingWordDesktop = document.getElementById('hero-rotating-word-desktop');
+         const rotatingWordMobile = document.getElementById('hero-rotating-word-mobile');
+
+         if (!rotatingWordDesktop && !rotatingWordMobile) return;
+
+         let currentIndex = 0;
+         setInterval(function() {
+            currentIndex = (currentIndex + 1) % rotatingWords.length;
+            if (rotatingWordDesktop) {
+               rotatingWordDesktop.textContent = rotatingWords[currentIndex];
+            }
+            if (rotatingWordMobile) {
+               rotatingWordMobile.textContent = rotatingWords[currentIndex];
+            }
+         }, 3000);
+      })();
+   </script>
+
+
+   {# Descargar app: en PC abre modal con QR; en móvil iOS/Android va directo a la tienda (hero + sección descarga) #}
+   <script>
+      (function() {
+         const isDeviceIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+         const isDeviceAndroid = /Android/i.test(navigator.userAgent);
+         const isDeviceDesktop = window.innerWidth >= 768 && !isDeviceIOS && !isDeviceAndroid;
+
+         // Función helper para actualizar enlaces CTA según dispositivo
+         function updateCtaLink(ctaElement) {
+            if (!ctaElement) return;
+            if (isDeviceIOS) {
+               ctaElement.href = ctaElement.dataset.mobileIosHref;
+            } else if (isDeviceAndroid) {
+               ctaElement.href = ctaElement.dataset.mobileAndroidHref;
+            } else {
+               ctaElement.href = ctaElement.dataset.desktopHref;
+            }
+         }
+
+         // Hero CTA
+         const heroCta = document.getElementById('hero-cta-invest');
+         if (heroCta) {
+            updateCtaLink(heroCta);
+
+            const desktopLabel = heroCta.querySelector('.hero-cta-desktop-label');
+            const mobileLabel = heroCta.querySelector('.hero-cta-mobile-label');
+            const arrowIcon = heroCta.querySelector('.hero-cta-arrow');
+
+            if (isDeviceIOS || isDeviceAndroid) {
+               if (desktopLabel) desktopLabel.style.display = 'none';
+               if (mobileLabel) mobileLabel.style.display = 'inline';
+               if (arrowIcon) arrowIcon.style.display = 'none';
+            } else {
+               if (desktopLabel) desktopLabel.style.display = 'inline';
+               if (mobileLabel) mobileLabel.style.display = 'none';
+               if (arrowIcon) arrowIcon.style.display = 'inline-flex';
+            }
+         }
+
+         // Home download CTA
+         updateCtaLink(document.getElementById('home-download-cta-invest'));
+
+         // Modal logic
+         const modal = document.getElementById('hero-download-modal');
+         const overlay = modal && modal.querySelector('.hero-download-modal-overlay');
+         const closeBtn = modal && modal.querySelector('.hero-download-modal-close');
+
+         function openModal() {
+            if (!modal) return;
+            modal.classList.add('hero-download-modal-visible');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            if (closeBtn) {
+               setTimeout(() => closeBtn.focus(), 100);
+            }
+         }
+
+         function closeModal() {
+            if (!modal) return;
+            modal.classList.remove('hero-download-modal-visible');
+            modal.setAttribute('aria-hidden', 'true');
+            if (!document.querySelector('.anniversary-modal-visible')) {
+               document.body.style.overflow = '';
+            }
+         }
+
+         const links = document.querySelectorAll('.js-download-app');
+         links.forEach(function(link) {
+            const iconAndroid = link.querySelector('.hero-download-store-icon-android');
+            const iconIOS = link.querySelector('.hero-download-store-icon-ios');
+
+            if (isDeviceDesktop) {
+               if (iconAndroid) iconAndroid.style.display = 'none';
+               if (iconIOS) iconIOS.style.display = 'none';
+            } else if (isDeviceIOS) {
+               link.href = 'https://apps.apple.com/co/app/trii/id1513826307';
+               if (iconAndroid) iconAndroid.style.display = 'none';
+               if (iconIOS) iconIOS.style.display = 'inline';
+            } else if (isDeviceAndroid) {
+               if (iconAndroid) iconAndroid.style.display = 'inline';
+               if (iconIOS) iconIOS.style.display = 'none';
+            }
+
+            link.addEventListener('click', function(e) {
+               if (isDeviceDesktop) {
+                  e.preventDefault();
+                  openModal();
+               }
+            });
+         });
+
+         if (overlay) overlay.addEventListener('click', closeModal);
+         if (closeBtn) closeBtn.addEventListener('click', closeModal);
+         if (modal) {
+            modal.addEventListener('keydown', function(e) {
+               if (e.key === 'Escape') closeModal();
+            });
+         }
+      })();
+   </script>
+
+   {# Script para animación del contador y Intersection Observer #}
+   <script>
+      (function() {
+         const targetCount = 700000;
+         let userCount = 0;
+         let isVisible = false;
+         let counterTimer = null;
+
+         const sectionRef = document.getElementById('user-count-section');
+         const contentRef = document.getElementById('user-count-content');
+         const numberRef = document.getElementById('user-count-number');
+
+         // Contenedor de partículas de celebración
+         const celebrationContainer = document.getElementById('celebration-particles');
+         let particleCount = 0;
+         let finalBurstDone = false;
+         let allParticles = [];
+         let counterFinished = false;
+         let particlesCreated = 0; // Contador de partículas creadas durante la animación
+
+         // Obtener posición del número en el viewport (coordenadas absolutas)
+         function getNumberCenter() {
+            if (!numberRef) return { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+            const rect = numberRef.getBoundingClientRect();
+            return {
+               x: rect.left + rect.width / 2,
+               y: rect.top + rect.height / 2
+            };
+         }
+
+         // Función para crear partícula de celebración
+         function createCelebrationParticle(isFinal = false) {
+            if (!celebrationContainer || counterFinished) return null;
+
+            const particle = document.createElement('div');
+            particle.className = 'celebration-particle';
+
+            // Estilo igual a las partículas del fondo - verde trii con opacidad variable
+            const opacityValue = 0.3 + Math.random() * 0.4; // 0.3-0.7
+            particle.style.backgroundColor = 'rgb(2, 251, 126)';
+            particle.style.opacity = opacityValue.toString();
+
+            // Posición inicial desde el centro del número (coordenadas absolutas del viewport)
+            const center = getNumberCenter();
+
+            // Calcular dimensiones del viewport completo
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+
+            // Calcular distancia máxima para llegar FUERA de la pantalla en todas las direcciones
+            // Necesitamos calcular la distancia hasta la esquina más lejana + margen extra
+            const distToLeft = center.x;
+            const distToRight = viewportWidth - center.x;
+            const distToTop = center.y;
+            const distToBottom = viewportHeight - center.y;
+
+            // Distancia máxima hasta cualquier esquina
+            const maxDistToCorner = Math.sqrt(
+               Math.max(distToLeft, distToRight) * Math.max(distToLeft, distToRight) +
+               Math.max(distToTop, distToBottom) * Math.max(distToTop, distToBottom)
+            );
+
+            // Dirección aleatoria para la partícula
+            const angle = Math.random() * Math.PI * 2;
+
+            // Distancia MUCHO mayor para asegurar que salgan fuera de la pantalla por todos los lados
+            // Agregamos un margen extra del 50-100% adicional para que salgan completamente fuera
+            const extraMargin = Math.max(viewportWidth, viewportHeight) * 0.5; // 50% del lado más largo
+            const baseDistance = maxDistToCorner + extraMargin;
+
+            const distance = isFinal
+               ? baseDistance * (1.2 + Math.random() * 0.4)  // 120-160% - salen muy fuera
+               : baseDistance * (0.9 + Math.random() * 0.3);  // 90-120% - salen fuera
+
+            const tx = Math.cos(angle) * distance;
+            const ty = Math.sin(angle) * distance;
+
+            // Posición inicial en píxeles absolutos del viewport
+            particle.style.left = center.x + 'px';
+            particle.style.top = center.y + 'px';
+            particle.style.setProperty('--tx', tx + 'px');
+            particle.style.setProperty('--ty', ty + 'px');
+
+            if (isFinal) {
+               particle.classList.add('final-burst');
+            } else {
+               particle.classList.add('active');
+            }
+
+            celebrationContainer.appendChild(particle);
+            allParticles.push(particle);
+
+            // Incrementar contador solo si no es el burst final
+            if (!isFinal) {
+               particlesCreated++;
+            }
+
+            // Remover la partícula después de la animación (más rápido)
+            setTimeout(() => {
+               if (particle.parentNode) {
+                  particle.parentNode.removeChild(particle);
+                  const index = allParticles.indexOf(particle);
+                  if (index > -1) {
+                     allParticles.splice(index, 1);
+                  }
+               }
+            }, isFinal ? 1000 : 1200);
+
+            return particle;
+         }
+
+         // Función para detener todas las partículas
+         function stopAllParticles() {
+            counterFinished = true;
+            allParticles.forEach(particle => {
+               particle.classList.add('paused');
+            });
+         }
+
+         // Función para animar el contador - EXACTAMENTE 1 segundo
+         function animateCounter() {
+            if (!isVisible || !numberRef) return;
+
+            const duration = 1000; // Exactamente 1 segundo
+            const steps = 100; // Más pasos para suavidad pero más rápido
+            const increment = targetCount / steps;
+            const stepDelay = duration / steps; // Delay por paso: 10ms
+            let current = 0;
+            let stepCount = 0;
+
+            const glowElement = document.getElementById('celebration-glow');
+            const rippleElement = document.getElementById('celebration-ripple');
+
+            // Activar glow desde el inicio
+            if (glowElement) {
+               glowElement.classList.add('active');
+            }
+
+            if (counterTimer) {
+               clearInterval(counterTimer);
+            }
+
+            // Usar requestAnimationFrame para máxima velocidad y precisión en desktop
+            const startTime = performance.now();
+            let lastParticleTime = 0;
+
+            function updateCounter() {
+               const elapsed = performance.now() - startTime;
+               const progress = Math.min(elapsed / duration, 1);
+
+               current = Math.floor(targetCount * progress);
+
+               // Actualizar número inmediatamente en cada frame (60fps = ~16ms por frame)
+               const countElement = numberRef.querySelector('.user-count-value');
+               if (countElement) {
+                  countElement.textContent = current.toLocaleString('es-CO') + '+';
+               }
+
+               // Crear partículas progresivamente - Distribución fluida a lo largo del tiempo
+               if (!counterFinished && progress < 1) {
+                  // Reducir partículas en mobile (50% menos)
+                  const isMobile = window.innerWidth <= 767;
+                  const totalParticlesDuringAnimation = isMobile ? 6000 : 12000; // 50% menos en mobile
+                  const expectedParticles = Math.floor(totalParticlesDuringAnimation * progress);
+                  const particlesToCreate = expectedParticles - particlesCreated;
+
+                  // Crear partículas de forma gradual, no todas de golpe
+                  if (particlesToCreate > 0 && elapsed - lastParticleTime >= 8) {
+                     // Reducir partículas por frame en mobile
+                     const maxParticlesPerFrame = isMobile ? 15 + Math.floor(Math.random() * 10) : 30 + Math.floor(Math.random() * 20); // 15-25 en mobile, 30-50 en desktop
+                     const particlesThisFrame = Math.min(particlesToCreate, maxParticlesPerFrame);
+
+                     for (let p = 0; p < particlesThisFrame; p++) {
+                        setTimeout(() => {
+                           if (!counterFinished) {
+                              createCelebrationParticle(false);
+                           }
+                        }, p * (isMobile ? 20 : 12)); // Más espaciadas en mobile
+                     }
+                     lastParticleTime = elapsed;
+                  }
+               }
+
+               // Efecto de pulso progresivo mientras sube el contador
+               if (numberRef && Math.floor(progress * 10) % 2 === 0) {
+                  numberRef.style.transform = 'scale(1.02)';
+                  setTimeout(() => {
+                     if (numberRef) numberRef.style.transform = 'scale(1)';
+                  }, 50);
+               }
+
+               if (progress >= 1) {
+                  // Llegó al final - EXACTAMENTE en 1 segundo
+                  current = targetCount;
+                  userCount = targetCount;
+                  const countElement = numberRef.querySelector('.user-count-value');
+                  if (countElement) {
+                     countElement.textContent = userCount.toLocaleString('es-CO') + '+';
+                  }
+                  counterFinished = true;
+
+                  // Efectos de celebración cuando llega al final
+                  if (numberRef) {
+                     // Pulso grande del número
+                     numberRef.classList.add('celebration-pulse');
+                     setTimeout(() => {
+                        numberRef.classList.remove('celebration-pulse');
+                     }, 1000);
+                  }
+
+                  // Activar glow y ripple
+                  if (glowElement) {
+                     glowElement.classList.add('active');
+                  }
+                  if (rippleElement) {
+                     rippleElement.classList.add('active');
+                     setTimeout(() => {
+                        rippleElement.classList.remove('active');
+                     }, 2000);
+                  }
+
+
+                  // Detener todas las partículas existentes
+                  stopAllParticles();
+
+                  // Explosión final de partículas - MÁXIMO IMPACTO
+                  if (!finalBurstDone) {
+                     finalBurstDone = true;
+                     setTimeout(() => {
+                        // Reducir partículas finales en mobile (50% menos)
+                        const isMobile = window.innerWidth <= 767;
+                        const finalParticleCount = isMobile ? 15000 : 30000; // 50% menos en mobile
+                        for (let i = 0; i < finalParticleCount; i++) {
+                           setTimeout(() => {
+                              createCelebrationParticle(true);
+                           }, i * (isMobile ? 4 : 2)); // Más espaciadas en mobile
+                        }
+                        // Detener después de crear todas
+                        setTimeout(() => {
+                           stopAllParticles();
+                        }, 5000);
+                     }, 50);
+                  }
+               } else {
+                  // Continuar animación con requestAnimationFrame (60fps)
+                  requestAnimationFrame(updateCounter);
+               }
+            }
+
+            // Iniciar animación inmediatamente
+            requestAnimationFrame(updateCounter);
+         }
+
+         // Intersection Observer para el contador - threshold 0.3
+         const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+               if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
+                  if (!isVisible) {
+                     isVisible = true;
+                     if (contentRef) {
+                        contentRef.classList.add('visible');
+                     }
+                     animateCounter();
+                  }
+               }
+            });
+         }, {
+            threshold: 0.3
+         });
+
+         // Observar la sección del contador
+         if (sectionRef) {
+            counterObserver.observe(sectionRef);
+         }
+      })();
+   </script>
+{% endblock %}

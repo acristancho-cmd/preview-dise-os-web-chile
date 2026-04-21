@@ -1,0 +1,140 @@
+@import "config";
+
+header {
+    height: 96px;
+}
+
+.card-pricing {
+    width: 408px;
+    height: 285px;
+    align-items: center;
+}
+
+.card-pricing img {
+    right: 24px;
+}
+
+.card-pricing .frame {
+    width: 360px;
+    height: 217px;
+}
+
+.card-pricing div h3 {
+    @include desktop-body-1-regular;
+    width: 360px;
+    height: 72px;
+}
+
+.card-pricing-anualy {
+    @include desktop-h1-bold;
+}
+
+.card-pricing-monthly {
+    @include desktop-h1-bold;
+    color: $white;
+    margin: 0px;
+}
+
+
+.navbar {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 96px;
+    align-items: center;
+    gap: 32px;
+    padding: 0px 150px;
+}
+
+.navbar-container {
+    padding: 0px;
+}
+
+.navbar-main {
+    @include desktop-body-2-bold;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 32px;
+    width: 778px;
+    height: 96px;
+    color: $white;
+}
+
+.welcome {
+    padding-left: 32px;
+    padding-right: 32px;
+    box-sizing: border-box;
+    width: 100%;
+    align-items: flex-start;
+    padding-top: 132px;
+    gap: 60px;
+}
+
+.navbar-main-mobile{
+    display: none;
+}
+
+.navbar-main li{
+    height: 96px;
+    align-items: center;
+    display: flex;
+}
+
+.navbar-main a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-main a:hover{
+    display: flex;
+    align-items: center;
+    height: 91px;
+    border-bottom: 4px solid $primary500;
+}
+
+footer {
+    height: 486px;
+    padding: 48px 150px 56px;
+}
+
+//page-we-are
+.we-are {
+    padding-left: 150px;
+    padding-right: 150px;
+    align-items: flex-start;
+    margin-top: 120px
+}
+
+.we-are .title {
+  display: inline;
+    @include desktop-h1-bold;
+}
+
+.we-are p {
+    @include desktop-body-1-regular;
+}
+
+.we-are img {
+    width: 485.71px;
+    height: 400px;
+}
+
+.allies {
+    padding-left: 150px;
+    padding-right: 150px;
+}
+
+.allies .title{
+    @include desktop-h1-bold;
+}
+
+.allies p {
+    @include desktop-body-1-regular;
+}
+
+.carousel-we-are{
+    margin-top: 72px;
+}
